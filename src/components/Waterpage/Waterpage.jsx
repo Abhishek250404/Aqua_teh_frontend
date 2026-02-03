@@ -7,12 +7,12 @@ function Waterpage() {
     return (
         <>
             <Navbar />
-             <motion.div
-        className="max-w-5xl mx-auto px-4 py-10 font-sans text-gray-800"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-      > 
+            <motion.div
+                className="max-w-5xl mx-auto px-4 py-10 font-sans text-gray-800"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+            >
                 {/* 页面标题 */}
                 <header className="text-center mb-12">
                     <div className="inline-block px-6 py-2 bg-blue-50 rounded-full mb-4">
@@ -26,37 +26,6 @@ function Waterpage() {
                         Make informed decisions about your water purification needs
                     </p>
                 </header>
-
-                {/* 警告框 */}
-                <div className="bg-white border border-blue-100 rounded-xl p-6 mb-10 shadow-sm">
-                    <div className="flex items-start">
-                        <div className="bg-blue-50 p-3 rounded-lg mr-4">
-                            <FaExclamationTriangle className="text-blue-500 text-xl" />
-                        </div>
-                        <div>
-                            <h2 className="text-xl font-bold text-gray-800 mb-3">
-                                Common Water Purification Myths
-                            </h2>
-                            <div className="grid md:grid-cols-3 gap-4 mb-4">
-                                <div className="border border-gray-200 rounded-lg p-3">
-                                    <div className="text-red-500 font-bold mb-1">Myth 1</div>
-                                    <p className="text-sm">RO is always the best purification method</p>
-                                </div>
-                                <div className="border border-gray-200 rounded-lg p-3">
-                                    <div className="text-red-500 font-bold mb-1">Myth 2</div>
-                                    <p className="text-sm">More purification stages = Better water</p>
-                                </div>
-                                <div className="border border-gray-200 rounded-lg p-3">
-                                    <div className="text-red-500 font-bold mb-1">Myth 3</div>
-                                    <p className="text-sm">Lower TDS means better drinking water</p>
-                                </div>
-                            </div>
-                            <p className="text-gray-600 text-sm">
-                                Understanding your actual water quality is key to choosing the right purification system.
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
                 {/* TDS 介绍 */}
                 <section className="mb-12">
@@ -189,7 +158,7 @@ function Waterpage() {
                                         <td className="px-6 py-4 font-medium">500 - 1200 mg/L</td>
                                         <td className="px-6 py-4">Very High</td>
                                         <td className="px-6 py-4">
-                                            <span className="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium">Limited*</span>
+                                            <span className="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium">Limited</span>
                                         </td>
                                         <td className="px-6 py-4">NF</td>
                                     </tr>
