@@ -11,7 +11,7 @@ const Navbar = () => {
     { name: "Know Your Water", path: "/knowyourwater" },
     { name: "Product", path: "/product" },
     { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
+    { name: "Services", path: "/service" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -24,7 +24,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-8">
             {/* Logo and Business Name */}
             {/* Logo and Business Name - DESKTOP ONLY */}
-            <div className="hidden md:flex items-center space-x-3">
+            <div className="hidden md:flex items-center space-x-2">
               <img
                 src={logo}
                 alt="Aqua Tech RO System Logo"
@@ -34,7 +34,7 @@ const Navbar = () => {
                 <h1 className="text-xl font-bold text-blue-800 leading-tight">
                   AQUA TECH RO SYSTEM
                 </h1>
-                <p className="text-xs text-gray-500">Pure Water Solutions</p>
+                <p className="text-xs text-gray-500">   Pure Water. Healthy Life. Trusted RO Solutions.</p>
               </div>
             </div>
 

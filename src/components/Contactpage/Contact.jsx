@@ -10,8 +10,66 @@ import {
     MessageCircle,
     ArrowRight
 } from "lucide-react";
+import { useState } from "react";
+import axios from "axios";
+import BASE_URL from "../../Api-service/Config";
+import { toast } from "sonner";
 
 function Contact() {
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        message: "",
+    });
+
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!formData.name || !formData.phone || !formData.message) {
+            toast.warning("Please complete all required fields.");
+            return;
+        }
+
+
+        try {
+            setLoading(true);
+
+            await axios.post(
+                `${BASE_URL}/contacts`,
+                formData,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+
+            toast.success("Thank you for contacting us. Our team will get back to you shortly.");
+
+
+            setFormData({
+                name: "",
+                phone: "",
+                message: "",
+            });
+        } catch (error) {
+            console.error(error);
+            toast.error("Unable to submit your request at the moment. Please try again later.");
+
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <>
             <Navbar />
@@ -189,28 +247,42 @@ function Contact() {
                             Have questions? We'll get back to you within 24 hours.
                         </p>
 
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleSubmit}>
+
                             <input
                                 type="text"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
                                 placeholder="Your Name"
                                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/30"
                             />
                             <input
                                 type="tel"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
                                 placeholder="Phone Number"
                                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/30"
                             />
+
                             <textarea
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
                                 placeholder="Your Message"
                                 rows="3"
                                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/30 resize-none"
                             />
+
                             <button
                                 type="submit"
-                                className="w-full bg-white text-blue-600 font-semibold py-3 px-6 rounded-xl hover:bg-blue-50 transition-colors duration-300 shadow-lg"
+                                disabled={loading}
+                                className="w-full bg-white text-blue-600 font-semibold py-3 px-6 rounded-xl hover:bg-blue-50 transition-colors duration-300 shadow-lg disabled:opacity-60"
                             >
-                                Send Message
+                                {loading ? "Sending..." : "Send Message"}
                             </button>
+
                         </form>
                     </motion.div>
                 </div>
