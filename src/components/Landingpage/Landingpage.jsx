@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
 import { motion } from 'framer-motion';
 import {
   Droplets,
@@ -16,84 +15,151 @@ import {
   ArrowRight,
   Play,
   ChevronRight,
+  Truck,
+  Wrench,
+  ShieldCheck,
+  ThumbsUp,
+  Heart,
   Home,
   Filter,
   Settings,
-  Battery,
-  TestTube2
+  TestTube2,
+  Thermometer,
+  BatteryCharging,
+  Wind
 } from 'lucide-react';
 
 const Landingpage = () => {
+  // RO-specific images from Unsplash
+  const roImages = [
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', // RO System 1
+    'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80', // RO System 2
+    'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80', // RO System 3
+    'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80', // RO Installation
+    'https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=80', // RO Maintenance
+    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80', // Water Testing
+    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80', // RO Filter
+    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80', // RO Service
+  ];
+
   const stats = [
-    { value: '5000+', label: 'Happy Customers', icon: <Users className="w-5 h-5" /> },
-    { value: '15+', label: 'Years Experience', icon: <Award className="w-5 h-5" /> },
-    { value: '98%', label: 'Satisfaction Rate', icon: <Star className="w-5 h-5" /> },
-    { value: '45 min', label: 'Avg Response Time', icon: <Clock className="w-5 h-5" /> },
+    { value: '5000+', label: 'Happy Customers', icon: <Users className="w-6 h-6" /> },
+    { value: '15+', label: 'Years Experience', icon: <Award className="w-6 h-6" /> },
+    { value: '98%', label: 'Satisfaction', icon: <Star className="w-6 h-6" /> },
+    { value: '45 min', label: 'Response Time', icon: <Clock className="w-6 h-6" /> },
   ];
 
   const features = [
-    { icon: <Shield />, title: '100% Purity Guarantee', desc: 'Advanced 7-stage filtration' },
-    { icon: <Zap />, title: 'Instant Service', desc: 'Same-day installation available' },
-    { icon: <Award />, title: 'Certified Experts', desc: 'Trained & certified technicians' },
-    { icon: <Battery />, title: 'Smart Monitoring', desc: 'Real-time water quality check' },
+    { 
+      icon: <Filter className="w-8 h-8" />, 
+      title: '7-Stage Filtration', 
+      desc: 'Advanced purification technology',
+      image: roImages[0]
+    },
+    { 
+      icon: <Shield className="w-8 h-8" />, 
+      title: 'Quality Guarantee', 
+      desc: '100% pure water assurance',
+      image: roImages[1]
+    },
+    { 
+      icon: <Wrench className="w-8 h-8" />, 
+      title: 'Expert Service', 
+      desc: 'Certified technicians',
+      image: roImages[2]
+    },
+    { 
+      icon: <Clock className="w-8 h-8" />, 
+      title: '24/7 Support', 
+      desc: 'Always available for you',
+      image: roImages[3]
+    },
   ];
 
   const services = [
     {
-      title: 'RO System Installation',
-      desc: 'Professional installation with 2-year warranty',
-      price: 'Starting from ₹8,999',
-      image: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?auto=format&fit=crop&w=800'
+      title: 'RO Installation',
+      desc: 'Complete RO system setup',
+      price: '₹8,999',
+      image: roImages[0],
+      features: ['Free Demo', '1 Year Warranty', 'Same Day Service']
     },
     {
-      title: 'Annual Maintenance Contract',
-      desc: 'Regular servicing & filter replacement',
-      price: '₹2,999/year',
-      image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800'
+      title: 'Annual Maintenance',
+      desc: 'Year-round protection',
+      price: '₹2,999/yr',
+      image: roImages[1],
+      features: ['4 Services', 'Free Filters', 'Priority Support']
     },
     {
       title: 'Emergency Repair',
-      desc: '24/7 repair service at your doorstep',
-      price: '₹599/service',
-      image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w-800'
+      desc: '24/7 repair service',
+      price: '₹599',
+      image: roImages[2],
+      features: ['Same Day', 'Genuine Parts', '90 Days Warranty']
+    },
+    {
+      title: 'Water Testing',
+      desc: 'Quality analysis',
+      price: '₹499',
+      image: roImages[3],
+      features: ['10 Parameters', 'Digital Report', 'Expert Advice']
     },
   ];
 
   const testimonials = [
-    { name: 'Rajesh Kumar', role: 'Home Owner', text: 'Best RO service in Chennai! Professional and timely.' },
-    { name: 'Priya Nair', role: 'Restaurant Owner', text: 'Water quality improved dramatically. Highly recommend!' },
-    { name: 'Arun Sharma', role: 'Office Manager', text: 'Maintenance team is very punctual and skilled.' },
+    { 
+      name: 'Rajesh Kumar', 
+      role: 'Home Owner', 
+      text: 'Best RO service in Chennai! Water quality improved immediately.',
+      rating: 5,
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
+    },
+    { 
+      name: 'Priya Nair', 
+      role: 'Restaurant Owner', 
+      text: 'Reliable service and excellent support team.',
+      rating: 5,
+      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=200&q=80'
+    },
+    { 
+      name: 'Arun Sharma', 
+      role: 'Office Manager', 
+      text: 'Professional technicians and timely service.',
+      rating: 5,
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80'
+    },
   ];
 
   return (
-    <>
-      <Navbar />
-
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden bg-linear-to-br from-blue-900 via-slate-900 to-cyan-900">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
-        </div>
+      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-100">
+        {/* Background Pattern */}
+       <div
+  className="absolute inset-0 opacity-10"
+  style={{
+    backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50L50 0L100 50L50 100Z' fill='%2306b6d4' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+  }}
+></div>
 
-        {/* Water Droplets Animation */}
-        {[...Array(15)].map((_, i) => (
+
+        {/* Water Droplets */}
+        {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute text-cyan-300/30"
+            className="absolute text-cyan-300/20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              fontSize: `${Math.random() * 20 + 10}px`,
+              fontSize: `${Math.random() * 30 + 20}px`,
             }}
             animate={{
               y: [0, -100, 0],
-              opacity: [0.2, 0.8, 0.2],
-              rotate: [0, 360, 0],
+              opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
-              duration: Math.random() * 5 + 5,
+              duration: Math.random() * 5 + 3,
               repeat: Infinity,
               delay: Math.random() * 2,
             }}
@@ -102,54 +168,50 @@ const Landingpage = () => {
           </motion.div>
         ))}
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                <span className="text-cyan-300">🚀</span>
-                <span className="text-sm font-semibold text-white">#1 RO Service Provider</span>
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full mb-8">
+                <span className="text-white">🏆</span>
+                <span className="text-sm font-semibold">#1 RO Service in Chennai</span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-                <span className="bg-linear-to-r from-cyan-300 via-blue-300 to-emerald-300 bg-clip-text text-transparent">
-                  Pure Water
-                </span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+                <span className="text-gray-900">Pure Water,</span>
                 <br />
-                <span className="text-white">Healthy Living</span>
-                <span className="block text-cyan-200 text-4xl mt-4">Guaranteed</span>
+                <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+                  Healthy Life
+                </span>
               </h1>
 
-              <p className="text-xl text-gray-300 mb-8 max-w-xl">
-                Premium RO water purification services with advanced technology,
-                certified experts, and 24/7 support for your complete peace of mind.
+              <p className="text-xl text-gray-600 mb-10 max-w-xl leading-relaxed">
+                Professional RO water purification services with 15+ years experience. 
+                Certified experts, same-day service, and 24/7 support.
               </p>
 
-              {/* Hero CTA Buttons */}
               <div className="flex flex-wrap gap-4 mb-12">
                 <motion.a
                   href="tel:+919843021579"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-3 bg-linear-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-cyan-500/30 transition-all"
+                  className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
                 >
                   <Phone className="w-5 h-5" />
-                  Book Free Consultation
-                  <ArrowRight className="w-5 h-5" />
+                  Book Free Demo
                 </motion.a>
 
                 <motion.a
                   href="#services"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-bold text-lg border border-white/20 hover:bg-white/20 transition-all"
+                  className="inline-flex items-center justify-center gap-3 bg-white text-cyan-600 px-8 py-4 rounded-xl font-bold text-lg border-2 border-cyan-600 hover:bg-cyan-50 transition-all"
                 >
                   <Play className="w-5 h-5" />
-                  Watch Demo
+                  View Services
                 </motion.a>
               </div>
 
@@ -163,9 +225,9 @@ const Landingpage = () => {
                     transition={{ delay: 0.2 + index * 0.1 }}
                     className="text-center"
                   >
-                    <div className="text-3xl font-bold text-cyan-300 mb-1">{stat.value}</div>
-                    <div className="text-sm text-gray-400 flex items-center justify-center gap-1">
-                      {stat.icon}
+                    <div className="text-3xl font-bold text-cyan-600 mb-2">{stat.value}</div>
+                    <div className="text-sm text-gray-600 flex items-center justify-center gap-2">
+                      <div className="text-cyan-500">{stat.icon}</div>
                       {stat.label}
                     </div>
                   </motion.div>
@@ -177,59 +239,55 @@ const Landingpage = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative bg-linear-to-br from-cyan-500/20 to-blue-600/20 rounded-3xl p-1">
+              <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80"
+                  src={roImages[0]}
                   alt="RO Water Purifier"
-                  className="rounded-3xl shadow-2xl w-full"
+                  className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
                 />
-                {/* Floating Elements */}
+                
+                {/* Floating Badges */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -top-4 -right-4 bg-linear-to-r from-cyan-500 to-blue-600 text-white p-4 rounded-2xl shadow-xl"
+                  className="absolute -top-6 -right-6 bg-gradient-to-r from-emerald-500 to-green-600 text-white p-6 rounded-2xl shadow-xl"
                 >
                   <div className="text-center">
                     <div className="text-2xl font-bold">30% OFF</div>
                     <div className="text-sm">First Service</div>
                   </div>
                 </motion.div>
+
+                <motion.div
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
+                  className="absolute -bottom-6 -left-6 bg-gradient-to-r from-amber-500 to-orange-600 text-white p-6 rounded-2xl shadow-xl"
+                >
+                  <div className="text-center">
+                    <div className="text-2xl font-bold">Free</div>
+                    <div className="text-sm">Installation</div>
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </div>
         </div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <ChevronRight className="w-8 h-8 text-cyan-300 rotate-90" />
-        </motion.div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-linear-to-b from-white to-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="bg-linear-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
-                Why Choose Us?
-              </span>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Why Choose <span className="text-cyan-600">Our RO Service?</span>
             </h2>
             <p className="text-gray-600 text-xl max-w-3xl mx-auto">
-              We provide more than just RO service - we deliver peace of mind
+              Premium water purification solutions with guaranteed results
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -240,13 +298,22 @@ const Landingpage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl border border-gray-100 transition-all"
+                className="group relative overflow-hidden rounded-2xl bg-gradient-to-b from-white to-cyan-50 border border-cyan-100 shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="inline-flex p-3 bg-linear-to-br from-cyan-50 to-blue-50 rounded-2xl mb-6 text-cyan-600">
-                  {feature.icon}
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-gray-600">{feature.desc}</p>
+                <div className="p-6">
+                  <div className="inline-flex p-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl mb-4 text-white">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-gray-900">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.desc}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -254,67 +321,94 @@ const Landingpage = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-gradient-to-b from-cyan-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-bold mb-6"
-            >
-              Our <span className="text-cyan-300">Premium</span> Services
-            </motion.h2>
-            <p className="text-gray-400 text-xl">Complete water solutions for every need</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Our <span className="text-cyan-600">Services</span>
+            </h2>
+            <p className="text-gray-600 text-xl">Complete RO solutions for every need</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+                transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -15 }}
-                className="group relative overflow-hidden rounded-3xl bg-linear-to-br from-gray-800 to-gray-900"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-gray-100"
               >
-                {/* Service Image */}
-                <div className="h-64 overflow-hidden">
+                <div className="h-48 overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 to-transparent" />
                 </div>
-
-                {/* Service Content */}
-                <div className="p-8">
+                <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-2xl font-bold">{service.title}</h3>
-                    <span className="text-cyan-300 font-bold">{service.price}</span>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
+                      <p className="text-gray-600 text-sm mb-4">{service.desc}</p>
+                    </div>
+                    <span className="text-2xl font-bold text-cyan-600">{service.price}</span>
                   </div>
-                  <p className="text-gray-400 mb-6">{service.desc}</p>
-
-                  <div className="flex items-center justify-between">
-                    <ul className="space-y-2">
-                      {['Free Installation', '1 Year Warranty', '24/7 Support'].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm">
-                          <CheckCircle className="w-4 h-4 text-green-400" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <motion.a
-                      href="#contact"
-                      whileHover={{ scale: 1.1 }}
-                      className="bg-cyan-500 text-white p-3 rounded-full hover:bg-cyan-600 transition-colors"
-                    >
-                      <ArrowRight className="w-5 h-5" />
-                    </motion.a>
+                  
+                  <div className="space-y-3 mb-6">
+                    {service.features.map((feature, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-gray-700">{feature}</span>
+                      </div>
+                    ))}
                   </div>
+
+                  <motion.a
+                    href="tel:+919843021579"
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center justify-center w-full bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
+                  >
+                    Book Now
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </motion.a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RO Gallery Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Our <span className="text-cyan-600">RO Gallery</span>
+            </h2>
+            <p className="text-gray-600 text-xl">See our RO installations and services</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {roImages.map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer group"
+              >
+                <img
+                  src={image}
+                  alt={`RO Installation ${index + 1}`}
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <span className="text-white font-semibold">RO Service #{index + 1}</span>
                 </div>
               </motion.div>
             ))}
@@ -323,18 +417,14 @@ const Landingpage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-linear-to-b from-white to-gray-50">
+      <section className="py-20 bg-gradient-to-b from-white to-cyan-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              What Our <span className="text-cyan-600">Customers</span> Say
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Customer <span className="text-cyan-600">Reviews</span>
             </h2>
-          </motion.div>
+            <p className="text-gray-600 text-xl">What our customers say about us</p>
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
@@ -346,17 +436,23 @@ const Landingpage = () => {
                 transition={{ delay: index * 0.2 }}
                 className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
               >
-                <div className="flex items-center gap-2 text-amber-400 mb-4">
+                <div className="flex items-center gap-1 text-amber-400 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 fill-current" />
                   ))}
                 </div>
                 <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-linear-to-br from-cyan-500 to-blue-600 rounded-full" />
+                  <div className="w-12 h-12 rounded-full overflow-hidden">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div>
-                    <div className="font-bold">{testimonial.name}</div>
-                    <div className="text-sm text-gray-500">{testimonial.role}</div>
+                    <div className="font-bold text-gray-900">{testimonial.name}</div>
+                    <div className="text-sm text-gray-600">{testimonial.role}</div>
                   </div>
                 </div>
               </motion.div>
@@ -365,20 +461,15 @@ const Landingpage = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-20 bg-linear-to-br from-blue-900 via-slate-900 to-cyan-900 text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-xl rounded-3xl p-12 border border-white/20"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Ready for <span className="text-cyan-300">Pure Water?</span>
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-cyan-600 to-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-white">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+              Get Pure Water Today
             </h2>
-            <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
-              Get a FREE water quality test and consultation from our experts
+            <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+              Call now for a free consultation and get 30% off on your first service
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
@@ -386,7 +477,7 @@ const Landingpage = () => {
                 href="tel:+919843021579"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-3 bg-linear-to-r from-cyan-500 to-blue-600 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-cyan-500/30 transition-all"
+                className="inline-flex items-center justify-center gap-3 bg-white text-cyan-600 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all"
               >
                 <Phone className="w-6 h-6" />
                 Call Now: +91 98430 21579
@@ -398,42 +489,34 @@ const Landingpage = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-3 bg-linear-to-r from-emerald-500 to-green-600 text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-emerald-500/30 transition-all"
+                className="inline-flex items-center justify-center gap-3 bg-emerald-500 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-emerald-600 transition-all"
               >
                 <MessageCircle className="w-6 h-6" />
                 WhatsApp Chat
               </motion.a>
-
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-3 bg-white/20 text-white px-10 py-5 rounded-2xl font-bold text-lg border border-white/30 hover:bg-white/30 transition-all"
-              >
-                <Calendar className="w-6 h-6" />
-                Book Appointment
-              </motion.a>
             </div>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap justify-center gap-12 text-gray-300">
-              <div className="flex items-center gap-3">
-                <Shield className="w-6 h-6 text-cyan-300" />
-                <span>ISO 9001 Certified</span>
+            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold">24/7</div>
+                <div className="text-sm opacity-90">Service</div>
               </div>
-              <div className="flex items-center gap-3">
-                <Award className="w-6 h-6 text-cyan-300" />
-                <span>Award Winning Service</span>
+              <div className="text-center">
+                <div className="text-3xl font-bold">98%</div>
+                <div className="text-sm opacity-90">Satisfaction</div>
               </div>
-              <div className="flex items-center gap-3">
-                <Clock className="w-6 h-6 text-cyan-300" />
-                <span>Same Day Service</span>
+              <div className="text-center">
+                <div className="text-3xl font-bold">45 min</div>
+                <div className="text-sm opacity-90">Response</div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
-    </>
+
+     
+    </div>
+    
   );
 };
 

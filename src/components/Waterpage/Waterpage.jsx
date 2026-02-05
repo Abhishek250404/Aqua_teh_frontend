@@ -1,12 +1,12 @@
 import React from 'react';
 import { FaCheck, FaExclamationTriangle, FaTint, FaFilter, FaFlask, FaInfoCircle } from 'react-icons/fa';
-import Navbar from '../Navbar/Navbar';
+// import Navbar from '../Navbar/Navbar';
 import { motion } from "framer-motion";
 
 function Waterpage() {
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <motion.div
                 className="max-w-5xl mx-auto px-4 py-10 font-sans text-gray-800"
                 initial={{ opacity: 0, y: 40 }}

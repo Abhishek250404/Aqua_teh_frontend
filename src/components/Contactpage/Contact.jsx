@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
 import {
     Phone,
@@ -72,8 +72,6 @@ function Contact() {
 
     return (
         <>
-            <Navbar />
-
             <motion.div
                 className="max-w-6xl mx-auto px-4 py-12"
                 initial={{ opacity: 0, y: 30 }}

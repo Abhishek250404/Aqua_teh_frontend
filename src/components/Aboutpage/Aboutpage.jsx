@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
+// import Navbar from '../Navbar/Navbar';
 import { motion } from "framer-motion";
 import {
     Droplets,
@@ -40,7 +40,7 @@ function Aboutpage() {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* Hero Banner with Water Drops Effect */}
             <motion.div

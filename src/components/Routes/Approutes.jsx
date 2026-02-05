@@ -8,10 +8,12 @@ import Contact from '../Contactpage/Contact';
 import FloatingActions from '../FloatingActions/FloatingActions';
 import Aboutpage from '../Aboutpage/Aboutpage';
 import Servicepage from '../Serivcepage/Servicepage';
+import Productpage from '../Productpage/Productpage';
 
 function Approutes() {
   return (
     <>
+    <Navbar />
       <FloatingActions />
       <Routes>
         <Route path="/" element={<Landingpage />} />
@@ -19,7 +21,9 @@ function Approutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<Aboutpage />} />
         <Route path="/service" element={<Servicepage />} />
+        <Route path="/product" element={<Productpage />} />
       </Routes>
+      <Footer/>
     </>
   )
 }

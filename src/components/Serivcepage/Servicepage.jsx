@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Navbar from "../Navbar/Navbar";
+// import Navbar from "../Navbar/Navbar";
 import { Droplets, Wrench, ShieldCheck, RefreshCcw } from "lucide-react";
 import {
     PhoneOutlined,
@@ -13,7 +13,7 @@ import {
 function Servicepage() {
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* HERO SECTION - Premium */}
             <motion.section
