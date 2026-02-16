@@ -316,22 +316,22 @@ const Productpage = () => {
     }
 
     if (selectedFilters.capacity.length > 0) {
-      const capacityMatch = selectedFilters.capacity.some(filter => 
+      const capacityMatch = selectedFilters.capacity.some(filter =>
         product.capacity.includes(filter.replace('l', ''))
       );
       if (!capacityMatch) return false;
     }
 
     if (selectedFilters.brands.length > 0) {
-      const brandMatch = selectedFilters.brands.some(brand => 
+      const brandMatch = selectedFilters.brands.some(brand =>
         product.name.toLowerCase().includes(brand)
       );
       if (!brandMatch) return false;
     }
 
     if (selectedFilters.features.length > 0) {
-      const featureMatch = selectedFilters.features.some(feature => 
-        product.features.some(pFeature => 
+      const featureMatch = selectedFilters.features.some(feature =>
+        product.features.some(pFeature =>
           pFeature.toLowerCase().includes(feature)
         )
       );
@@ -361,7 +361,7 @@ const Productpage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-cyan-50 to-white">
+    <div className="min-h-screen bg-linear-to-b from-cyan-50 to-white">
       {/* Header */}
       <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -370,7 +370,7 @@ const Productpage = () => {
               <h1 className="text-2xl font-bold text-gray-900">RO Systems Store</h1>
               <p className="text-sm text-gray-600">Premium Water Purification Solutions</p>
             </div>
-            
+
             <div className="flex items-center gap-6">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -380,15 +380,15 @@ const Productpage = () => {
                   className="pl-10 pr-4 py-2 border rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 />
               </div>
-              
+
               <button className="relative p-2 hover:bg-gray-100 rounded-lg">
                 <ShoppingCart className="w-6 h-6 text-gray-700" />
                 <span className="absolute -top-1 -right-1 bg-cyan-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   3
                 </span>
               </button>
-              
-              <button className="flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+
+              <button className="flex items-center gap-2 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity">
                 <Phone className="w-5 h-5" />
                 Call Expert
               </button>
@@ -423,18 +423,16 @@ const Productpage = () => {
                     <button
                       key={category.id}
                       onClick={() => setSelectedCategory(category.id)}
-                      className={`w-full flex items-center justify-between p-3 rounded-lg transition-all ${
-                        selectedCategory === category.id
-                          ? 'bg-gradient-to-r from-cyan-50 to-blue-50 border border-cyan-200'
+                      className={`w-full flex items-center justify-between p-3 rounded-lg transition-all ${selectedCategory === category.id
+                          ? 'bg-linear-to-r from-cyan-50 to-blue-50 border border-cyan-200'
                           : 'hover:bg-gray-50'
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-lg ${
-                          selectedCategory === category.id 
-                            ? 'bg-cyan-600 text-white' 
+                        <div className={`p-2 rounded-lg ${selectedCategory === category.id
+                            ? 'bg-cyan-600 text-white'
                             : 'bg-gray-100 text-gray-600'
-                        }`}>
+                          }`}>
                           {category.icon}
                         </div>
                         <span className="font-medium">{category.name}</span>
@@ -546,8 +544,8 @@ const Productpage = () => {
               <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div>
                   <h1 className="text-2xl font-bold text-gray-900">
-                    {selectedCategory === 'all' ? 'All RO Systems' : 
-                     categories.find(c => c.id === selectedCategory)?.name}
+                    {selectedCategory === 'all' ? 'All RO Systems' :
+                      categories.find(c => c.id === selectedCategory)?.name}
                   </h1>
                   <p className="text-gray-600">
                     Showing {filteredProducts.length} of {products.length} products
@@ -559,17 +557,15 @@ const Productpage = () => {
                   <div className="flex items-center gap-2 bg-gray-100 p-1 rounded-lg">
                     <button
                       onClick={() => setViewMode('grid')}
-                      className={`p-2 rounded-md ${
-                        viewMode === 'grid' ? 'bg-white shadow' : 'hover:bg-gray-200'
-                      }`}
+                      className={`p-2 rounded-md ${viewMode === 'grid' ? 'bg-white shadow' : 'hover:bg-gray-200'
+                        }`}
                     >
                       <Grid className="w-5 h-5" />
                     </button>
                     <button
                       onClick={() => setViewMode('list')}
-                      className={`p-2 rounded-md ${
-                        viewMode === 'list' ? 'bg-white shadow' : 'hover:bg-gray-200'
-                      }`}
+                      className={`p-2 rounded-md ${viewMode === 'list' ? 'bg-white shadow' : 'hover:bg-gray-200'
+                        }`}
                     >
                       <List className="w-5 h-5" />
                     </button>
@@ -594,45 +590,45 @@ const Productpage = () => {
               </div>
 
               {/* Active Filters */}
-              {(selectedFilters.capacity.length > 0 || selectedFilters.brands.length > 0 || 
+              {(selectedFilters.capacity.length > 0 || selectedFilters.brands.length > 0 ||
                 selectedFilters.features.length > 0 || selectedCategory !== 'all') && (
-                <div className="mt-6 pt-6 border-t">
-                  <div className="flex flex-wrap gap-2">
-                    {selectedCategory !== 'all' && (
-                      <span className="inline-flex items-center gap-2 bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm">
-                        {categories.find(c => c.id === selectedCategory)?.name}
-                        <button onClick={() => setSelectedCategory('all')}>
-                          <X className="w-4 h-4" />
-                        </button>
-                      </span>
-                    )}
-                    {selectedFilters.capacity.map(cap => (
-                      <span key={cap} className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                        {filters.capacity.find(c => c.value === cap)?.label}
-                        <button onClick={() => handleFilterToggle('capacity', cap)}>
-                          <X className="w-4 h-4" />
-                        </button>
-                      </span>
-                    ))}
-                    {selectedFilters.brands.map(brand => (
-                      <span key={brand} className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
-                        {filters.brands.find(b => b.value === brand)?.label}
-                        <button onClick={() => handleFilterToggle('brands', brand)}>
-                          <X className="w-4 h-4" />
-                        </button>
-                      </span>
-                    ))}
-                    {selectedFilters.features.map(feature => (
-                      <span key={feature} className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-                        {filters.features.find(f => f.value === feature)?.label}
-                        <button onClick={() => handleFilterToggle('features', feature)}>
-                          <X className="w-4 h-4" />
-                        </button>
-                      </span>
-                    ))}
+                  <div className="mt-6 pt-6 border-t">
+                    <div className="flex flex-wrap gap-2">
+                      {selectedCategory !== 'all' && (
+                        <span className="inline-flex items-center gap-2 bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm">
+                          {categories.find(c => c.id === selectedCategory)?.name}
+                          <button onClick={() => setSelectedCategory('all')}>
+                            <X className="w-4 h-4" />
+                          </button>
+                        </span>
+                      )}
+                      {selectedFilters.capacity.map(cap => (
+                        <span key={cap} className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+                          {filters.capacity.find(c => c.value === cap)?.label}
+                          <button onClick={() => handleFilterToggle('capacity', cap)}>
+                            <X className="w-4 h-4" />
+                          </button>
+                        </span>
+                      ))}
+                      {selectedFilters.brands.map(brand => (
+                        <span key={brand} className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
+                          {filters.brands.find(b => b.value === brand)?.label}
+                          <button onClick={() => handleFilterToggle('brands', brand)}>
+                            <X className="w-4 h-4" />
+                          </button>
+                        </span>
+                      ))}
+                      {selectedFilters.features.map(feature => (
+                        <span key={feature} className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                          {filters.features.find(f => f.value === feature)?.label}
+                          <button onClick={() => handleFilterToggle('features', feature)}>
+                            <X className="w-4 h-4" />
+                          </button>
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </div>
 
             {/* Products Grid */}
@@ -656,7 +652,7 @@ const Productpage = () => {
                       {/* Badge */}
                       {product.badge && (
                         <div className="absolute top-4 left-4">
-                          <span className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                          <span className="bg-linear-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                             {product.badge}
                           </span>
                         </div>
@@ -666,7 +662,7 @@ const Productpage = () => {
                         <Heart className="w-5 h-5 text-gray-600 hover:text-red-500" />
                       </button>
                       {/* Quick View */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/60 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <button className="w-full bg-white text-cyan-600 py-2 rounded-lg font-semibold hover:bg-gray-100">
                           Quick View
                         </button>
@@ -725,7 +721,7 @@ const Productpage = () => {
 
                       {/* Actions */}
                       <div className="flex gap-3">
-                        <button className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                        <button className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
                           <ShoppingCart className="w-5 h-5" />
                           Add to Cart
                         </button>
@@ -758,7 +754,7 @@ const Productpage = () => {
                         />
                         {product.badge && (
                           <div className="absolute top-4 left-4">
-                            <span className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                            <span className="bg-linear-to-r from-cyan-600 to-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                               {product.badge}
                             </span>
                           </div>
@@ -800,7 +796,7 @@ const Productpage = () => {
 
                         {/* Actions */}
                         <div className="flex gap-4">
-                          <button className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                          <button className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
                             <ShoppingCart className="w-5 h-5" />
                             Add to Cart
                           </button>
@@ -828,7 +824,7 @@ const Productpage = () => {
                 <p className="text-gray-600 mb-6">Try adjusting your filters or search terms</p>
                 <button
                   onClick={clearFilters}
-                  className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                  className="bg-linear-to-r from-cyan-600 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
                 >
                   Clear All Filters
                 </button>

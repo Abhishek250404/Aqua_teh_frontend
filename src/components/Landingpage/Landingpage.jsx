@@ -256,7 +256,7 @@ const Landingpage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-100">
+      <section className="relative min-h-screen overflow-hidden bg-linear-to-br from-cyan-50 via-blue-50 to-cyan-100">
         {/* Background Pattern */}
         <div
           className="absolute inset-0 opacity-10"
@@ -297,7 +297,7 @@ const Landingpage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full mb-8">
+              <div className="inline-flex items-center gap-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full mb-8">
                 <span className="text-white">🏆</span>
                 <span className="text-sm font-semibold">#1 RO Service in Madurai</span>
               </div>
@@ -305,7 +305,7 @@ const Landingpage = () => {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
                 <span className="text-gray-900">Pure Water,</span>
                 <br />
-                <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
                   Healthy Life
                 </span>
               </h1>
@@ -320,7 +320,7 @@ const Landingpage = () => {
                   href="tel:+919843021579"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
+                  className="inline-flex items-center justify-center gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
                 >
                   <Phone className="w-5 h-5" />
                   Book Free Demo
@@ -368,14 +368,14 @@ const Landingpage = () => {
                 <img
                   src={ro1}
                   alt="RO Water Purifier"
-                  className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
+                  className="rounded-3xl shadow-2xl w-full h-125 object-cover"
                 />
 
                 {/* Floating Badges */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -top-15 -right-18 bg-gradient-to-r from-emerald-500 to-green-600 text-white p-6 rounded-2xl shadow-xl"
+                  className="absolute -top-15 -right-18 bg-linear-to-r from-emerald-500 to-green-600 text-white p-6 rounded-2xl shadow-xl"
                 >
                   <div className="text-center">
                     <div className="text-2xl font-bold">30% OFF</div>
@@ -386,7 +386,7 @@ const Landingpage = () => {
                 <motion.div
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-                  className="absolute -bottom-10 -left-10 bg-gradient-to-r from-amber-500 to-orange-600 text-white p-6 rounded-2xl shadow-xl"
+                  className="absolute -bottom-10 -left-10 bg-linear-to-r from-amber-500 to-orange-600 text-white p-6 rounded-2xl shadow-xl"
                 >
                   <div className="text-center">
                     <div className="text-2xl font-bold">Free</div>
@@ -432,10 +432,10 @@ const Landingpage = () => {
 
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white' :
-                        product.category === 'Best Seller' ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white' :
-                          product.category === 'Featured' ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white' :
-                            'bg-gradient-to-r from-emerald-500 to-green-500 text-white'
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
+                      product.category === 'Best Seller' ? 'bg-linear-to-r from-red-500 to-pink-500 text-white' :
+                        product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
+                          'bg-linear-to-r from-emerald-500 to-green-500 text-white'
                       }`}>
                       {product.category}
                     </span>
@@ -502,7 +502,7 @@ const Landingpage = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleBuyNow(product.id)}
-                      className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all"
+                      className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all"
                     >
                       <ShoppingCart className="w-4 h-4" />
                       Buy Now
@@ -543,10 +543,10 @@ const Landingpage = () => {
 
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white' :
-                        product.category === 'Best Seller' ? 'bg-gradient-to-r from-red-500 to-pink-500 text-white' :
-                          product.category === 'Featured' ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white' :
-                            'bg-gradient-to-r from-emerald-500 to-green-500 text-white'
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
+                      product.category === 'Best Seller' ? 'bg-linear-to-r from-red-500 to-pink-500 text-white' :
+                        product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
+                          'bg-linear-to-r from-emerald-500 to-green-500 text-white'
                       }`}>
                       {product.category}
                     </span>
@@ -603,7 +603,7 @@ const Landingpage = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => handleBuyNow(product.id)}
-                      className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all"
+                      className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all"
                     >
                       <ShoppingCart className="w-4 h-4" />
                       Buy Now
@@ -631,7 +631,7 @@ const Landingpage = () => {
               onClick={handleViewMore}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
+              className="inline-flex items-center gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
             >
               <ShoppingCart className="w-5 h-5" />
               View All Products
@@ -640,7 +640,7 @@ const Landingpage = () => {
           </div>
 
           {/* Brands Banner */}
-          <div className="mt-20 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-2xl p-8">
+          <div className="mt-20 bg-linear-to-r from-cyan-50 to-blue-50 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
               Trusted by Top Brands
             </h3>
@@ -675,7 +675,7 @@ const Landingpage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-b from-white to-cyan-50 border border-cyan-100 shadow-lg hover:shadow-xl transition-all"
+                className="group relative overflow-hidden rounded-2xl bg-linear-to-b from-white to-cyan-50 border border-cyan-100 shadow-lg hover:shadow-xl transition-all"
               >
                 <div className="h-48 overflow-hidden">
                   <img
@@ -685,7 +685,7 @@ const Landingpage = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <div className="inline-flex p-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl mb-4 text-white">
+                  <div className="inline-flex p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-xl mb-4 text-white">
                     {feature.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-gray-900">{feature.title}</h3>
@@ -698,7 +698,7 @@ const Landingpage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gradient-to-b from-cyan-50 to-white">
+      <section className="py-20 bg-linear-to-b from-cyan-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
@@ -720,7 +720,7 @@ const Landingpage = () => {
                   whileTap={{ scale: 0.95 }}
                   className={`relative px-7 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg
               ${activeTab === index
-                      ? "bg-gradient-to-r from-cyan-600 via-blue-500 to-cyan-600 text-white shadow-xl shadow-cyan-500/25 scale-105"
+                      ? "bg-linear-to-r from-cyan-600 via-blue-500 to-cyan-600 text-white shadow-xl shadow-cyan-500/25 scale-105"
                       : "bg-white text-gray-700 hover:bg-cyan-50 hover:shadow-xl border border-cyan-100"
                     }`}
                 >
@@ -731,7 +731,7 @@ const Landingpage = () => {
                   {activeTab === index && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full"
+                      className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-linear-to-r from-cyan-400 to-blue-400 rounded-full"
                     />
                   )}
                 </motion.button>
@@ -748,21 +748,21 @@ const Landingpage = () => {
             >
               {/* Floating Background Elements */}
               <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                <div className="absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-br from-cyan-200/20 to-blue-200/10 rounded-full blur-3xl" />
-                <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-gradient-to-tr from-cyan-100/20 to-blue-100/10 rounded-full blur-3xl" />
+                <div className="absolute -top-24 -right-24 w-64 h-64 bg-linear-to-br from-cyan-200/20 to-blue-200/10 rounded-full blur-3xl" />
+                <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-linear-to-tr from-cyan-100/20 to-blue-100/10 rounded-full blur-3xl" />
               </div>
 
               {/* Main Content Card */}
-              <div className="relative bg-gradient-to-br from-white via-white to-cyan-50 border border-cyan-100/50 shadow-2xl rounded-3xl overflow-hidden backdrop-blur-sm">
+              <div className="relative bg-linear-to-br from-white via-white to-cyan-50 border border-cyan-100/50 shadow-2xl rounded-3xl overflow-hidden backdrop-blur-sm">
                 {/* Decorative Top Border */}
-                <div className="h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500" />
+                <div className="h-1 bg-linear-to-r from-cyan-500 via-blue-500 to-cyan-500" />
 
                 <div className="p-8 md:p-12">
                   <div className="grid lg:grid-cols-2 gap-12 items-center">
                     {/* Left Content */}
                     <div>
                       <div className="inline-flex items-center gap-3 mb-6">
-                        <div className="p-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-white">
+                        <div className="p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-xl text-white">
                           {services[activeTab].icon}
                         </div>
                         <div>
@@ -802,7 +802,7 @@ const Landingpage = () => {
                         href="tel:+919843021579"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
+                        className="inline-flex items-center gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
                       >
                         <Phone className="w-5 h-5" />
                         Book This Service Now
@@ -818,7 +818,7 @@ const Landingpage = () => {
                           alt={services[activeTab].title}
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
 
                         {/* Floating Badge */}
 
@@ -930,7 +930,7 @@ const Landingpage = () => {
                   alt={`RO Installation ${index + 1}`}
                   className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <span className="text-white font-semibold">RO Service #{index + 1}</span>
                 </div>
               </motion.div>
@@ -940,7 +940,7 @@ const Landingpage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-b from-white to-cyan-50">
+      <section className="py-20 bg-linear-to-b from-white to-cyan-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
@@ -985,7 +985,7 @@ const Landingpage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-cyan-600 to-blue-600">
+      <section className="py-20 bg-linear-to-r from-cyan-600 to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
