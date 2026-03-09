@@ -31,124 +31,397 @@ import {
   ExternalLink
 } from 'lucide-react';
 import { CheckCircle } from "lucide-react";
-import ro1 from "../../assets/li1.jpg"
-import flow from "../../assets/flow.jpg"
-import guran from "../../assets/guran.jpg"
-import hours from "../../assets/24hours.jpg"
-import in1 from "../../assets/in1.jpeg"
-import in2 from "../../assets/in2.jpeg"
-import in3 from "../../assets/in3.jpeg"
-import in4 from "../../assets/in4.jpeg"
-import in5 from "../../assets/in5.jpeg"
-import in6 from "../../assets/in6.jpeg"
-import in7 from "../../assets/in7.jpeg"
-import in8 from "../../assets/in8.jpeg"
+import ro1 from "../../assets/li1.jpg";
+import flow from "../../assets/flow.jpg";
+import guran from "../../assets/guran.jpg";
+import hours from "../../assets/24hours.jpg";
+import in1 from "../../assets/in1.jpeg";
+import in2 from "../../assets/in2.jpeg";
+import in3 from "../../assets/in3.jpeg";
+import in4 from "../../assets/in4.jpeg";
+import in5 from "../../assets/in5.jpeg";
+import in6 from "../../assets/in6.jpeg";
+import in7 from "../../assets/in7.jpeg";
+import in8 from "../../assets/in8.jpeg";
+
+// Import ProductDetail component
+import ProductDetail from "../Productpage/ProductDetail";
+
 const Landingpage = () => {
-  // Products Data
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  // Products Data - Enhanced with more details for detailed view
   const products = [
     {
       id: 1,
       name: "Kent Supreme RO + UV + UF",
       description: "8-stage purification with TDS controller",
-      price: "₹18,999",
-      originalPrice: "₹22,999",
+      longDescription: "The Kent Supreme RO + UV + UF features advanced 8-stage purification process with TDS controller that allows you to retain essential minerals in water. It comes with in-tank UV purification that keeps water pure in the storage tank.",
+      price: 18999,
+      originalPrice: 22999,
       image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
+      ],
       rating: 4.5,
+      reviewCount: 124,
       features: ["8-Stage Purification", "UV + UF + RO", "TDS Controller", "Storage Capacity 8L"],
-      category: "Premium"
+      category: "Premium",
+      capacity: "8 LPH",
+      badge: "BEST SELLER",
+      stock: "In Stock",
+      delivery: "Free Installation",
+      warranty: "5 Years",
+      brand: "Kent",
+      model: "Supreme",
+      color: "White & Blue",
+      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card', 'Free Installation Voucher'],
+      specifications: {
+        'Purification Capacity': '8 LPH',
+        'Storage Tank': '8 Liters',
+        'Power Consumption': '60 Watts',
+        'Purification Stages': '8 Stages (RO+UV+UF+TDS)',
+        'Installation Type': 'Wall Mounted',
+        'Material': 'ABS Food Grade Plastic',
+        'Weight': '8.5 kg',
+        'Dimensions': '38 x 32 x 48 cm',
+        'TDS Control': 'Yes',
+        'Filter Life': '6-12 months'
+      },
+      reviewList: [
+        { user: 'Rajesh Kumar', rating: 5, comment: 'Excellent product! Water tastes great.', date: '2 months ago', verified: true },
+        { user: 'Priya Sharma', rating: 4, comment: 'Good quality, installation was smooth.', date: '1 month ago', verified: true },
+        { user: 'Amit Patel', rating: 5, comment: 'Best RO in this price range.', date: '3 months ago', verified: true }
+      ]
     },
     {
       id: 2,
       name: "Aquaguard Marvel RO",
       description: "7-stage purification with copper technology",
-      price: "₹15,499",
-      originalPrice: "₹18,999",
+      longDescription: "Aquaguard Marvel RO features 7-stage purification with copper technology that adds essential copper ions to water. The digital display shows real-time water quality and filter life.",
+      price: 15499,
+      originalPrice: 18999,
       image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
+      ],
       rating: 4.3,
+      reviewCount: 98,
       features: ["7-Stage Purification", "Copper Technology", "Digital Display", "Auto Shut-off"],
-      category: "Best Seller"
+      category: "Best Seller",
+      capacity: "10 LPH",
+      badge: "TRENDING",
+      stock: "In Stock",
+      delivery: "Same Day Delivery",
+      warranty: "5 Years",
+      brand: "Aquaguard",
+      model: "Marvel",
+      color: "White & Copper",
+      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
+      specifications: {
+        'Purification Capacity': '10 LPH',
+        'Storage Tank': '7 Liters',
+        'Power Consumption': '55 Watts',
+        'Purification Stages': '7 Stages',
+        'Installation Type': 'Wall Mounted',
+        'Material': 'ABS Food Grade',
+        'Weight': '8.2 kg',
+        'Dimensions': '37 x 31 x 47 cm'
+      },
+      reviewList: [
+        { user: 'Sunita Reddy', rating: 5, comment: 'Copper technology is great for health.', date: '2 months ago', verified: true },
+        { user: 'Vikram Singh', rating: 4, comment: 'Good product. Digital display is useful.', date: '1 month ago', verified: true }
+      ]
     },
     {
       id: 3,
       name: "Pureit Ultima Mineral RO",
       description: "Mineral retention technology with UV protection",
-      price: "₹12,999",
-      originalPrice: "₹15,999",
+      longDescription: "Pureit Ultima Mineral RO features mineral retention technology that keeps essential minerals intact while removing impurities. UV protection ensures germ-free water.",
+      price: 12999,
+      originalPrice: 15999,
       image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
+      ],
       rating: 4.7,
+      reviewCount: 156,
       features: ["Mineral Retention", "UV Protection", "Energy Saving", "5 Year Warranty"],
-      category: "Popular"
+      category: "Popular",
+      capacity: "12 LPH",
+      badge: "POPULAR",
+      stock: "In Stock",
+      delivery: "Free Installation",
+      warranty: "5 Years",
+      brand: "Pureit",
+      model: "Ultima",
+      color: "White & Blue",
+      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
+      specifications: {
+        'Purification Capacity': '12 LPH',
+        'Storage Tank': '8 Liters',
+        'Power Consumption': '50 Watts',
+        'Purification Stages': '7 Stages',
+        'Installation Type': 'Wall Mounted',
+        'Material': 'ABS Food Grade',
+        'Weight': '7.8 kg',
+        'Dimensions': '36 x 30 x 46 cm'
+      },
+      reviewList: [
+        { user: 'Amit Kumar', rating: 5, comment: 'Energy saving feature reduces electricity bill.', date: '3 months ago', verified: true },
+        { user: 'Neha Gupta', rating: 5, comment: 'Water tastes fresh and pure.', date: '2 months ago', verified: true }
+      ]
     },
     {
       id: 4,
       name: "Livpure Copper RO",
       description: "Copper infused RO with 8L storage",
-      price: "₹14,999",
-      originalPrice: "₹17,999",
+      longDescription: "Livpure Copper RO features copper infused technology that adds the goodness of copper to your drinking water. The 8L storage tank ensures continuous water supply.",
+      price: 14999,
+      originalPrice: 17999,
       image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+      ],
       rating: 4.4,
+      reviewCount: 87,
       features: ["Copper Infused", "8L Storage", "Low Water Waste", "Smart Alert"],
-      category: "Featured"
+      category: "Featured",
+      capacity: "15 LPH",
+      badge: "FEATURED",
+      stock: "In Stock",
+      delivery: "Free Installation",
+      warranty: "3 Years",
+      brand: "Livpure",
+      model: "Copper RO",
+      color: "White & Copper",
+      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
+      specifications: {
+        'Purification Capacity': '15 LPH',
+        'Storage Tank': '8 Liters',
+        'Power Consumption': '55 Watts',
+        'Purification Stages': '7 Stages',
+        'Installation Type': 'Wall Mounted',
+        'Material': 'ABS Food Grade',
+        'Weight': '8.0 kg',
+        'Dimensions': '37 x 31 x 47 cm'
+      },
+      reviewList: [
+        { user: 'Rajesh Kumar', rating: 5, comment: 'Copper infused water tastes great.', date: '2 months ago', verified: true },
+        { user: 'Priya Sharma', rating: 4, comment: 'Smart alert feature is very useful.', date: '1 month ago', verified: true }
+      ]
     },
     {
       id: 5,
       name: "AO Smith Z8 RO",
       description: "Hot & cold water with 10-stage purification",
-      price: "₹24,999",
-      originalPrice: "₹29,999",
+      longDescription: "AO Smith Z8 RO features hot and cold water options with 10-stage purification. The child lock ensures safety, and Energy Star rating saves electricity.",
+      price: 24999,
+      originalPrice: 29999,
       image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=600&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+      ],
       rating: 4.8,
+      reviewCount: 112,
       features: ["Hot & Cold Water", "10-Stage Purification", "Child Lock", "Energy Star"],
-      category: "Premium"
+      category: "Premium",
+      capacity: "20 LPH",
+      badge: "PREMIUM",
+      stock: "Limited Stock",
+      delivery: "Premium Installation",
+      warranty: "7 Years",
+      brand: "AO Smith",
+      model: "Z8",
+      color: "Silver & Black",
+      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card', 'Child Lock Key'],
+      specifications: {
+        'Purification Capacity': '20 LPH',
+        'Storage Tank': '10 Liters',
+        'Power Consumption': '70 Watts',
+        'Purification Stages': '10 Stages',
+        'Installation Type': 'Wall Mounted',
+        'Material': 'Premium ABS',
+        'Weight': '9.5 kg',
+        'Dimensions': '42 x 35 x 52 cm'
+      },
+      reviewList: [
+        { user: 'Mukesh Ambani', rating: 5, comment: 'Hot water feature is perfect for tea.', date: '1 month ago', verified: true },
+        { user: 'Anand Mahindra', rating: 5, comment: 'Energy Star rating saves electricity.', date: '2 months ago', verified: true }
+      ]
     },
     {
       id: 6,
       name: "Blue Star Aristo RO",
       description: "Advanced RO with smart filter change indicator",
-      price: "₹16,499",
-      originalPrice: "₹19,999",
+      longDescription: "Blue Star Aristo RO features smart filter change indicators that alert you when filters need replacement. High recovery rate and compact design make it perfect for homes.",
+      price: 16499,
+      originalPrice: 19999,
       image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=600&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+      ],
       rating: 4.2,
+      reviewCount: 76,
       features: ["Smart Indicators", "Low Maintenance", "High Recovery", "Compact Design"],
-      category: "Economy"
+      category: "Economy",
+      capacity: "12 LPH",
+      badge: "VALUE",
+      stock: "In Stock",
+      delivery: "Free Installation",
+      warranty: "3 Years",
+      brand: "Blue Star",
+      model: "Aristo",
+      color: "White & Blue",
+      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
+      specifications: {
+        'Purification Capacity': '12 LPH',
+        'Storage Tank': '7 Liters',
+        'Power Consumption': '50 Watts',
+        'Purification Stages': '7 Stages',
+        'Installation Type': 'Wall Mounted',
+        'Material': 'ABS Food Grade',
+        'Weight': '7.5 kg',
+        'Dimensions': '35 x 30 x 45 cm'
+      },
+      reviewList: [
+        { user: 'Rahul Mehta', rating: 4, comment: 'Smart indicators are very helpful.', date: '2 months ago', verified: true },
+        { user: 'Anjali Desai', rating: 4, comment: 'Good value for money.', date: '1 month ago', verified: true }
+      ]
     },
     {
       id: 7,
       name: "Whirlpool Pure RO",
       description: "German technology with 7-stage filtration",
-      price: "₹13,999",
-      originalPrice: "₹16,999",
+      longDescription: "Whirlpool Pure RO features German technology with 7-stage filtration. Low TDS control and easy installation make it user-friendly.",
+      price: 13999,
+      originalPrice: 16999,
       image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=600&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+      ],
       rating: 4.6,
+      reviewCount: 98,
       features: ["German Technology", "7-Stage Filtration", "Low TDS", "Easy Installation"],
-      category: "Popular"
+      category: "Popular",
+      capacity: "15 LPH",
+      badge: "POPULAR",
+      stock: "In Stock",
+      delivery: "Free Installation",
+      warranty: "5 Years",
+      brand: "Whirlpool",
+      model: "Pure RO",
+      color: "White & Silver",
+      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
+      specifications: {
+        'Purification Capacity': '15 LPH',
+        'Storage Tank': '8 Liters',
+        'Power Consumption': '55 Watts',
+        'Purification Stages': '7 Stages',
+        'Installation Type': 'Wall Mounted',
+        'Material': 'ABS Food Grade',
+        'Weight': '8.2 kg',
+        'Dimensions': '38 x 32 x 48 cm'
+      },
+      reviewList: [
+        { user: 'Vikram Singh', rating: 5, comment: 'German technology works great.', date: '2 months ago', verified: true },
+        { user: 'Neha Gupta', rating: 4, comment: 'Easy to install and maintain.', date: '1 month ago', verified: true }
+      ]
     },
     {
       id: 8,
       name: "HUL Pureit Ultima",
       description: "Advanced RO with mineral guard technology",
-      price: "₹11,999",
-      originalPrice: "₹14,999",
+      longDescription: "HUL Pureit Ultima features mineral guard technology that retains essential minerals. Low water waste and 2-year warranty make it a great budget option.",
+      price: 11999,
+      originalPrice: 14999,
       image: "https://images.unsplash.com/photo-1590650213165-25cde850c9ae?auto=format&fit=crop&w=600&q=80",
+      images: [
+        "https://images.unsplash.com/photo-1590650213165-25cde850c9ae?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
+      ],
       rating: 4.0,
+      reviewCount: 65,
       features: ["Mineral Guard", "5-Stage Purification", "Low Water Waste", "2 Year Warranty"],
-      category: "Budget"
+      category: "Budget",
+      capacity: "10 LPH",
+      badge: "BUDGET",
+      stock: "In Stock",
+      delivery: "Free Installation",
+      warranty: "2 Years",
+      brand: "HUL",
+      model: "Pureit Ultima",
+      color: "White & Blue",
+      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
+      specifications: {
+        'Purification Capacity': '10 LPH',
+        'Storage Tank': '6 Liters',
+        'Power Consumption': '45 Watts',
+        'Purification Stages': '5 Stages',
+        'Installation Type': 'Wall Mounted',
+        'Material': 'ABS Food Grade',
+        'Weight': '7.0 kg',
+        'Dimensions': '34 x 28 x 44 cm'
+      },
+      reviewList: [
+        { user: 'Suresh Iyer', rating: 4, comment: 'Good budget RO for small families.', date: '2 months ago', verified: true },
+        { user: 'Deepa Nair', rating: 4, comment: 'Mineral guard works well.', date: '1 month ago', verified: true }
+      ]
     },
   ];
 
-  // Function to handle View More click
-  const handleViewMore = () => {
-    // In a real app, this would navigate to /products page
-    alert("Redirecting to Products Page...");
-    // window.location.href = "/products";
-    // Or with React Router: navigate("/products");
+  // Function to handle product click for detailed view
+  const handleProductClick = (product) => {
+    setSelectedProduct(product);
+    setSelectedImage(0);
+    setQuantity(1);
   };
 
   // Function to handle Buy Now
-  const handleBuyNow = (productId) => {
+  const handleBuyNow = (productId, e) => {
+    e.stopPropagation(); // Prevent triggering the parent click
     alert(`Adding product ${productId} to cart...`);
-    // In real app: addToCart(productId)
   };
+
+  // Function to handle Add to Cart from detail view
+  const handleAddToCart = (product, quantity) => {
+    console.log('Added to cart:', product.name, quantity);
+    alert(`${product.name} added to cart!`);
+    // Add your cart logic here
+  };
+
+  // Function to handle Buy Now from detail view
+  const handleBuyNowFromDetail = (product, quantity) => {
+    console.log('Buy now:', product.name, quantity);
+    alert(`Proceeding to buy ${product.name}`);
+    // Add your buy now logic here
+  };
+
   const roImages2 = [
     in1,
     in2,
@@ -158,17 +431,17 @@ const Landingpage = () => {
     in6,
     in7,
     in8,
-
   ];
+
   const roImages = [
-    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80', // RO System 1
-    'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80', // RO System 2
-    'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80', // RO System 3
-    'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80', // RO Installation
-    'https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=80', // RO Maintenance
-    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80', // Water Testing
-    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80', // RO Filter
-    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80', // RO Service
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80',
   ];
 
   const stats = [
@@ -204,6 +477,7 @@ const Landingpage = () => {
       image: hours
     },
   ];
+
   const [activeTab, setActiveTab] = useState(0);
   const services = [
     {
@@ -227,7 +501,6 @@ const Landingpage = () => {
       features: ["10 Parameters", "Digital Report", "Expert Advice"]
     }
   ];
-
 
   const testimonials = [
     {
@@ -264,7 +537,6 @@ const Landingpage = () => {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50L50 0L100 50L50 100Z' fill='%2306b6d4' fill-opacity='0.1'/%3E%3C/svg%3E")`,
           }}
         ></div>
-
 
         {/* Water Droplets */}
         {[...Array(20)].map((_, i) => (
@@ -398,7 +670,8 @@ const Landingpage = () => {
           </div>
         </div>
       </section>
-      {/* Products Section - Add this after Services Section and before Gallery Section */}
+
+      {/* Products Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -420,7 +693,8 @@ const Landingpage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                onClick={() => handleProductClick(product)}
+                className="group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 {/* Product Image */}
                 <div className="relative h-48 overflow-hidden bg-gray-100">
@@ -432,21 +706,28 @@ const Landingpage = () => {
 
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${
+                      product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
                       product.category === 'Best Seller' ? 'bg-linear-to-r from-red-500 to-pink-500 text-white' :
-                        product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
-                          'bg-linear-to-r from-emerald-500 to-green-500 text-white'
-                      }`}>
+                      product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
+                      'bg-linear-to-r from-emerald-500 to-green-500 text-white'
+                    }`}>
                       {product.category}
                     </span>
                   </div>
 
                   {/* Quick Actions */}
                   <div className="absolute top-4 right-4 flex gap-2">
-                    <button className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                    <button 
+                      className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <Eye className="w-4 h-4 text-gray-700" />
                     </button>
-                    <button className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors">
+                    <button 
+                      className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       <Heart className="w-4 h-4 text-gray-700" />
                     </button>
                   </div>
@@ -488,11 +769,11 @@ const Landingpage = () => {
                   {/* Price */}
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <div className="text-2xl font-bold text-cyan-600">{product.price}</div>
-                      <div className="text-sm text-gray-500 line-through">{product.originalPrice}</div>
+                      <div className="text-2xl font-bold text-cyan-600">₹{product.price.toLocaleString()}</div>
+                      <div className="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString()}</div>
                     </div>
                     <span className="text-xs font-bold px-2 py-1 bg-red-100 text-red-600 rounded">
-                      SAVE ₹{(parseInt(product.originalPrice.replace('₹', '').replace(',', '')) - parseInt(product.price.replace('₹', '').replace(',', ''))).toLocaleString('en-IN')}
+                      SAVE ₹{(product.originalPrice - product.price).toLocaleString('en-IN')}
                     </span>
                   </div>
 
@@ -501,7 +782,7 @@ const Landingpage = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => handleBuyNow(product.id)}
+                      onClick={(e) => handleBuyNow(product.id, e)}
                       className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all"
                     >
                       <ShoppingCart className="w-4 h-4" />
@@ -511,6 +792,10 @@ const Landingpage = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleProductClick(product);
+                      }}
                       className="px-4 border border-cyan-600 text-cyan-600 rounded-xl font-medium hover:bg-cyan-50 transition-colors flex items-center justify-center"
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -531,7 +816,8 @@ const Landingpage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                onClick={() => handleProductClick(product)}
+                className="group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 {/* Product Image */}
                 <div className="relative h-48 overflow-hidden bg-gray-100">
@@ -543,11 +829,12 @@ const Landingpage = () => {
 
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${
+                      product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
                       product.category === 'Best Seller' ? 'bg-linear-to-r from-red-500 to-pink-500 text-white' :
-                        product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
-                          'bg-linear-to-r from-emerald-500 to-green-500 text-white'
-                      }`}>
+                      product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
+                      'bg-linear-to-r from-emerald-500 to-green-500 text-white'
+                    }`}>
                       {product.category}
                     </span>
                   </div>
@@ -589,11 +876,11 @@ const Landingpage = () => {
                   {/* Price */}
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <div className="text-2xl font-bold text-cyan-600">{product.price}</div>
-                      <div className="text-sm text-gray-500 line-through">{product.originalPrice}</div>
+                      <div className="text-2xl font-bold text-cyan-600">₹{product.price.toLocaleString()}</div>
+                      <div className="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString()}</div>
                     </div>
                     <span className="text-xs font-bold px-2 py-1 bg-red-100 text-red-600 rounded">
-                      SAVE ₹{(parseInt(product.originalPrice.replace('₹', '').replace(',', '')) - parseInt(product.price.replace('₹', '').replace(',', ''))).toLocaleString('en-IN')}
+                      SAVE ₹{(product.originalPrice - product.price).toLocaleString('en-IN')}
                     </span>
                   </div>
 
@@ -602,7 +889,7 @@ const Landingpage = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      onClick={() => handleBuyNow(product.id)}
+                      onClick={(e) => handleBuyNow(product.id, e)}
                       className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all"
                     >
                       <ShoppingCart className="w-4 h-4" />
@@ -617,7 +904,7 @@ const Landingpage = () => {
           {/* View More Button for Mobile */}
           <div className="block lg:hidden text-center mb-8">
             <button
-              onClick={handleViewMore}
+              onClick={() => window.location.href = "/products"}
               className="text-cyan-600 font-bold text-lg hover:text-cyan-700 transition-colors flex items-center justify-center gap-2 mx-auto"
             >
               View More Products
@@ -628,7 +915,7 @@ const Landingpage = () => {
           {/* View All Products Button */}
           <div className="text-center">
             <motion.button
-              onClick={handleViewMore}
+              onClick={() => window.location.href = "/product"}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
@@ -654,7 +941,8 @@ const Landingpage = () => {
           </div>
         </div>
       </section>
-      {/* Features Se ction */}
+
+      {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -819,9 +1107,6 @@ const Landingpage = () => {
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-
-                        {/* Floating Badge */}
-
                       </div>
 
                       {/* Stats Bar */}
@@ -1037,9 +1322,16 @@ const Landingpage = () => {
         </div>
       </section>
 
-
+      {/* Product Detail Modal */}
+      {selectedProduct && (
+        <ProductDetail
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+          onAddToCart={handleAddToCart}
+          onBuyNow={handleBuyNowFromDetail}
+        />
+      )}
     </div>
-
   );
 };
 

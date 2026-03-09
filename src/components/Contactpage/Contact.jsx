@@ -39,32 +39,33 @@ function Contact() {
             return;
         }
 
-
         try {
             setLoading(true);
 
-            await axios.post(
-                `${BASE_URL}/contacts`,
-                formData,
+            const form = new FormData();
+            form.append("name", formData.name);
+            form.append("phone", formData.phone);
+            form.append("message", formData.message);
+
+            await fetch(
+                "https://script.google.com/macros/s/AKfycbweuvFrL-UQzmm_q3OJaR-vIC-Uhb3kpYR4KTbyIFLDW8gxvkekzkvt9furJycSCLHy/exec",
                 {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
+                    method: "POST",
+                    body: form,
+                    mode: "no-cors"
                 }
             );
-
             toast.success("Thank you for contacting us. Our team will get back to you shortly.");
-
 
             setFormData({
                 name: "",
                 phone: "",
                 message: "",
             });
+
         } catch (error) {
             console.error(error);
-            toast.error("Unable to submit your request at the moment. Please try again later.");
-
+            toast.error("Unable to submit your request at the moment.");
         } finally {
             setLoading(false);
         }
