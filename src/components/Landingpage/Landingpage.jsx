@@ -72,7 +72,13 @@ const Landingpage = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
+  const colors = [
+    "bg-cyan-600",
+    "bg-blue-600",
+    "bg-green-600",
+    "bg-purple-600",
+    "bg-pink-600"
+  ];
   const products = [
     {
       "id": 1,
@@ -478,49 +484,48 @@ const Landingpage = () => {
   const [activeTab, setActiveTab] = useState(0);
   const services = [
     {
-      title: "RO Installation",
-      desc: "Complete RO system setup for homes & offices",
-      features: ["Free Demo", "1 Year Warranty", "Same Day Service"]
+      title: "RO Installation in Madurai",
+      desc: "Professional RO water purifier installation in Madurai for homes and offices with proper fitting, leakage check, and TDS testing.",
+      features: ["Free Demo", "Same Day Installation", "1 Year Service Support"]
     },
     {
-      title: "Annual Maintenance",
-      desc: "Year-round RO protection & servicing",
-      features: ["4 Services", "Free Filters", "Priority Support"]
+      title: "RO Repair Service in Madurai",
+      desc: "Fast and reliable RO repair service in Madurai for low water flow, bad taste, leakage, and all purifier issues.",
+      features: ["Quick Response", "Genuine Spare Parts", "Affordable Price"]
     },
     {
-      title: "Emergency Repair",
-      desc: "24/7 instant RO repair service",
-      features: ["Same Day", "Genuine Parts", "90 Days Warranty"]
+      title: "RO Filter Replacement in Madurai",
+      desc: "Timely RO filter and membrane replacement service in Madurai to maintain water quality and purifier performance.",
+      features: ["Original Filters", "Improved Water Taste", "Longer RO Life"]
     },
     {
-      title: "Water Testing",
-      desc: "Advanced water quality analysis",
-      features: ["10 Parameters", "Digital Report", "Expert Advice"]
+      title: "RO AMC Service in Madurai",
+      desc: "Annual maintenance service for RO water purifiers with regular checkups, filter changes, and priority support.",
+      features: ["4 Services per Year", "Free Checkup", "Priority Service"]
     }
   ];
-
   const testimonials = [
     {
-      name: 'Rajesh Kumar',
-      role: 'Home Owner',
-      text: 'Best RO service in Chennai! Water quality improved immediately.',
+      name: 'Ramesh Kumar',
+      role: 'Home Owner - Madurai',
+      text: 'Best RO service in Madurai! Water taste romba improve aayiduchu. Same day service vandhu quick ah fix pannanga.',
       rating: 5,
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80'
     },
     {
-      name: 'Priya Nair',
-      role: 'Restaurant Owner',
-      text: 'Reliable service and excellent support team.',
+      name: 'Priya Lakshmi',
+      role: 'Restaurant Owner - Madurai',
+      text: 'Very reliable RO service in Madurai. Namma hotel ku regular maintenance pannraanga. Water quality super.',
       rating: 5,
       image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=200&q=80'
     },
     {
-      name: 'Arun Sharma',
-      role: 'Office Manager',
-      text: 'Professional technicians and timely service.',
+      name: 'Arun Prakash',
+      role: 'Office Manager - Madurai',
+      text: 'Professional technicians and fast response. RO repair service in Madurai la ivanga best nu feel pannom.',
       rating: 5,
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80'
-    },
+    }
   ];
 
   // Responsive font sizes and spacing
@@ -590,20 +595,25 @@ const Landingpage = () => {
             >
               <div className="inline-flex items-center gap-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8">
                 <span className="text-base sm:text-lg">🏆</span>
-                <span className="text-xs sm:text-sm font-semibold">#1 RO Service in Madurai</span>
+                <span className="text-sm sm:text-base font-semibold">#1 RO Service in Madurai</span>
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 lg:mb-8">
-                <span className="text-gray-900">Pure Water,</span>
-                <br />
-                <span className="bg-linear-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-                  Healthy Life
+                <span className="text-gray-900 block">
+                  Best RO Water Purifier Service in Madurai
                 </span>
+                <span className="block mt-2 bg-linear-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent text-md sm:text-xl md:text-2xl lg:text-2xl font-semibold">
+                  Same Day RO Service • Installation • Repair
+                </span>
+                <p className="text-sm mt-2 sm:text-base text-cyan-600 font-semibold">
+                  ✔ Same Day Service | ✔ Affordable Price | ✔ Expert Technicians
+                </p>
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Professional RO water purification services with 15+ years experience.
-                Certified experts, same-day service, and 24/7 support.
+                Aqua Tech RO System offers professional RO water purifier service in Madurai for homes and offices.
+                We provide installation, repair, filter replacement, and complete maintenance for all types of RO systems.
+                Facing bad taste, low water flow, or service issues? Our expert technicians will fix it quickly using genuine spare parts.
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 lg:mb-12">
@@ -629,7 +639,7 @@ const Landingpage = () => {
               </div>
 
               {/* Stats - Responsive grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-2xl mx-auto lg:mx-0">
+              <div className="grid grid-cols-5 sm:grid-cols-5 gap-3 sm:gap-4 lg:gap-6 max-w-2xl mx-auto lg:mx-0">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
@@ -642,8 +652,15 @@ const Landingpage = () => {
                       {stat.value}
                     </div>
                     <div className="text-xs sm:text-sm text-gray-600 flex items-center justify-center gap-1 sm:gap-2">
-                      <span className="text-cyan-500">{stat.icon}</span>
-                      <span className="hidden xs:inline">{stat.label}</span>
+                      <span className="text-xs sm:text-sm text-gray-600 flex  flex-col items-center justify-center gap-1 sm:gap-2">
+                        <span className="text-cyan-500">{stat.icon}</span>
+                        <span className="sm:hidden">
+                          {stat.label.split(' ')[0]}
+                        </span>
+                        <span className="hidden sm:inline">
+                          {stat.label}
+                        </span>
+                      </span>
                     </div>
                   </motion.div>
                 ))}
@@ -1166,11 +1183,15 @@ const Landingpage = () => {
                 <p className="text-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base">"{testimonial.text}"</p>
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-full h-full object-cover"
-                    />
+                    <div className="flex items-center gap-3 sm:gap-4">
+
+
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${colors[index % colors.length]} flex items-center justify-center text-white font-bold text-sm sm:text-base`}>
+                        {testimonial.name.charAt(0)}
+                      </div>
+
+
+                    </div>
                   </div>
                   <div>
                     <div className="font-bold text-gray-900 text-sm sm:text-base">{testimonial.name}</div>
@@ -1205,31 +1226,32 @@ const Landingpage = () => {
             <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto opacity-90 px-4">
               Call now for a free consultation and get 30% off on your first service
             </p>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto opacity-90 px-4">
+              Looking for RO service near you in Madurai? Aqua Tech RO System provides fast RO repair, installation, and maintenance at affordable prices.
+            </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 lg:mb-12 px-4">
               <motion.a
                 href="tel:+919843021579"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-cyan-600 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base lg:text-lg hover:bg-gray-100 transition-all shadow-lg"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-cyan-600 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg"
               >
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
-                <span className="whitespace-nowrap">Call Now: +91 98430 21579</span>
+                📞 Call Now: +91 98430 21579
               </motion.a>
 
               <motion.a
                 href="https://wa.me/919843021579"
                 target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-emerald-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base lg:text-lg hover:bg-emerald-600 transition-all shadow-lg"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-emerald-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg"
               >
-                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
-                <span>WhatsApp Chat</span>
+                💬 WhatsApp Now
               </motion.a>
-            </div>
 
+            </div>
+            <div className="mt-6 mb-5 text-lg text-white sm:text-md">
+              ✔ 1000+ Happy Customers
+              ✔ 45 Min Quick Response
+              ✔ 100% Satisfaction Guarantee
+            </div>
             <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-2xl mx-auto px-4">
               <div className="text-center">
                 <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">24/7</div>

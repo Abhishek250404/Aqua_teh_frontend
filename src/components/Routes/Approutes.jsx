@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from '../Footer/Footer'
 import Navbar from '../Navbar/Navbar'
 import Landingpage from '../Landingpage/Landingpage'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Waterpage from '../Waterpage/Waterpage';
 import Contact from '../Contactpage/Contact';
 import FloatingActions from '../FloatingActions/FloatingActions';
@@ -11,10 +11,24 @@ import Servicepage from '../Serivcepage/Servicepage';
 import Productpage from '../Productpage/Productpage';
 
 function Approutes() {
+  const ScrollToTop = () => {
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }, [pathname]);
+
+    return null;
+  };
+
   return (
     <>
-    <Navbar />
+      <Navbar />
       <FloatingActions />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/knowyourwater" element={<Waterpage />} />
@@ -23,7 +37,7 @@ function Approutes() {
         <Route path="/service" element={<Servicepage />} />
         <Route path="/product" element={<Productpage />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   )
 }
