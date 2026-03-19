@@ -52,348 +52,338 @@ const Landingpage = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
 
-  // Products Data - Enhanced with more details for detailed view
   const products = [
     {
-      id: 1,
-      name: "Kent Supreme RO + UV + UF",
-      description: "8-stage purification with TDS controller",
-      longDescription: "The Kent Supreme RO + UV + UF features advanced 8-stage purification process with TDS controller that allows you to retain essential minerals in water. It comes with in-tank UV purification that keeps water pure in the storage tank.",
-      price: 18999,
-      originalPrice: 22999,
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80",
-      images: [
+      "id": 1,
+      "name": "Water Pia RO",
+      "category": "domestic",
+      "price": 12999,
+      "originalPrice": 15999,
+      "rating": 4.4,
+      "reviewCount": 82,
+      "capacity": "10 LPH",
+      "features": ["RO + UV + UF", "TDS Control", "Wall Mount", "Auto Cutoff"],
+      "description": "Affordable domestic RO system with multi-stage purification.",
+      "longDescription": "Water Pia RO offers 6-stage purification with RO, UV and UF technologies. It features TDS controller to retain essential minerals and auto cutoff for water savings.",
+      "specifications": {
+        "Purification Capacity": "10 LPH",
+        "Storage Tank": "8 Liters",
+        "Power Consumption": "50 Watts",
+        "Purification Stages": "6 Stages",
+        "Installation Type": "Wall Mounted",
+        "Material": "ABS Plastic",
+        "TDS Control": "Yes",
+        "Weight": "7.5 kg",
+        "Dimensions": "35 x 28 x 45 cm",
+        "Filter Life": "6-8 months"
+      },
+      "images": [
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "BEST SELLER",
+      "stock": "In Stock",
+      "delivery": "Free Installation",
+      "warranty": "2 Years",
+      "brand": "Water Pia",
+      "model": "WP-RO10",
+      "color": "White & Blue",
+      "included": ["RO Unit", "Installation Kit", "User Manual", "Warranty Card"],
+      "reviewList": [
+        { "user": "Rajesh Kumar", "rating": 5, "comment": "Good product for the price.", "date": "2 months ago", "verified": true },
+        { "user": "Priya Sharma", "rating": 4, "comment": "Installation was smooth.", "date": "1 month ago", "verified": true }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Water Lilly RO",
+      "category": "domestic",
+      "price": 13999,
+      "originalPrice": 16999,
+      "rating": 4.5,
+      "reviewCount": 95,
+      "capacity": "12 LPH",
+      "features": ["Copper Filter", "UV LED", "Mineral Booster", "TDS Controller"],
+      "description": "Stylish RO purifier with copper enrichment technology for health benefits.",
+      "longDescription": "Water Lilly RO features advanced copper filter technology that adds essential copper ions to water. The UV LED ensures germ-free water and mineral booster retains natural taste.",
+      "specifications": {
+        "Purification Capacity": "12 LPH",
+        "Storage Tank": "10 Liters",
+        "Power Consumption": "55 Watts",
+        "Purification Stages": "7 Stages",
+        "Material": "Food Grade ABS",
+        "Installation Type": "Wall Mounted",
+        "Weight": "8.2 kg",
+        "Dimensions": "38 x 30 x 47 cm",
+        "TDS Control": "Yes",
+        "Filter Life": "8-10 months"
+      },
+      "images": [
         "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
       ],
-      rating: 4.5,
-      reviewCount: 124,
-      features: ["8-Stage Purification", "UV + UF + RO", "TDS Controller", "Storage Capacity 8L"],
-      category: "Premium",
-      capacity: "8 LPH",
-      badge: "BEST SELLER",
-      stock: "In Stock",
-      delivery: "Free Installation",
-      warranty: "5 Years",
-      brand: "Kent",
-      model: "Supreme",
-      color: "White & Blue",
-      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card', 'Free Installation Voucher'],
-      specifications: {
-        'Purification Capacity': '8 LPH',
-        'Storage Tank': '8 Liters',
-        'Power Consumption': '60 Watts',
-        'Purification Stages': '8 Stages (RO+UV+UF+TDS)',
-        'Installation Type': 'Wall Mounted',
-        'Material': 'ABS Food Grade Plastic',
-        'Weight': '8.5 kg',
-        'Dimensions': '38 x 32 x 48 cm',
-        'TDS Control': 'Yes',
-        'Filter Life': '6-12 months'
-      },
-      reviewList: [
-        { user: 'Rajesh Kumar', rating: 5, comment: 'Excellent product! Water tastes great.', date: '2 months ago', verified: true },
-        { user: 'Priya Sharma', rating: 4, comment: 'Good quality, installation was smooth.', date: '1 month ago', verified: true },
-        { user: 'Amit Patel', rating: 5, comment: 'Best RO in this price range.', date: '3 months ago', verified: true }
+      "badge": "TRENDING",
+      "stock": "In Stock",
+      "delivery": "Free Installation",
+      "warranty": "3 Years",
+      "brand": "Water Lilly",
+      "model": "WL-CO12",
+      "color": "White & Gold",
+      "included": ["RO Unit", "Installation Kit", "User Manual", "Warranty Card", "Copper Cartridge"],
+      "reviewList": [
+        { "user": "Amit Patel", "rating": 5, "comment": "Copper technology is great.", "date": "3 months ago", "verified": true },
+        { "user": "Sneha Reddy", "rating": 4, "comment": "Water tastes good.", "date": "2 weeks ago", "verified": true }
       ]
     },
     {
-      id: 2,
-      name: "Aquaguard Marvel RO",
-      description: "7-stage purification with copper technology",
-      longDescription: "Aquaguard Marvel RO features 7-stage purification with copper technology that adds essential copper ions to water. The digital display shows real-time water quality and filter life.",
-      price: 15499,
-      originalPrice: 18999,
-      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+      "id": 3,
+      "name": "Sonnet RO",
+      "category": "domestic",
+      "price": 11999,
+      "originalPrice": 14999,
+      "rating": 4.3,
+      "reviewCount": 70,
+      "capacity": "10 LPH",
+      "features": ["RO + UV", "Compact Design", "Low Power", "Wall Mount"],
+      "description": "Compact purifier suitable for small families and apartments.",
+      "longDescription": "Sonnet RO is designed for small families with limited space. It combines RO and UV purification in a compact body, consuming low power while delivering pure water.",
+      "specifications": {
+        "Purification Capacity": "10 LPH",
+        "Storage Tank": "7 Liters",
+        "Power Consumption": "45 Watts",
+        "Purification Stages": "5 Stages",
+        "Installation Type": "Wall Mounted",
+        "Material": "ABS Plastic",
+        "Weight": "6.8 kg",
+        "Dimensions": "32 x 25 x 42 cm",
+        "Filter Life": "6 months"
+      },
+      "images": [
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "VALUE PICK",
+      "stock": "In Stock",
+      "delivery": "Free Installation",
+      "warranty": "2 Years",
+      "brand": "Sonnet",
+      "model": "SN-105",
+      "color": "White & Grey",
+      "included": ["RO Unit", "Installation Kit", "User Manual", "Warranty Card"],
+      "reviewList": [
+        { "user": "Vikram Singh", "rating": 4, "comment": "Good for small family.", "date": "2 months ago", "verified": true },
+        { "user": "Neha Gupta", "rating": 4, "comment": "Compact and works well.", "date": "1 month ago", "verified": true }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Aqua Mars RO",
+      "category": "domestic",
+      "price": 14999,
+      "originalPrice": 17999,
+      "rating": 4.6,
+      "reviewCount": 110,
+      "capacity": "12 LPH",
+      "features": ["Alkaline Filter", "TDS Adjuster", "LED Indicators", "RO + UV"],
+      "description": "Advanced RO with alkaline water feature for pH balance.",
+      "longDescription": "Aqua Mars RO features alkaline filter technology that balances water pH for better health. TDS adjuster lets you control mineral content and LED indicators show purification status.",
+      "specifications": {
+        "Purification Capacity": "12 LPH",
+        "Storage Tank": "9 Liters",
+        "Power Consumption": "60 Watts",
+        "Purification Stages": "7 Stages",
+        "Installation Type": "Wall Mounted",
+        "Material": "ABS Food Grade",
+        "Weight": "8.5 kg",
+        "Dimensions": "40 x 32 x 48 cm",
+        "TDS Control": "Yes",
+        "Filter Life": "8-12 months"
+      },
+      "images": [
         "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
       ],
-      rating: 4.3,
-      reviewCount: 98,
-      features: ["7-Stage Purification", "Copper Technology", "Digital Display", "Auto Shut-off"],
-      category: "Best Seller",
-      capacity: "10 LPH",
-      badge: "TRENDING",
-      stock: "In Stock",
-      delivery: "Same Day Delivery",
-      warranty: "5 Years",
-      brand: "Aquaguard",
-      model: "Marvel",
-      color: "White & Copper",
-      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
-      specifications: {
-        'Purification Capacity': '10 LPH',
-        'Storage Tank': '7 Liters',
-        'Power Consumption': '55 Watts',
-        'Purification Stages': '7 Stages',
-        'Installation Type': 'Wall Mounted',
-        'Material': 'ABS Food Grade',
-        'Weight': '8.2 kg',
-        'Dimensions': '37 x 31 x 47 cm'
-      },
-      reviewList: [
-        { user: 'Sunita Reddy', rating: 5, comment: 'Copper technology is great for health.', date: '2 months ago', verified: true },
-        { user: 'Vikram Singh', rating: 4, comment: 'Good product. Digital display is useful.', date: '1 month ago', verified: true }
+      "badge": "POPULAR",
+      "stock": "In Stock",
+      "delivery": "Free Installation",
+      "warranty": "3 Years",
+      "brand": "Aqua Mars",
+      "model": "AM-ALK12",
+      "color": "White & Blue",
+      "included": ["RO Unit", "Installation Kit", "User Manual", "Warranty Card", "Alkaline Cartridge"],
+      "reviewList": [
+        { "user": "Rahul Mehta", "rating": 5, "comment": "Alkaline water tastes great.", "date": "2 months ago", "verified": true },
+        { "user": "Anjali Desai", "rating": 5, "comment": "Excellent product.", "date": "1 month ago", "verified": true }
       ]
     },
     {
-      id: 3,
-      name: "Pureit Ultima Mineral RO",
-      description: "Mineral retention technology with UV protection",
-      longDescription: "Pureit Ultima Mineral RO features mineral retention technology that keeps essential minerals intact while removing impurities. UV protection ensures germ-free water.",
-      price: 12999,
-      originalPrice: 15999,
-      image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
+      "id": 5,
+      "name": "Emira Clean Water RO",
+      "category": "domestic",
+      "price": 15999,
+      "originalPrice": 18999,
+      "rating": 4.5,
+      "reviewCount": 88,
+      "capacity": "15 LPH",
+      "features": ["UV Sterilization", "Smart Indicator", "High Flow", "Auto Flush"],
+      "description": "High-performance RO purifier for larger families with smart features.",
+      "longDescription": "Emira Clean Water RO delivers high flow rate for larger families. UV sterilization ensures 99.99% pure water and smart indicators display real-time water quality and filter status.",
+      "specifications": {
+        "Purification Capacity": "15 LPH",
+        "Storage Tank": "10 Liters",
+        "Power Consumption": "65 Watts",
+        "Purification Stages": "7 Stages",
+        "Installation Type": "Wall Mounted",
+        "Material": "ABS Food Grade",
+        "Weight": "9 kg",
+        "Dimensions": "42 x 34 x 50 cm",
+        "TDS Control": "Yes",
+        "Filter Life": "8-10 months"
+      },
+      "images": [
         "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "FAMILY PACK",
+      "stock": "In Stock",
+      "delivery": "Free Installation",
+      "warranty": "3 Years",
+      "brand": "Emira",
+      "model": "EC-SM15",
+      "color": "White & Silver",
+      "included": ["RO Unit", "Installation Kit", "User Manual", "Warranty Card"],
+      "reviewList": [
+        { "user": "Suresh Iyer", "rating": 5, "comment": "Perfect for our family of 5.", "date": "2 months ago", "verified": true },
+        { "user": "Deepa Nair", "rating": 4, "comment": "Smart indicators are useful.", "date": "3 weeks ago", "verified": true }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Dolphin RO",
+      "category": "domestic",
+      "price": 13499,
+      "originalPrice": 16499,
+      "rating": 4.4,
+      "reviewCount": 76,
+      "capacity": "10 LPH",
+      "features": ["RO + UV + UF", "Auto Flush", "Child Lock", "TDS Control"],
+      "description": "Reliable purifier with auto-cleaning system and child safety lock.",
+      "longDescription": "Dolphin RO offers comprehensive RO+UV+UF purification with auto flush technology that cleans membranes automatically. Child lock prevents accidental hot water dispensing.",
+      "specifications": {
+        "Purification Capacity": "10 LPH",
+        "Storage Tank": "8 Liters",
+        "Power Consumption": "55 Watts",
+        "Purification Stages": "6 Stages",
+        "Installation Type": "Wall Mounted",
+        "Material": "ABS Food Grade",
+        "Weight": "7.8 kg",
+        "Dimensions": "36 x 28 x 45 cm",
+        "TDS Control": "Yes",
+        "Filter Life": "6-8 months"
+      },
+      "images": [
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
         "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
       ],
-      rating: 4.7,
-      reviewCount: 156,
-      features: ["Mineral Retention", "UV Protection", "Energy Saving", "5 Year Warranty"],
-      category: "Popular",
-      capacity: "12 LPH",
-      badge: "POPULAR",
-      stock: "In Stock",
-      delivery: "Free Installation",
-      warranty: "5 Years",
-      brand: "Pureit",
-      model: "Ultima",
-      color: "White & Blue",
-      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
-      specifications: {
-        'Purification Capacity': '12 LPH',
-        'Storage Tank': '8 Liters',
-        'Power Consumption': '50 Watts',
-        'Purification Stages': '7 Stages',
-        'Installation Type': 'Wall Mounted',
-        'Material': 'ABS Food Grade',
-        'Weight': '7.8 kg',
-        'Dimensions': '36 x 30 x 46 cm'
-      },
-      reviewList: [
-        { user: 'Amit Kumar', rating: 5, comment: 'Energy saving feature reduces electricity bill.', date: '3 months ago', verified: true },
-        { user: 'Neha Gupta', rating: 5, comment: 'Water tastes fresh and pure.', date: '2 months ago', verified: true }
+      "badge": "SAFETY FIRST",
+      "stock": "In Stock",
+      "delivery": "Free Installation",
+      "warranty": "2 Years",
+      "brand": "Dolphin",
+      "model": "DL-SF10",
+      "color": "White & Blue",
+      "included": ["RO Unit", "Installation Kit", "User Manual", "Warranty Card"],
+      "reviewList": [
+        { "user": "Mohan Raj", "rating": 4, "comment": "Child lock is a great feature.", "date": "2 months ago", "verified": true },
+        { "user": "Kavita Jain", "rating": 5, "comment": "Reliable product.", "date": "1 month ago", "verified": true }
       ]
     },
     {
-      id: 4,
-      name: "Livpure Copper RO",
-      description: "Copper infused RO with 8L storage",
-      longDescription: "Livpure Copper RO features copper infused technology that adds the goodness of copper to your drinking water. The 8L storage tank ensures continuous water supply.",
-      price: 14999,
-      originalPrice: 17999,
-      image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=600&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
-      ],
-      rating: 4.4,
-      reviewCount: 87,
-      features: ["Copper Infused", "8L Storage", "Low Water Waste", "Smart Alert"],
-      category: "Featured",
-      capacity: "15 LPH",
-      badge: "FEATURED",
-      stock: "In Stock",
-      delivery: "Free Installation",
-      warranty: "3 Years",
-      brand: "Livpure",
-      model: "Copper RO",
-      color: "White & Copper",
-      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
-      specifications: {
-        'Purification Capacity': '15 LPH',
-        'Storage Tank': '8 Liters',
-        'Power Consumption': '55 Watts',
-        'Purification Stages': '7 Stages',
-        'Installation Type': 'Wall Mounted',
-        'Material': 'ABS Food Grade',
-        'Weight': '8.0 kg',
-        'Dimensions': '37 x 31 x 47 cm'
+      "id": 7,
+      "name": "Aqua Jade RO",
+      "category": "domestic",
+      "price": 14999,
+      "originalPrice": 17999,
+      "rating": 4.6,
+      "reviewCount": 90,
+      "capacity": "12 LPH",
+      "features": ["Mineral Cartridge", "TDS Controller", "LED Display", "RO + UV"],
+      "description": "Premium RO purifier with mineral retention technology.",
+      "longDescription": "Aqua Jade RO features mineral cartridge that adds essential minerals back into purified water. LED display shows real-time water quality and TDS controller lets you adjust mineral levels.",
+      "specifications": {
+        "Purification Capacity": "12 LPH",
+        "Storage Tank": "9 Liters",
+        "Power Consumption": "58 Watts",
+        "Purification Stages": "7 Stages",
+        "Installation Type": "Wall Mounted",
+        "Material": "Premium ABS",
+        "Weight": "8.3 kg",
+        "Dimensions": "38 x 30 x 47 cm",
+        "TDS Control": "Yes",
+        "Filter Life": "8-10 months"
       },
-      reviewList: [
-        { user: 'Rajesh Kumar', rating: 5, comment: 'Copper infused water tastes great.', date: '2 months ago', verified: true },
-        { user: 'Priya Sharma', rating: 4, comment: 'Smart alert feature is very useful.', date: '1 month ago', verified: true }
+      "images": [
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "PREMIUM",
+      "stock": "In Stock",
+      "delivery": "Free Installation",
+      "warranty": "3 Years",
+      "brand": "Aqua Jade",
+      "model": "AJ-MN12",
+      "color": "White & Green",
+      "included": ["RO Unit", "Installation Kit", "User Manual", "Warranty Card", "Mineral Cartridge"],
+      "reviewList": [
+        { "user": "Prakash Raj", "rating": 5, "comment": "Mineral retention works well.", "date": "2 months ago", "verified": true },
+        { "user": "Divya Seth", "rating": 4, "comment": "Good value for money.", "date": "1 month ago", "verified": true }
       ]
     },
     {
-      id: 5,
-      name: "AO Smith Z8 RO",
-      description: "Hot & cold water with 10-stage purification",
-      longDescription: "AO Smith Z8 RO features hot and cold water options with 10-stage purification. The child lock ensures safety, and Energy Star rating saves electricity.",
-      price: 24999,
-      originalPrice: 29999,
-      image: "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=600&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
-      ],
-      rating: 4.8,
-      reviewCount: 112,
-      features: ["Hot & Cold Water", "10-Stage Purification", "Child Lock", "Energy Star"],
-      category: "Premium",
-      capacity: "20 LPH",
-      badge: "PREMIUM",
-      stock: "Limited Stock",
-      delivery: "Premium Installation",
-      warranty: "7 Years",
-      brand: "AO Smith",
-      model: "Z8",
-      color: "Silver & Black",
-      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card', 'Child Lock Key'],
-      specifications: {
-        'Purification Capacity': '20 LPH',
-        'Storage Tank': '10 Liters',
-        'Power Consumption': '70 Watts',
-        'Purification Stages': '10 Stages',
-        'Installation Type': 'Wall Mounted',
-        'Material': 'Premium ABS',
-        'Weight': '9.5 kg',
-        'Dimensions': '42 x 35 x 52 cm'
+      "id": 8,
+      "name": "Innovica RO",
+      "category": "domestic",
+      "price": 16999,
+      "originalPrice": 19999,
+      "rating": 4.7,
+      "reviewCount": 102,
+      "capacity": "15 LPH",
+      "features": ["Smart Sensors", "Auto Shutoff", "High Recovery", "WiFi Ready"],
+      "description": "Smart RO system with efficient water recovery and sensor technology.",
+      "longDescription": "Innovica RO features smart sensors that detect water quality and adjust purification automatically. High recovery technology saves up to 70% water and WiFi connectivity lets you monitor from phone.",
+      "specifications": {
+        "Purification Capacity": "15 LPH",
+        "Storage Tank": "10 Liters",
+        "Power Consumption": "62 Watts",
+        "Purification Stages": "8 Stages",
+        "Installation Type": "Wall Mounted",
+        "Material": "Premium ABS",
+        "Weight": "9.2 kg",
+        "Dimensions": "42 x 34 x 50 cm",
+        "TDS Control": "Yes",
+        "Recovery Rate": "70%",
+        "Filter Life": "10-12 months"
       },
-      reviewList: [
-        { user: 'Mukesh Ambani', rating: 5, comment: 'Hot water feature is perfect for tea.', date: '1 month ago', verified: true },
-        { user: 'Anand Mahindra', rating: 5, comment: 'Energy Star rating saves electricity.', date: '2 months ago', verified: true }
+      "images": [
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
+      ],
+      "badge": "SMART CHOICE",
+      "stock": "Limited Stock",
+      "delivery": "Free Installation",
+      "warranty": "4 Years",
+      "brand": "Innovica",
+      "model": "IN-SM15",
+      "color": "White & Silver",
+      "included": ["RO Unit", "Installation Kit", "User Manual", "Warranty Card", "Smart Controller"],
+      "reviewList": [
+        { "user": "Amit Kumar", "rating": 5, "comment": "Smart sensors work perfectly.", "date": "1 month ago", "verified": true },
+        { "user": "Priyanka Chopra", "rating": 5, "comment": "Water savings are noticeable.", "date": "2 months ago", "verified": true }
       ]
     },
-    {
-      id: 6,
-      name: "Blue Star Aristo RO",
-      description: "Advanced RO with smart filter change indicator",
-      longDescription: "Blue Star Aristo RO features smart filter change indicators that alert you when filters need replacement. High recovery rate and compact design make it perfect for homes.",
-      price: 16499,
-      originalPrice: 19999,
-      image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=600&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
-      ],
-      rating: 4.2,
-      reviewCount: 76,
-      features: ["Smart Indicators", "Low Maintenance", "High Recovery", "Compact Design"],
-      category: "Economy",
-      capacity: "12 LPH",
-      badge: "VALUE",
-      stock: "In Stock",
-      delivery: "Free Installation",
-      warranty: "3 Years",
-      brand: "Blue Star",
-      model: "Aristo",
-      color: "White & Blue",
-      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
-      specifications: {
-        'Purification Capacity': '12 LPH',
-        'Storage Tank': '7 Liters',
-        'Power Consumption': '50 Watts',
-        'Purification Stages': '7 Stages',
-        'Installation Type': 'Wall Mounted',
-        'Material': 'ABS Food Grade',
-        'Weight': '7.5 kg',
-        'Dimensions': '35 x 30 x 45 cm'
-      },
-      reviewList: [
-        { user: 'Rahul Mehta', rating: 4, comment: 'Smart indicators are very helpful.', date: '2 months ago', verified: true },
-        { user: 'Anjali Desai', rating: 4, comment: 'Good value for money.', date: '1 month ago', verified: true }
-      ]
-    },
-    {
-      id: 7,
-      name: "Whirlpool Pure RO",
-      description: "German technology with 7-stage filtration",
-      longDescription: "Whirlpool Pure RO features German technology with 7-stage filtration. Low TDS control and easy installation make it user-friendly.",
-      price: 13999,
-      originalPrice: 16999,
-      image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=600&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
-      ],
-      rating: 4.6,
-      reviewCount: 98,
-      features: ["German Technology", "7-Stage Filtration", "Low TDS", "Easy Installation"],
-      category: "Popular",
-      capacity: "15 LPH",
-      badge: "POPULAR",
-      stock: "In Stock",
-      delivery: "Free Installation",
-      warranty: "5 Years",
-      brand: "Whirlpool",
-      model: "Pure RO",
-      color: "White & Silver",
-      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
-      specifications: {
-        'Purification Capacity': '15 LPH',
-        'Storage Tank': '8 Liters',
-        'Power Consumption': '55 Watts',
-        'Purification Stages': '7 Stages',
-        'Installation Type': 'Wall Mounted',
-        'Material': 'ABS Food Grade',
-        'Weight': '8.2 kg',
-        'Dimensions': '38 x 32 x 48 cm'
-      },
-      reviewList: [
-        { user: 'Vikram Singh', rating: 5, comment: 'German technology works great.', date: '2 months ago', verified: true },
-        { user: 'Neha Gupta', rating: 4, comment: 'Easy to install and maintain.', date: '1 month ago', verified: true }
-      ]
-    },
-    {
-      id: 8,
-      name: "HUL Pureit Ultima",
-      description: "Advanced RO with mineral guard technology",
-      longDescription: "HUL Pureit Ultima features mineral guard technology that retains essential minerals. Low water waste and 2-year warranty make it a great budget option.",
-      price: 11999,
-      originalPrice: 14999,
-      image: "https://images.unsplash.com/photo-1590650213165-25cde850c9ae?auto=format&fit=crop&w=600&q=80",
-      images: [
-        "https://images.unsplash.com/photo-1590650213165-25cde850c9ae?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80"
-      ],
-      rating: 4.0,
-      reviewCount: 65,
-      features: ["Mineral Guard", "5-Stage Purification", "Low Water Waste", "2 Year Warranty"],
-      category: "Budget",
-      capacity: "10 LPH",
-      badge: "BUDGET",
-      stock: "In Stock",
-      delivery: "Free Installation",
-      warranty: "2 Years",
-      brand: "HUL",
-      model: "Pureit Ultima",
-      color: "White & Blue",
-      included: ['RO Unit', 'Installation Kit', 'User Manual', 'Warranty Card'],
-      specifications: {
-        'Purification Capacity': '10 LPH',
-        'Storage Tank': '6 Liters',
-        'Power Consumption': '45 Watts',
-        'Purification Stages': '5 Stages',
-        'Installation Type': 'Wall Mounted',
-        'Material': 'ABS Food Grade',
-        'Weight': '7.0 kg',
-        'Dimensions': '34 x 28 x 44 cm'
-      },
-      reviewList: [
-        { user: 'Suresh Iyer', rating: 4, comment: 'Good budget RO for small families.', date: '2 months ago', verified: true },
-        { user: 'Deepa Nair', rating: 4, comment: 'Mineral guard works well.', date: '1 month ago', verified: true }
-      ]
-    },
+
   ];
+
 
   // Function to handle product click for detailed view
   const handleProductClick = (product) => {
@@ -706,25 +696,24 @@ const Landingpage = () => {
 
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${
-                      product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
                       product.category === 'Best Seller' ? 'bg-linear-to-r from-red-500 to-pink-500 text-white' :
-                      product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
-                      'bg-linear-to-r from-emerald-500 to-green-500 text-white'
-                    }`}>
+                        product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
+                          'bg-linear-to-r from-emerald-500 to-green-500 text-white'
+                      }`}>
                       {product.category}
                     </span>
                   </div>
 
                   {/* Quick Actions */}
                   <div className="absolute top-4 right-4 flex gap-2">
-                    <button 
+                    <button
                       className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Eye className="w-4 h-4 text-gray-700" />
                     </button>
-                    <button 
+                    <button
                       className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
@@ -829,12 +818,11 @@ const Landingpage = () => {
 
                   {/* Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${
-                      product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
                       product.category === 'Best Seller' ? 'bg-linear-to-r from-red-500 to-pink-500 text-white' :
-                      product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
-                      'bg-linear-to-r from-emerald-500 to-green-500 text-white'
-                    }`}>
+                        product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
+                          'bg-linear-to-r from-emerald-500 to-green-500 text-white'
+                      }`}>
                       {product.category}
                     </span>
                   </div>
