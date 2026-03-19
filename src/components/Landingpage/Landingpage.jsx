@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Droplets,
@@ -28,7 +28,10 @@ import {
   Wind,
   Eye,
   ShoppingCart,
-  ExternalLink
+  ExternalLink,
+  Menu,
+  X,
+  ChevronLeft
 } from 'lucide-react';
 import { CheckCircle } from "lucide-react";
 import ro1 from "../../assets/li1.jpg";
@@ -43,14 +46,32 @@ import in5 from "../../assets/in5.jpeg";
 import in6 from "../../assets/in6.jpeg";
 import in7 from "../../assets/in7.jpeg";
 import in8 from "../../assets/in8.jpeg";
-
-// Import ProductDetail component
 import ProductDetail from "../Productpage/ProductDetail";
+import inovia from "../../assets/machine/inovica.webp";
+import emira from "../../assets/machine/emira.webp";
+import mars from "../../assets/machine/mars.jpg";
+import lilly from "../../assets/machine/lilly.jpg";
+import sonnet from "../../assets/machine/sonnet.webp";
+import waterpia from "../../assets/machine/waterpia.jpg";
+import jade from "../../assets/machine/jade.avif";
+import dol from "../../assets/machine/dol.jpg";
+// Import ProductDetail component
 
 const Landingpage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const products = [
     {
@@ -77,10 +98,7 @@ const Landingpage = () => {
         "Dimensions": "35 x 28 x 45 cm",
         "Filter Life": "6-8 months"
       },
-      "images": [
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
-      ],
+      "images": [waterpia],
       "badge": "BEST SELLER",
       "stock": "In Stock",
       "delivery": "Free Installation",
@@ -119,8 +137,7 @@ const Landingpage = () => {
         "Filter Life": "8-10 months"
       },
       "images": [
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
+        lilly
       ],
       "badge": "TRENDING",
       "stock": "In Stock",
@@ -159,8 +176,7 @@ const Landingpage = () => {
         "Filter Life": "6 months"
       },
       "images": [
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+        sonnet
       ],
       "badge": "VALUE PICK",
       "stock": "In Stock",
@@ -200,8 +216,7 @@ const Landingpage = () => {
         "Filter Life": "8-12 months"
       },
       "images": [
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
+        mars
       ],
       "badge": "POPULAR",
       "stock": "In Stock",
@@ -241,8 +256,7 @@ const Landingpage = () => {
         "Filter Life": "8-10 months"
       },
       "images": [
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+        emira
       ],
       "badge": "FAMILY PACK",
       "stock": "In Stock",
@@ -282,8 +296,7 @@ const Landingpage = () => {
         "Filter Life": "6-8 months"
       },
       "images": [
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
+        dol
       ],
       "badge": "SAFETY FIRST",
       "stock": "In Stock",
@@ -323,8 +336,7 @@ const Landingpage = () => {
         "Filter Life": "8-10 months"
       },
       "images": [
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
+        jade
       ],
       "badge": "PREMIUM",
       "stock": "In Stock",
@@ -365,8 +377,7 @@ const Landingpage = () => {
         "Filter Life": "10-12 months"
       },
       "images": [
-        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=800&q=80",
-        "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=800&q=80"
+        inovia
       ],
       "badge": "SMART CHOICE",
       "stock": "Limited Stock",
@@ -381,9 +392,7 @@ const Landingpage = () => {
         { "user": "Priyanka Chopra", "rating": 5, "comment": "Water savings are noticeable.", "date": "2 months ago", "verified": true }
       ]
     },
-
   ];
-
 
   // Function to handle product click for detailed view
   const handleProductClick = (product) => {
@@ -394,7 +403,7 @@ const Landingpage = () => {
 
   // Function to handle Buy Now
   const handleBuyNow = (productId, e) => {
-    e.stopPropagation(); // Prevent triggering the parent click
+    e.stopPropagation();
     alert(`Adding product ${productId} to cart...`);
   };
 
@@ -402,14 +411,12 @@ const Landingpage = () => {
   const handleAddToCart = (product, quantity) => {
     console.log('Added to cart:', product.name, quantity);
     alert(`${product.name} added to cart!`);
-    // Add your cart logic here
   };
 
   // Function to handle Buy Now from detail view
   const handleBuyNowFromDetail = (product, quantity) => {
     console.log('Buy now:', product.name, quantity);
     alert(`Proceeding to buy ${product.name}`);
-    // Add your buy now logic here
   };
 
   const roImages2 = [
@@ -435,33 +442,33 @@ const Landingpage = () => {
   ];
 
   const stats = [
-    { value: '5000+', label: 'Happy Customers', icon: <Users className="w-6 h-6" /> },
-    { value: '15+', label: 'Years Experience', icon: <Award className="w-6 h-6" /> },
-    { value: '98%', label: 'Satisfaction', icon: <Star className="w-6 h-6" /> },
-    { value: '45 min', label: 'Response Time', icon: <Clock className="w-6 h-6" /> },
+    { value: '5000+', label: 'Happy Customers', icon: <Users className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" /> },
+    { value: '15+', label: 'Years Experience', icon: <Award className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" /> },
+    { value: '98%', label: 'Satisfaction', icon: <Star className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" /> },
+    { value: '45 min', label: 'Response Time', icon: <Clock className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" /> },
   ];
 
   const features = [
     {
-      icon: <Filter className="w-8 h-8" />,
+      icon: <Filter className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />,
       title: '7-Stage Filtration',
       desc: 'Advanced purification technology',
       image: flow
     },
     {
-      icon: <Shield className="w-8 h-8" />,
+      icon: <Shield className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />,
       title: 'Quality Guarantee',
       desc: '100% pure water assurance',
       image: guran
     },
     {
-      icon: <Wrench className="w-8 h-8" />,
+      icon: <Wrench className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />,
       title: 'Expert Service',
       desc: 'Certified technicians',
       image: roImages[2]
     },
     {
-      icon: <Clock className="w-8 h-8" />,
+      icon: <Clock className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />,
       title: '24/7 Support',
       desc: 'Always available for you',
       image: hours
@@ -516,23 +523,44 @@ const Landingpage = () => {
     },
   ];
 
+  // Responsive font sizes and spacing
+  const getResponsiveClasses = () => {
+    return {
+      sectionPadding: 'py-12 sm:py-16 md:py-20',
+      containerPadding: 'px-4 sm:px-6 lg:px-8',
+      headingSize: 'text-3xl sm:text-4xl md:text-5xl font-bold',
+      subheadingSize: 'text-lg sm:text-xl md:text-2xl',
+      bodyText: 'text-sm sm:text-base md:text-lg',
+    };
+  };
+
+  const responsive = getResponsiveClasses();
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
+      {/* Mobile Menu Button - Add if needed */}
+      <button
+        className="fixed top-4 right-4 z-50 lg:hidden bg-white p-2 rounded-lg shadow-lg"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden bg-linear-to-br from-cyan-50 via-blue-50 to-cyan-100">
-        {/* Background Pattern */}
+      <section className="relative min-h-150 sm:min-h-175 lg:min-h-screen overflow-hidden bg-linear-to-br from-cyan-50 via-blue-50 to-cyan-100">
+        {/* Background Pattern - Reduced opacity for mobile */}
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-5 sm:opacity-10"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50L50 0L100 50L50 100Z' fill='%2306b6d4' fill-opacity='0.1'/%3E%3C/svg%3E")`,
           }}
         ></div>
 
-        {/* Water Droplets */}
-        {[...Array(20)].map((_, i) => (
+        {/* Water Droplets - Hidden on very small screens */}
+        {windowWidth > 640 && [...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute text-cyan-300/20"
+            className="absolute text-cyan-300/20 hidden sm:block"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -552,19 +580,20 @@ const Landingpage = () => {
           </motion.div>
         ))}
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className={`relative max-w-7xl mx-auto ${responsive.containerPadding} pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20`}>
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="text-center lg:text-left"
             >
-              <div className="inline-flex items-center gap-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full mb-8">
-                <span className="text-white">🏆</span>
-                <span className="text-sm font-semibold">#1 RO Service in Madurai</span>
+              <div className="inline-flex items-center gap-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8">
+                <span className="text-base sm:text-lg">🏆</span>
+                <span className="text-xs sm:text-sm font-semibold">#1 RO Service in Madurai</span>
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 lg:mb-8">
                 <span className="text-gray-900">Pure Water,</span>
                 <br />
                 <span className="bg-linear-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
@@ -572,87 +601,89 @@ const Landingpage = () => {
                 </span>
               </h1>
 
-              <p className="text-xl text-gray-600 mb-10 max-w-xl leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Professional RO water purification services with 15+ years experience.
                 Certified experts, same-day service, and 24/7 support.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-12">
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 lg:mb-12">
                 <motion.a
                   href="tel:+919843021579"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all"
                 >
-                  <Phone className="w-5 h-5" />
-                  Book Free Demo
+                  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="whitespace-nowrap">Book Free Demo</span>
                 </motion.a>
 
                 <motion.a
                   href="#services"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-3 bg-white text-cyan-600 px-8 py-4 rounded-xl font-bold text-lg border-2 border-cyan-600 hover:bg-cyan-50 transition-all"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-cyan-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg border-2 border-cyan-600 hover:bg-cyan-50 transition-all"
                 >
-                  <Play className="w-5 h-5" />
-                  View Services
+                  <Play className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span>View Services</span>
                 </motion.a>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {/* Stats - Responsive grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 max-w-2xl mx-auto lg:mx-0">
                 {stats.map((stat, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 + index * 0.1 }}
-                    className="text-center"
+                    className="text-center p-2 sm:p-0"
                   >
-                    <div className="text-3xl font-bold text-cyan-600 mb-2">{stat.value}</div>
-                    <div className="text-sm text-gray-600 flex items-center justify-center gap-2">
-                      <div className="text-cyan-500">{stat.icon}</div>
-                      {stat.label}
+                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-600 mb-1 sm:mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs sm:text-sm text-gray-600 flex items-center justify-center gap-1 sm:gap-2">
+                      <span className="text-cyan-500">{stat.icon}</span>
+                      <span className="hidden xs:inline">{stat.label}</span>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Hero Image */}
+            {/* Hero Image - Hidden on mobile, visible on tablet and up */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative hidden md:block"
             >
               <div className="relative">
                 <img
                   src={ro1}
                   alt="RO Water Purifier"
-                  className="rounded-3xl shadow-2xl w-full h-125 object-cover"
+                  className="rounded-2xl sm:rounded-3xl shadow-2xl w-full h-75 sm:h-100 lg:h-125 object-cover"
                 />
 
-                {/* Floating Badges */}
+                {/* Floating Badges - Adjusted positions for tablet */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -top-15 -right-18 bg-linear-to-r from-emerald-500 to-green-600 text-white p-6 rounded-2xl shadow-xl"
+                  className="absolute -top-10 sm:-top-15 -right-10 sm:-right-18 bg-linear-to-r from-emerald-500 to-green-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl"
                 >
                   <div className="text-center">
-                    <div className="text-2xl font-bold">30% OFF</div>
-                    <div className="text-sm">First Service</div>
+                    <div className="text-xl sm:text-2xl font-bold">30% OFF</div>
+                    <div className="text-xs sm:text-sm">First Service</div>
                   </div>
                 </motion.div>
 
                 <motion.div
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-                  className="absolute -bottom-10 -left-10 bg-linear-to-r from-amber-500 to-orange-600 text-white p-6 rounded-2xl shadow-xl"
+                  className="absolute -bottom-8 sm:-bottom-10 -left-8 sm:-left-10 bg-linear-to-r from-amber-500 to-orange-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl"
                 >
                   <div className="text-center">
-                    <div className="text-2xl font-bold">Free</div>
-                    <div className="text-sm">Installation</div>
+                    <div className="text-xl sm:text-2xl font-bold">Free</div>
+                    <div className="text-xs sm:text-sm">Installation</div>
                   </div>
                 </motion.div>
               </div>
@@ -662,20 +693,20 @@ const Landingpage = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+      <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
+        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
               Premium <span className="text-cyan-600">RO Products</span>
             </h2>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+            <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
               Explore our wide range of high-quality RO water purifiers from top brands
             </p>
           </div>
 
-          {/* Products Grid - Show 4 initially */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {products.slice(0, 4).map((product, index) => (
+          {/* Products Grid - Responsive columns */}
+          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 lg:mb-12">
+            {products.slice(0, windowWidth < 640 ? 2 : windowWidth < 768 ? 4 : windowWidth < 1024 ? 6 : 8).map((product, index) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -684,98 +715,99 @@ const Landingpage = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
                 onClick={() => handleProductClick(product)}
-                className="group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
+                className="group bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
               >
                 {/* Product Image */}
-                <div className="relative h-48 overflow-hidden bg-gray-100">
+                <div className="relative h-40 xs:h-44 sm:h-48 overflow-hidden bg-gray-100">
                   <img
-                    src={product.image}
+                    src={product.images[0]}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
 
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
-                      product.category === 'Best Seller' ? 'bg-linear-to-r from-red-500 to-pink-500 text-white' :
-                        product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
-                          'bg-linear-to-r from-emerald-500 to-green-500 text-white'
-                      }`}>
-                      {product.category}
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                    <span className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold rounded-full bg-linear-to-r from-cyan-500 to-blue-500 text-white">
+                      {product.badge || 'NEW'}
                     </span>
                   </div>
 
-                  {/* Quick Actions */}
-                  <div className="absolute top-4 right-4 flex gap-2">
+                  {/* Quick Actions - Hidden on very small screens */}
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2">
                     <button
-                      className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                      className="p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Eye className="w-4 h-4 text-gray-700" />
+                      <Eye className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700" />
                     </button>
                     <button
-                      className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                      className="p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Heart className="w-4 h-4 text-gray-700" />
+                      <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700" />
                     </button>
                   </div>
                 </div>
 
                 {/* Product Info */}
-                <div className="p-6">
+                <div className="p-3 sm:p-4 lg:p-6">
                   {/* Rating */}
-                  <div className="flex items-center gap-1 mb-3">
+                  <div className="flex items-center gap-0.5 sm:gap-1 mb-1 sm:mb-2 lg:mb-3">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`}
+                        className={`w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`}
                       />
                     ))}
-                    <span className="text-sm text-gray-500 ml-2">({product.rating})</span>
+                    <span className="text-[10px] sm:text-xs text-gray-500 ml-1">({product.rating})</span>
                   </div>
 
                   {/* Name */}
-                  <h3 className="font-bold text-gray-900 text-lg mb-2 line-clamp-1">
+                  <h3 className="font-bold text-gray-900 text-sm sm:text-base lg:text-lg mb-1 lg:mb-2 line-clamp-1">
                     {product.name}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                  {/* Description - Hidden on very small screens */}
+                  <p className="text-gray-600 text-xs sm:text-sm mb-2 lg:mb-4 line-clamp-2 hidden xs:block">
                     {product.description}
                   </p>
 
-                  {/* Features */}
-                  <div className="space-y-1 mb-6">
-                    {product.features.slice(0, 2).map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <CheckCircle className="w-3 h-3 text-green-500" />
-                        <span className="text-xs text-gray-600">{feature}</span>
+                  {/* Features - Show fewer on mobile */}
+                  <div className="space-y-0.5 sm:space-y-1 mb-3 sm:mb-4 lg:mb-6">
+                    {product.features.slice(0, windowWidth < 640 ? 1 : 2).map((feature, idx) => (
+                      <div key={idx} className="flex items-center gap-1 sm:gap-2">
+                        <CheckCircle className="w-2 h-2 sm:w-3 sm:h-3 text-green-500 shrink-0" />
+                        <span className="text-[10px] sm:text-xs text-gray-600 truncate">{feature}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Price */}
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
                     <div>
-                      <div className="text-2xl font-bold text-cyan-600">₹{product.price.toLocaleString()}</div>
-                      <div className="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString()}</div>
+                      <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">
+                        ₹{product.price.toLocaleString()}
+                      </div>
+                      <div className="text-[10px] sm:text-xs text-gray-500 line-through">
+                        ₹{product.originalPrice.toLocaleString()}
+                      </div>
                     </div>
-                    <span className="text-xs font-bold px-2 py-1 bg-red-100 text-red-600 rounded">
+                    <span className="text-[8px] sm:text-[10px] lg:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 bg-red-100 text-red-600 rounded">
                       SAVE ₹{(product.originalPrice - product.price).toLocaleString('en-IN')}
                     </span>
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3">
+                  <div className="flex gap-2">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={(e) => handleBuyNow(product.id, e)}
-                      className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all"
+                      className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-2 sm:py-2.5 lg:py-3 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 hover:shadow-lg transition-all"
                     >
-                      <ShoppingCart className="w-4 h-4" />
-                      Buy Now
+                      <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
+                      <span className="hidden xs:inline">Buy</span>
+                      <span className="xs:hidden">Buy</span>
                     </motion.button>
 
                     <motion.button
@@ -785,9 +817,9 @@ const Landingpage = () => {
                         e.stopPropagation();
                         handleProductClick(product);
                       }}
-                      className="px-4 border border-cyan-600 text-cyan-600 rounded-xl font-medium hover:bg-cyan-50 transition-colors flex items-center justify-center"
+                      className="px-2 sm:px-3 lg:px-4 border border-cyan-600 text-cyan-600 rounded-lg sm:rounded-xl font-medium hover:bg-cyan-50 transition-colors flex items-center justify-center"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                     </motion.button>
                   </div>
                 </div>
@@ -795,154 +827,49 @@ const Landingpage = () => {
             ))}
           </div>
 
-          {/* Additional Products Grid - Show 4 more on desktop */}
-          <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {products.slice(4, 8).map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                onClick={() => handleProductClick(product)}
-                className="group bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-              >
-                {/* Product Image */}
-                <div className="relative h-48 overflow-hidden bg-gray-100">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${product.category === 'Premium' ? 'bg-linear-to-r from-amber-500 to-orange-500 text-white' :
-                      product.category === 'Best Seller' ? 'bg-linear-to-r from-red-500 to-pink-500 text-white' :
-                        product.category === 'Featured' ? 'bg-linear-to-r from-cyan-500 to-blue-500 text-white' :
-                          'bg-linear-to-r from-emerald-500 to-green-500 text-white'
-                      }`}>
-                      {product.category}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Product Info */}
-                <div className="p-6">
-                  {/* Rating */}
-                  <div className="flex items-center gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`}
-                      />
-                    ))}
-                    <span className="text-sm text-gray-500 ml-2">({product.rating})</span>
-                  </div>
-
-                  {/* Name */}
-                  <h3 className="font-bold text-gray-900 text-lg mb-2 line-clamp-1">
-                    {product.name}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                    {product.description}
-                  </p>
-
-                  {/* Features */}
-                  <div className="space-y-1 mb-6">
-                    {product.features.slice(0, 2).map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2">
-                        <CheckCircle className="w-3 h-3 text-green-500" />
-                        <span className="text-xs text-gray-600">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Price */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div>
-                      <div className="text-2xl font-bold text-cyan-600">₹{product.price.toLocaleString()}</div>
-                      <div className="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString()}</div>
-                    </div>
-                    <span className="text-xs font-bold px-2 py-1 bg-red-100 text-red-600 rounded">
-                      SAVE ₹{(product.originalPrice - product.price).toLocaleString('en-IN')}
-                    </span>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex gap-3">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={(e) => handleBuyNow(product.id, e)}
-                      className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition-all"
-                    >
-                      <ShoppingCart className="w-4 h-4" />
-                      Buy Now
-                    </motion.button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* View More Button for Mobile */}
-          <div className="block lg:hidden text-center mb-8">
-            <button
-              onClick={() => window.location.href = "/products"}
-              className="text-cyan-600 font-bold text-lg hover:text-cyan-700 transition-colors flex items-center justify-center gap-2 mx-auto"
-            >
-              View More Products
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* View All Products Button */}
+          {/* View More Products Button */}
           <div className="text-center">
             <motion.button
               onClick={() => window.location.href = "/product"}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
+              className="inline-flex items-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all"
             >
-              <ShoppingCart className="w-5 h-5" />
-              View All Products
-              <ArrowRight className="w-5 h-5" />
+              <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
+              <span>View All Products</span>
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </div>
 
-          {/* Brands Banner */}
-          <div className="mt-20 bg-linear-to-r from-cyan-50 to-blue-50 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
+          {/* Brands Banner - Scrollable on mobile */}
+          {/* <div className="mt-12 sm:mt-16 lg:mt-20 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-center mb-4 sm:mb-6 lg:mb-8 text-gray-800">
               Trusted by Top Brands
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6 items-center">
+            <div className="flex overflow-x-auto pb-2 sm:pb-0 sm:grid sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 lg:gap-6 items-center scrollbar-hide">
               {['Kent', 'Aquaguard', 'Pureit', 'Livpure', 'AO Smith', 'Blue Star', 'Whirlpool', 'HUL'].map((brand, idx) => (
-                <div key={idx} className="text-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <span className="font-bold text-gray-800">{brand}</span>
+                <div key={idx} className="flex-shrink-0 w-24 sm:w-auto text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                  <span className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base whitespace-nowrap">{brand}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+      <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
+        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
               Why Choose <span className="text-cyan-600">Our RO Service?</span>
             </h2>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+            <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
               Premium water purification solutions with guaranteed results
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -950,22 +877,22 @@ const Landingpage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-2xl bg-linear-to-b from-white to-cyan-50 border border-cyan-100 shadow-lg hover:shadow-xl transition-all"
+                whileHover={{ y: -5 }}
+                className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-linear-to-b from-white to-cyan-50 border border-cyan-100 shadow-lg hover:shadow-xl transition-all"
               >
-                <div className="h-48 overflow-hidden">
+                <div className="h-32 sm:h-40 lg:h-48 overflow-hidden">
                   <img
                     src={feature.image}
                     alt={feature.title}
                     className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="p-6">
-                  <div className="inline-flex p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-xl mb-4 text-white">
+                <div className="p-4 sm:p-5 lg:p-6">
+                  <div className="inline-flex p-2 sm:p-2.5 lg:p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-lg sm:rounded-xl mb-3 sm:mb-4 text-white">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.desc}</p>
+                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1 sm:mb-2 text-gray-900">{feature.title}</h3>
+                  <p className="text-xs sm:text-sm text-gray-600">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -974,201 +901,184 @@ const Landingpage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-linear-to-b from-cyan-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Our <span className="text-cyan-600"> Services</span>
+      <section className={`py-12 sm:py-16 lg:py-20 bg-linear-to-b from-cyan-50 to-white`}>
+        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
+              Our <span className="text-cyan-600">Services</span>
             </h2>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+            <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
               Expert RO solutions tailored to your needs with guaranteed quality and satisfaction
             </p>
           </div>
 
-          <div className="relative">
-            {/* Tab Buttons with Floating Effect */}
-            <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {/* Tab Buttons - Horizontal scroll on mobile */}
+          <div className="relative mb-8 sm:mb-12 lg:mb-16">
+            <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:flex-wrap sm:justify-center gap-2 sm:gap-3 lg:gap-4 scrollbar-hide">
               {services.map((service, index) => (
                 <motion.button
                   key={index}
                   onClick={() => setActiveTab(index)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`relative px-7 py-4 rounded-full font-semibold transition-all duration-300 shadow-lg
-              ${activeTab === index
+                  className={`relative px-4 sm:px-5 lg:px-7 py-2 sm:py-3 lg:py-4 rounded-full font-semibold transition-all duration-300 shadow-lg whitespace-nowrap text-xs sm:text-sm lg:text-base
+                    ${activeTab === index
                       ? "bg-linear-to-r from-cyan-600 via-blue-500 to-cyan-600 text-white shadow-xl shadow-cyan-500/25 scale-105"
                       : "bg-white text-gray-700 hover:bg-cyan-50 hover:shadow-xl border border-cyan-100"
                     }`}
                 >
-                  <span className="flex items-center gap-3">
+                  <span className="flex items-center gap-1 sm:gap-2 lg:gap-3">
                     {service.icon}
-                    {service.title}
+                    {windowWidth >= 640 ? service.title : service.title.split(' ')[0]}
                   </span>
-                  {activeTab === index && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-linear-to-r from-cyan-400 to-blue-400 rounded-full"
-                    />
-                  )}
                 </motion.button>
               ))}
             </div>
+          </div>
 
-            {/* Content Display with Slide Animation */}
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="relative"
-            >
-              {/* Floating Background Elements */}
-              <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                <div className="absolute -top-24 -right-24 w-64 h-64 bg-linear-to-br from-cyan-200/20 to-blue-200/10 rounded-full blur-3xl" />
-                <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-linear-to-tr from-cyan-100/20 to-blue-100/10 rounded-full blur-3xl" />
-              </div>
+          {/* Content Card */}
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative"
+          >
+            <div className="relative bg-linear-to-br from-white via-white to-cyan-50 border border-cyan-100/50 shadow-2xl rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden">
+              <div className="h-1 bg-linear-to-r from-cyan-500 via-blue-500 to-cyan-500" />
 
-              {/* Main Content Card */}
-              <div className="relative bg-linear-to-br from-white via-white to-cyan-50 border border-cyan-100/50 shadow-2xl rounded-3xl overflow-hidden backdrop-blur-sm">
-                {/* Decorative Top Border */}
-                <div className="h-1 bg-linear-to-r from-cyan-500 via-blue-500 to-cyan-500" />
-
-                <div className="p-8 md:p-12">
-                  <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    {/* Left Content */}
-                    <div>
-                      <div className="inline-flex items-center gap-3 mb-6">
-                        <div className="p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-xl text-white">
-                          {services[activeTab].icon}
-                        </div>
-                        <div>
-                          <h3 className="text-3xl md:text-4xl font-bold text-gray-800">
-                            {services[activeTab].title}
-                          </h3>
-                          <p className="text-cyan-600 font-semibold mt-2">
-                            {services[activeTab].price}
-                          </p>
-                        </div>
+              <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
+                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                  {/* Left Content */}
+                  <div>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                      <div className="p-2 sm:p-2.5 lg:p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-lg sm:rounded-xl text-white w-fit">
+                        {services[activeTab].icon}
                       </div>
-
-                      <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                        {services[activeTab].desc}
-                      </p>
-
-                      {/* Features Grid */}
-                      <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                        {services[activeTab].features.map((feature, i) => (
-                          <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="flex items-center gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-cyan-100 hover:border-cyan-300 transition-all"
-                          >
-                            <div className="p-2 bg-green-100 rounded-lg">
-                              <CheckCircle className="w-5 h-5 text-green-600" />
-                            </div>
-                            <span className="text-gray-700 font-medium">{feature}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-
-                      {/* CTA Button */}
-                      <motion.a
-                        href="tel:+919843021579"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all"
-                      >
-                        <Phone className="w-5 h-5" />
-                        Book This Service Now
-                        <ArrowRight className="w-5 h-5" />
-                      </motion.a>
-                    </div>
-
-                    {/* Right Image/Visual */}
-                    <div className="relative">
-                      <div className="relative h-64 lg:h-80 rounded-2xl overflow-hidden shadow-2xl">
-                        <img
-                          src={roImages[activeTab]}
-                          alt={services[activeTab].title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-                      </div>
-
-                      {/* Stats Bar */}
-                      <div className="mt-6 grid grid-cols-3 gap-4">
-                        <div className="text-center p-4 bg-white rounded-xl border border-cyan-100">
-                          <div className="text-2xl font-bold text-cyan-600">24/7</div>
-                          <div className="text-sm text-gray-600">Support</div>
-                        </div>
-                        <div className="text-center p-4 bg-white rounded-xl border border-cyan-100">
-                          <div className="text-2xl font-bold text-cyan-600">100%</div>
-                          <div className="text-sm text-gray-600">Guarantee</div>
-                        </div>
-                        <div className="text-center p-4 bg-white rounded-xl border border-cyan-100">
-                          <div className="text-2xl font-bold text-cyan-600">45 min</div>
-                          <div className="text-sm text-gray-600">Response</div>
-                        </div>
+                      <div>
+                        <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800">
+                          {services[activeTab].title}
+                        </h3>
                       </div>
                     </div>
+
+                    <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
+                      {services[activeTab].desc}
+                    </p>
+
+                    {/* Features - Responsive grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                      {services[activeTab].features.map((feature, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.1 }}
+                          className="flex items-center gap-2 sm:gap-3 bg-white/80 backdrop-blur-sm p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl border border-cyan-100 hover:border-cyan-300 transition-all"
+                        >
+                          <div className="p-1 sm:p-1.5 lg:p-2 bg-green-100 rounded-lg shrink-0">
+                            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-green-600" />
+                          </div>
+                          <span className="text-xs sm:text-sm lg:text-base text-gray-700 font-medium">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* CTA Button */}
+                    <motion.a
+                      href="tel:+919843021579"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-5 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto justify-center"
+                    >
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                      <span>Book This Service Now</span>
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                    </motion.a>
                   </div>
 
-                  {/* Bottom Info Bar */}
-                  <div className="mt-12 pt-8 border-t border-cyan-100">
-                    <div className="flex flex-wrap items-center justify-between gap-6">
-                      <div className="flex items-center gap-4">
-                        <ShieldCheck className="w-6 h-6 text-green-500" />
-                        <span className="text-gray-700">1 Year Service Warranty</span>
+                  {/* Right Image - Hidden on mobile */}
+                  <div className="relative hidden md:block">
+                    <div className="relative h-48 sm:h-56 lg:h-64 xl:h-80 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
+                      <img
+                        src={roImages[activeTab % roImages.length]}
+                        alt={services[activeTab].title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
+                    </div>
+
+                    {/* Stats - Hidden on tablet and below */}
+                    <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
+                      <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
+                        <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">24/7</div>
+                        <div className="text-[10px] sm:text-xs text-gray-600">Support</div>
                       </div>
-                      <div className="flex items-center gap-4">
-                        <Clock className="w-6 h-6 text-amber-500" />
-                        <span className="text-gray-700">Same Day Service Available</span>
+                      <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
+                        <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">100%</div>
+                        <div className="text-[10px] sm:text-xs text-gray-600">Guarantee</div>
                       </div>
-                      <div className="flex items-center gap-4">
-                        <ThumbsUp className="w-6 h-6 text-blue-500" />
-                        <span className="text-gray-700">2000+ Satisfied Customers</span>
+                      <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
+                        <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">45 min</div>
+                        <div className="text-[10px] sm:text-xs text-gray-600">Response</div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Navigation Arrows for Mobile */}
-              <div className="flex justify-center gap-4 mt-8 md:hidden">
-                <button
-                  onClick={() => setActiveTab((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
-                  className="p-3 bg-white rounded-full shadow-lg border border-cyan-100"
-                >
-                  <ChevronRight className="w-5 h-5 text-cyan-600 rotate-180" />
-                </button>
-                <button
-                  onClick={() => setActiveTab((prev) => (prev === services.length - 1 ? 0 : prev + 1))}
-                  className="p-3 bg-white rounded-full shadow-lg border border-cyan-100"
-                >
-                  <ChevronRight className="w-5 h-5 text-cyan-600" />
-                </button>
+                {/* Bottom Info Bar - Hidden on mobile */}
+                <div className="mt-6 sm:mt-8 lg:mt-12 pt-4 sm:pt-6 lg:pt-8 border-t border-cyan-100 hidden sm:block">
+                  <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-6">
+                    <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                      <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-green-500" />
+                      <span className="text-xs sm:text-sm text-gray-700">1 Year Service Warranty</span>
+                    </div>
+                    <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                      <Clock className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-amber-500" />
+                      <span className="text-xs sm:text-sm text-gray-700">Same Day Service Available</span>
+                    </div>
+                    <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                      <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-500" />
+                      <span className="text-xs sm:text-sm text-gray-700">2000+ Satisfied Customers</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Mobile Navigation Arrows */}
+          <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 md:hidden">
+            <button
+              onClick={() => setActiveTab((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
+              className="p-2 sm:p-3 bg-white rounded-full shadow-lg border border-cyan-100"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
+            </button>
+            <button
+              onClick={() => setActiveTab((prev) => (prev === services.length - 1 ? 0 : prev + 1))}
+              className="p-2 sm:p-3 bg-white rounded-full shadow-lg border border-cyan-100"
+            >
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
+            </button>
           </div>
 
-          {/* Bottom Services Grid Preview */}
-          <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Bottom Services Preview - Hidden on mobile */}
+          <div className="mt-12 sm:mt-16 lg:mt-20 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 hidden sm:grid">
             {services.slice(0, 3).map((service, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -5 }}
-                className="p-6 bg-white rounded-2xl border border-cyan-100 shadow-lg hover:shadow-xl transition-all cursor-pointer"
+                className="p-4 sm:p-5 lg:p-6 bg-white rounded-xl sm:rounded-2xl border border-cyan-100 shadow-lg hover:shadow-xl transition-all cursor-pointer"
                 onClick={() => setActiveTab(index)}
               >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-cyan-100 rounded-xl text-cyan-600">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="p-2 sm:p-2.5 lg:p-3 bg-cyan-100 rounded-lg sm:rounded-xl text-cyan-600">
                     {service.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-800 mb-2">{service.title}</h4>
-                    <p className="text-sm text-gray-600">{service.desc.substring(0, 60)}...</p>
+                    <h4 className="font-bold text-gray-800 text-sm sm:text-base lg:text-lg mb-1">{service.title}</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">{service.desc.substring(0, 50)}...</p>
                   </div>
                 </div>
               </motion.div>
@@ -1178,17 +1088,19 @@ const Landingpage = () => {
       </section>
 
       {/* RO Gallery Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+      <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
+        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
               Our <span className="text-cyan-600">RO Gallery</span>
             </h2>
-            <p className="text-gray-600 text-xl">See our RO installations and services</p>
+            <p className={`${responsive.subheadingSize} text-gray-600`}>
+              See our RO installations and services
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {roImages2.map((image, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
+            {roImages2.slice(0, windowWidth < 640 ? 4 : windowWidth < 1024 ? 6 : 8).map((image, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -1196,50 +1108,64 @@ const Landingpage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer group"
+                className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer group aspect-square"
               >
                 <img
                   src={image}
                   alt={`RO Installation ${index + 1}`}
-                  className="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <span className="text-white font-semibold">RO Service #{index + 1}</span>
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2 sm:p-3 lg:p-4">
+                  <span className="text-white font-semibold text-xs sm:text-sm">RO Service #{index + 1}</span>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* View More Gallery Button for Mobile */}
+          {windowWidth < 640 && roImages2.length > 4 && (
+            <div className="text-center mt-4 sm:mt-6">
+              <button
+                onClick={() => {/* Handle view more */ }}
+                className="text-cyan-600 font-semibold text-sm hover:text-cyan-700 transition-colors"
+              >
+                View More Photos →
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-linear-to-b from-white to-cyan-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+      <section className={`py-12 sm:py-16 lg:py-20 bg-linear-to-b from-white to-cyan-50`}>
+        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
               Customer <span className="text-cyan-600">Reviews</span>
             </h2>
-            <p className="text-gray-600 text-xl">What our customers say about us</p>
+            <p className={`${responsive.subheadingSize} text-gray-600`}>
+              What our customers say about us
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {testimonials.slice(0, windowWidth < 640 ? 1 : windowWidth < 1024 ? 2 : 3).map((testimonial, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
+                className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100"
               >
-                <div className="flex items-center gap-1 text-amber-400 mb-4">
+                <div className="flex items-center gap-1 text-amber-400 mb-3 sm:mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current" />
+                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-6 italic">"{testimonial.text}"</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden">
+                <p className="text-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base">"{testimonial.text}"</p>
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0">
                     <img
                       src={testimonial.image}
                       alt={testimonial.name}
@@ -1247,36 +1173,48 @@ const Landingpage = () => {
                     />
                   </div>
                   <div>
-                    <div className="font-bold text-gray-900">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600">{testimonial.role}</div>
+                    <div className="font-bold text-gray-900 text-sm sm:text-base">{testimonial.name}</div>
+                    <div className="text-xs sm:text-sm text-gray-600">{testimonial.role}</div>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* View More Reviews Button for Mobile */}
+          {windowWidth < 640 && testimonials.length > 1 && (
+            <div className="text-center mt-4 sm:mt-6">
+              <button
+                onClick={() => {/* Handle view more */ }}
+                className="text-cyan-600 font-semibold text-sm hover:text-cyan-700 transition-colors"
+              >
+                View More Reviews →
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-linear-to-r from-cyan-600 to-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-20 bg-linear-to-r from-cyan-600 to-blue-600">
+        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
           <div className="text-center text-white">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8">
               Get Pure Water Today
             </h2>
-            <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto opacity-90 px-4">
               Call now for a free consultation and get 30% off on your first service
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 lg:mb-12 px-4">
               <motion.a
                 href="tel:+919843021579"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-3 bg-white text-cyan-600 px-10 py-5 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-cyan-600 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base lg:text-lg hover:bg-gray-100 transition-all shadow-lg"
               >
-                <Phone className="w-6 h-6" />
-                Call Now: +91 98430 21579
+                <Phone className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <span className="whitespace-nowrap">Call Now: +91 98430 21579</span>
               </motion.a>
 
               <motion.a
@@ -1285,25 +1223,25 @@ const Landingpage = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center justify-center gap-3 bg-emerald-500 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-emerald-600 transition-all"
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-emerald-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-sm sm:text-base lg:text-lg hover:bg-emerald-600 transition-all shadow-lg"
               >
-                <MessageCircle className="w-6 h-6" />
-                WhatsApp Chat
+                <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
+                <span>WhatsApp Chat</span>
               </motion.a>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-2xl mx-auto px-4">
               <div className="text-center">
-                <div className="text-3xl font-bold">24/7</div>
-                <div className="text-sm opacity-90">Service</div>
+                <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">24/7</div>
+                <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Service</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">98%</div>
-                <div className="text-sm opacity-90">Satisfaction</div>
+                <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">98%</div>
+                <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Satisfaction</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">45 min</div>
-                <div className="text-sm opacity-90">Response</div>
+                <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">45 min</div>
+                <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Response</div>
               </div>
             </div>
           </div>
@@ -1319,6 +1257,44 @@ const Landingpage = () => {
           onBuyNow={handleBuyNowFromDetail}
         />
       )}
+
+      {/* Custom CSS for responsive utilities */}
+      <style jsx>{`
+        @media (max-width: 320px) {
+          .xs\\:grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+          .xs\\:inline {
+            display: inline;
+          }
+          .xs\\:hidden {
+            display: none;
+          }
+        }
+        
+        @media (min-width: 321px) and (max-width: 375px) {
+          /* Additional breakpoint-specific styles */
+        }
+        
+        @media (min-width: 376px) and (max-width: 420px) {
+          /* Additional breakpoint-specific styles */
+        }
+        
+        @media (min-width: 421px) and (max-width: 768px) {
+          /* Additional breakpoint-specific styles */
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .scrollbar-hide {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
+      `}</style>
     </div>
   );
 };
