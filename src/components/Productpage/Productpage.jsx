@@ -32,6 +32,7 @@ import jade from "../../assets/machine/jade.avif";
 import flip from "../../assets/machine/flip.jpg";
 import big from "../../assets/machine/25lit.jpg";
 import dol from "../../assets/machine/dol.jpg";
+import { Helmet } from 'react-helmet-async';
 const Productpage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
@@ -303,7 +304,7 @@ const Productpage = () => {
         "Filter Life": "6-8 months"
       },
       "images": [
-      dol
+        dol
       ],
       "badge": "SAFETY FIRST",
       "stock": "In Stock",
@@ -520,139 +521,93 @@ const Productpage = () => {
     }
   ];
   return (
-    <div className="min-h-screen bg-linear-to-b from-cyan-50 to-white">
-      <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-2 sm:py-3 lg:py-4">
-          <div className="flex items-center justify-between">
+    <>
+      <Helmet>
+        <title>Aqua Tech RO System | Best RO Water Purifier in Madurai</title>
+
+        <meta
+          name="description"
+          content="Aqua Tech RO System offers best RO water purifiers in Madurai. Domestic, Commercial & Industrial RO systems with free installation and service. Call 9843021579 today."
+        />
+
+        <meta
+          name="keywords"
+          content="RO water purifier Madurai, Aqua Tech RO System Madurai, best RO in Madurai, water purifier service Madurai, commercial RO Madurai, domestic RO Madurai"
+        />
+
+        <meta name="author" content="Aqua Tech RO System" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Best RO Water Purifier in Madurai | Aqua Tech RO System" />
+        <meta
+          property="og:description"
+          content="Buy high quality RO water purifiers in Madurai with free installation & service."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.aquatechrosystem.in/" />
+        <meta property="og:image" content="https://www.aquatechrosystem.in/logo.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Top RO Water Purifiers in Madurai" />
+        <meta
+          name="twitter:description"
+          content="Affordable RO systems with best service in Madurai."
+        />
+
+        {/* Local SEO */}
+        <meta name="geo.region" content="IN-TN" />
+        <meta name="geo.placename" content="Madurai" />
+        <meta name="geo.position" content="9.9252;78.1198" />
+        <script type="application/ld+json">
+          {`
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Aqua Tech RO System",
+  "url": "https://www.aquatechrosystem.in",
+  "telephone": "+91 9843021579",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Madurai",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "India"
+  },
+  "areaServed": "Madurai",
+  "priceRange": "₹₹",
+  "serviceType": "RO Water Purifier Sales & Service"
+}
+`}
+        </script>
+      </Helmet>
+      <div className="min-h-screen bg-linear-to-b from-cyan-50 to-white">
+        <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-2 sm:py-3 lg:py-4">
+            <div className="flex items-center justify-between">
+            </div>
           </div>
         </div>
-      </div>
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-3 sm:py-4 lg:py-6">
-        {viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-            {products.map(product => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="group bg-white rounded-lg sm:rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer"
-                onClick={() => {
-                  setSelectedProduct(product);
-                  setSelectedImage(0);
-                  setQuantity(1);
-                }}
-              >
-                <div className="relative h-48 xs:h-44 sm:h-52 md:h-56 overflow-hidden bg-gray-50">
-                  <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {product.badge && (
-                    <div className="absolute top-2 left-2">
-                      <span className="bg-linear-to-r from-cyan-600 to-blue-600 text-white px-2 py-0.5 rounded-full text-[8px] sm:text-xs font-bold">
-                        {product.badge}
-                      </span>
-                    </div>
-                  )}
-                  <button
-                    className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-full hover:bg-white"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                    }}
-                  >
-                    <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 hover:text-red-500" />
-                  </button>
-                </div>
-                <div className="p-2 sm:p-3">
-                  <div className="flex items-start justify-between mb-1 sm:mb-2">
-                    <div>
-                      <h3 className="font-bold text-gray-900 text-xs sm:text-sm group-hover:text-cyan-600 transition-colors">
-                        {product.name}
-                      </h3>
-                      <p className="text-[10px] sm:text-xs text-gray-600 mt-0.5">{product.capacity}</p>
-                    </div>
-                    <div className="flex items-center gap-0.5">
-                      <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-400 fill-current" />
-                      <span className="font-semibold text-[10px] sm:text-xs">{product.rating}</span>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-1 mb-2">
-                    {product.features.slice(0, 2).map((feature, idx) => (
-                      <span key={idx} className="text-[8px] sm:text-xs bg-cyan-50 text-cyan-700 px-1 py-0.5 rounded">
-                        {feature}
-                      </span>
-                    ))}
-                    {product.features.length > 2 && (
-                      <span className="text-[8px] sm:text-xs bg-gray-100 text-gray-600 px-1 py-0.5 rounded">
-                        +{product.features.length - 2}
-                      </span>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-1 sm:gap-2 mb-2">
-                    <span className="text-sm sm:text-base font-bold text-gray-900">₹{product.price.toLocaleString()}</span>
-                    {product.originalPrice && (
-                      <>
-                        <span className="text-gray-500 line-through text-[8px] sm:text-xs">₹{product.originalPrice.toLocaleString()}</span>
-                        <span className="text-green-600 font-semibold text-[8px] sm:text-xs">
-                          {Math.round((1 - product.price / product.originalPrice) * 100)}%
-                        </span>
-                      </>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-2 text-[8px] sm:text-xs text-gray-600 mb-2">
-                    <div className="flex items-center gap-0.5 sm:gap-1">
-                      <Truck className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-green-500" />
-                      <span className="truncate">{product.delivery}</span>
-                    </div>
-                    <div className="flex items-center gap-0.5 sm:gap-1">
-                      <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-500" />
-                      <span>{product.warranty}</span>
-                    </div>
-                  </div>
-                  <div className="flex gap-1 sm:gap-2" onClick={(e) => e.stopPropagation()}>
-                    <button className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-1.5 sm:py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs">
-                      <ShoppingCart className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                      Add
-                    </button>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedProduct(product);
-                        setSelectedImage(0);
-                        setQuantity(1);
-                      }}
-                      className="px-2 sm:px-3 border border-cyan-600 text-cyan-600 rounded-lg font-semibold hover:bg-cyan-50 transition-colors text-[10px] sm:text-xs"
-                    >
-                      View
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        ) : (
-          <div className="space-y-3 sm:space-y-4">
-            {products.map(product => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3 }}
-                className="group bg-white rounded-lg sm:rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
-                onClick={() => {
-                  setSelectedProduct(product);
-                  setSelectedImage(0);
-                  setQuantity(1);
-                }}
-              >
-                <div className="flex flex-col xs:flex-row">
-                  <div className="xs:w-1/3 relative bg-gray-50">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-3 sm:py-4 lg:py-6">
+          {viewMode === 'grid' ? (
+            <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+              {products.map(product => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="group bg-white rounded-lg sm:rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer"
+                  onClick={() => {
+                    setSelectedProduct(product);
+                    setSelectedImage(0);
+                    setQuantity(1);
+                  }}
+                >
+                  <div className="relative h-48 xs:h-44 sm:h-52 md:h-56 overflow-hidden bg-gray-50">
                     <img
                       src={product.images[0]}
                       alt={product.name}
-                      className="w-full h-48 xs:h-32 sm:h-36 md:h-40 object-contain p-2"
+                      className="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                     />
                     {product.badge && (
                       <div className="absolute top-2 left-2">
@@ -661,39 +616,65 @@ const Productpage = () => {
                         </span>
                       </div>
                     )}
+                    <button
+                      className="absolute top-2 right-2 p-1.5 bg-white/90 rounded-full hover:bg-white"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                    >
+                      <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 hover:text-red-500" />
+                    </button>
                   </div>
-                  <div className="xs:w-2/3 p-2 sm:p-3">
-                    <div className="flex flex-col xs:flex-row justify-between items-start gap-1 sm:gap-2 mb-1 sm:mb-2">
-                      <div className="flex-1">
-                        <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">{product.name}</h3>
-                        <p className="text-[10px] sm:text-xs text-gray-600 mb-1">{product.capacity}</p>
-                        <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                          <div className="flex items-center gap-0.5">
-                            <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-400 fill-current" />
-                            <span className="font-semibold text-[10px] sm:text-xs">{product.rating}</span>
-                          </div>
-                          <span className="text-green-600 font-semibold text-[8px] sm:text-xs">{product.stock}</span>
-                        </div>
-                        <div className="flex flex-wrap gap-1 mb-2">
-                          {product.features.slice(0, 2).map((feature, idx) => (
-                            <span key={idx} className="inline-flex items-center gap-0.5 bg-gray-100 text-gray-700 px-1 py-0.5 rounded-full text-[8px] sm:text-xs">
-                              <Check className="w-2 h-2 text-green-500" />
-                              {feature}
-                            </span>
-                          ))}
-                        </div>
+                  <div className="p-2 sm:p-3">
+                    <div className="flex items-start justify-between mb-1 sm:mb-2">
+                      <div>
+                        <h3 className="font-bold text-gray-900 text-xs sm:text-sm group-hover:text-cyan-600 transition-colors">
+                          {product.name}
+                        </h3>
+                        <p className="text-[10px] sm:text-xs text-gray-600 mt-0.5">{product.capacity}</p>
                       </div>
-                      <div className="text-left xs:text-right w-full xs:w-auto">
-                        <div className="text-sm sm:text-base font-bold text-gray-900">₹{product.price.toLocaleString()}</div>
-                        {product.originalPrice && (
-                          <div className="text-gray-500 line-through text-[8px] sm:text-xs">₹{product.originalPrice.toLocaleString()}</div>
-                        )}
+                      <div className="flex items-center gap-0.5">
+                        <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-400 fill-current" />
+                        <span className="font-semibold text-[10px] sm:text-xs">{product.rating}</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-1 mb-2">
+                      {product.features.slice(0, 2).map((feature, idx) => (
+                        <span key={idx} className="text-[8px] sm:text-xs bg-cyan-50 text-cyan-700 px-1 py-0.5 rounded">
+                          {feature}
+                        </span>
+                      ))}
+                      {product.features.length > 2 && (
+                        <span className="text-[8px] sm:text-xs bg-gray-100 text-gray-600 px-1 py-0.5 rounded">
+                          +{product.features.length - 2}
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-1 sm:gap-2 mb-2">
+                      <span className="text-sm sm:text-base font-bold text-gray-900">₹{product.price.toLocaleString()}</span>
+                      {product.originalPrice && (
+                        <>
+                          <span className="text-gray-500 line-through text-[8px] sm:text-xs">₹{product.originalPrice.toLocaleString()}</span>
+                          <span className="text-green-600 font-semibold text-[8px] sm:text-xs">
+                            {Math.round((1 - product.price / product.originalPrice) * 100)}%
+                          </span>
+                        </>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2 text-[8px] sm:text-xs text-gray-600 mb-2">
+                      <div className="flex items-center gap-0.5 sm:gap-1">
+                        <Truck className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-green-500" />
+                        <span className="truncate">{product.delivery}</span>
+                      </div>
+                      <div className="flex items-center gap-0.5 sm:gap-1">
+                        <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-500" />
+                        <span>{product.warranty}</span>
                       </div>
                     </div>
                     <div className="flex gap-1 sm:gap-2" onClick={(e) => e.stopPropagation()}>
                       <button className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-1.5 sm:py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs">
                         <ShoppingCart className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
-                        Add to Cart
+                        Add
                       </button>
                       <button
                         onClick={(e) => {
@@ -704,39 +685,119 @@ const Productpage = () => {
                         }}
                         className="px-2 sm:px-3 border border-cyan-600 text-cyan-600 rounded-lg font-semibold hover:bg-cyan-50 transition-colors text-[10px] sm:text-xs"
                       >
-                        Details
-                      </button>
-                      <button
-                        className="p-1.5 sm:p-2 border border-gray-300 rounded-lg hover:bg-gray-50"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                        }}
-                      >
-                        <Heart className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-600" />
+                        View
                       </button>
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        )}
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="space-y-3 sm:space-y-4">
+              {products.map(product => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="group bg-white rounded-lg sm:rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+                  onClick={() => {
+                    setSelectedProduct(product);
+                    setSelectedImage(0);
+                    setQuantity(1);
+                  }}
+                >
+                  <div className="flex flex-col xs:flex-row">
+                    <div className="xs:w-1/3 relative bg-gray-50">
+                      <img
+                        src={product.images[0]}
+                        alt={product.name}
+                        className="w-full h-48 xs:h-32 sm:h-36 md:h-40 object-contain p-2"
+                      />
+                      {product.badge && (
+                        <div className="absolute top-2 left-2">
+                          <span className="bg-linear-to-r from-cyan-600 to-blue-600 text-white px-2 py-0.5 rounded-full text-[8px] sm:text-xs font-bold">
+                            {product.badge}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="xs:w-2/3 p-2 sm:p-3">
+                      <div className="flex flex-col xs:flex-row justify-between items-start gap-1 sm:gap-2 mb-1 sm:mb-2">
+                        <div className="flex-1">
+                          <h3 className="text-xs sm:text-sm font-bold text-gray-900 mb-0.5">{product.name}</h3>
+                          <p className="text-[10px] sm:text-xs text-gray-600 mb-1">{product.capacity}</p>
+                          <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                            <div className="flex items-center gap-0.5">
+                              <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-amber-400 fill-current" />
+                              <span className="font-semibold text-[10px] sm:text-xs">{product.rating}</span>
+                            </div>
+                            <span className="text-green-600 font-semibold text-[8px] sm:text-xs">{product.stock}</span>
+                          </div>
+                          <div className="flex flex-wrap gap-1 mb-2">
+                            {product.features.slice(0, 2).map((feature, idx) => (
+                              <span key={idx} className="inline-flex items-center gap-0.5 bg-gray-100 text-gray-700 px-1 py-0.5 rounded-full text-[8px] sm:text-xs">
+                                <Check className="w-2 h-2 text-green-500" />
+                                {feature}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="text-left xs:text-right w-full xs:w-auto">
+                          <div className="text-sm sm:text-base font-bold text-gray-900">₹{product.price.toLocaleString()}</div>
+                          {product.originalPrice && (
+                            <div className="text-gray-500 line-through text-[8px] sm:text-xs">₹{product.originalPrice.toLocaleString()}</div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex gap-1 sm:gap-2" onClick={(e) => e.stopPropagation()}>
+                        <button className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-1.5 sm:py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs">
+                          <ShoppingCart className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                          Add to Cart
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedProduct(product);
+                            setSelectedImage(0);
+                            setQuantity(1);
+                          }}
+                          className="px-2 sm:px-3 border border-cyan-600 text-cyan-600 rounded-lg font-semibold hover:bg-cyan-50 transition-colors text-[10px] sm:text-xs"
+                        >
+                          Details
+                        </button>
+                        <button
+                          className="p-1.5 sm:p-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                          }}
+                        >
+                          <Heart className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-gray-600" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
+        </div>
+        <AnimatePresence>
+          {selectedProduct && (
+            <ProductDetail
+              product={selectedProduct}
+              onClose={() => setSelectedProduct(null)}
+              onAddToCart={(product, quantity) => {
+                console.log('Added to cart:', product.name, quantity);
+              }}
+              onBuyNow={(product, quantity) => {
+                console.log('Buy now:', product.name, quantity);
+              }}
+            />
+          )}
+        </AnimatePresence>
       </div>
-      <AnimatePresence>
-        {selectedProduct && (
-          <ProductDetail
-            product={selectedProduct}
-            onClose={() => setSelectedProduct(null)}
-            onAddToCart={(product, quantity) => {
-              console.log('Added to cart:', product.name, quantity);
-            }}
-            onBuyNow={(product, quantity) => {
-              console.log('Buy now:', product.name, quantity);
-            }}
-          />
-        )}
-      </AnimatePresence>
-    </div>
+    </>
   );
 };
 export default Productpage;

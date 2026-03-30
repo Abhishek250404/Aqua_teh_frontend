@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import { HiOutlineLocationMarker } from "react-icons/hi";
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="bg-linear-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-12">
@@ -11,7 +12,7 @@ function Footer() {
             {/* Logo Section */}
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-linear-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center shadow-lg">
-                <img src={logo} alt="" />
+                <img src={logo} alt="Aqua Tech RO System Madurai - Water Purifier Service" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-teal-300 to-cyan-400">
@@ -43,6 +44,10 @@ function Footer() {
                   aquatechrosystem.in
                 </a>
               </div>
+              <p className="text-slate-400 text-sm mt-4 leading-relaxed">
+                Aqua Tech RO System provides the best RO service in Madurai including RO installation,
+                RO repair, water purifier service, filter replacement, and AMC service in Madurai.
+              </p>
               <div className="flex items-center gap-3">
                 <div className="bg-linear-to-br from-emerald-500/20 to-green-500/20 p-2 rounded-lg">
                   <i className="fas fa-phone text-emerald-300"></i>
@@ -51,7 +56,7 @@ function Footer() {
                   href="tel:+919843021579"
                   className="text-slate-300 hover:text-emerald-300 transition-colors duration-300"
                 >
-                  +91 98430 21579
+                  Call Best RO Service in Madurai - +91 98430 21579
                 </a>
               </div>
               <div className="flex items-center gap-3">
@@ -91,11 +96,16 @@ function Footer() {
               allowFullScreen
               loading="lazy"
             ></iframe>
+
             <div className="absolute bottom-4 left-4  px-3 py-1.5 rounded-full text-sm border border-slate-700/50">
               <i className="fas fa-map-pin text-rose-400 mr-2"></i>
               Click to navigate
             </div>
+
           </div>
+          <p className="text-xs text-slate-400 mt-2">
+            Visit our RO service center in Madurai for installation, repair, and maintenance.
+          </p>
         </div>
         <div className="transform transition-transform hover:scale-[1.02] duration-300">
           <div className="bg-slate-800/70 backdrop-blur-sm p-6 rounded-2xl shadow-2xl border border-indigo-500/20 hover:border-indigo-400/40 transition-all h-full flex flex-col">
@@ -105,7 +115,8 @@ function Footer() {
               </h2>
             </div>
             <div className="grid grid-cols-2 gap-3 mb-8 grow">
-              <a href="/" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-blue-900/40 hover:to-cyan-900/40 transition-all duration-300 border border-slate-700/50 hover:border-cyan-500/30 h-full">
+
+              <Link to="/" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-blue-900/40 hover:to-cyan-900/40 transition-all duration-300 border border-slate-700/50 hover:border-cyan-500/30 h-full">
                 <div className="bg-linear-to-br from-blue-500/20 to-cyan-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-home text-blue-300"></i>
                 </div>
@@ -113,8 +124,9 @@ function Footer() {
                   <span className="font-medium group-hover:text-blue-200 transition-colors block">Home</span>
                   <span className="text-slate-400 text-xs group-hover:text-cyan-300">Main Page</span>
                 </div>
-              </a>
-              <a href="/about" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-emerald-900/40 hover:to-teal-900/40 transition-all duration-300 border border-slate-700/50 hover:border-emerald-500/30 h-full">
+              </Link>
+
+              <Link to="/about" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-emerald-900/40 hover:to-teal-900/40 transition-all duration-300 border border-slate-700/50 hover:border-emerald-500/30 h-full">
                 <div className="bg-linear-to-br from-emerald-500/20 to-teal-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-info-circle text-emerald-300"></i>
                 </div>
@@ -122,8 +134,9 @@ function Footer() {
                   <span className="font-medium group-hover:text-emerald-200 transition-colors block">About Us</span>
                   <span className="text-slate-400 text-xs group-hover:text-emerald-300">Our Story</span>
                 </div>
-              </a>
-              <a href="/services" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-violet-900/40 hover:to-purple-900/40 transition-all duration-300 border border-slate-700/50 hover:border-violet-500/30 h-full">
+              </Link>
+
+              <Link to="/services" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-violet-900/40 hover:to-purple-900/40 transition-all duration-300 border border-slate-700/50 hover:border-violet-500/30 h-full">
                 <div className="bg-linear-to-br from-violet-500/20 to-purple-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-cogs text-violet-300"></i>
                 </div>
@@ -131,8 +144,9 @@ function Footer() {
                   <span className="font-medium group-hover:text-violet-200 transition-colors block">Services</span>
                   <span className="text-slate-400 text-xs group-hover:text-violet-300">What we do</span>
                 </div>
-              </a>
-              <a href="/contact" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-amber-900/40 hover:to-orange-900/40 transition-all duration-300 border border-slate-700/50 hover:border-amber-500/30 h-full">
+              </Link>
+
+              <Link to="/contact" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-amber-900/40 hover:to-orange-900/40 transition-all duration-300 border border-slate-700/50 hover:border-amber-500/30 h-full">
                 <div className="bg-linear-to-br from-amber-500/20 to-orange-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-envelope text-amber-300"></i>
                 </div>
@@ -140,7 +154,8 @@ function Footer() {
                   <span className="font-medium group-hover:text-amber-200 transition-colors block">Contact</span>
                   <span className="text-slate-400 text-xs group-hover:text-amber-300">Get in touch</span>
                 </div>
-              </a>
+              </Link>
+
             </div>
           </div>
         </div>
@@ -176,6 +191,11 @@ function Footer() {
           </div>
         </div>
       </div>
+      <p className="hidden">
+        RO service Madurai, best RO service in Madurai, water purifier service Madurai,
+        RO repair Madurai, RO installation Madurai, Aqua Tech RO System Madurai,
+        water filter service near me, RO AMC service Madurai
+      </p>
     </footer>
   );
 }

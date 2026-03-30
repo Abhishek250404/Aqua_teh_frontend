@@ -8,9 +8,15 @@ import {
     SafetyCertificateOutlined,
     CheckCircleOutlined
 } from '@ant-design/icons';
+import { Helmet } from "react-helmet-async";
 function Servicepage() {
     return (
         <>
+            <Helmet>
+                <title>RO Service in Madurai | Aqua Tech RO System</title>
+                <meta name="description" content="Best RO service in Madurai with installation, repair, AMC and filter replacement. Aqua Tech RO System - Trusted service." />
+                <meta name="keywords" content="RO service Madurai, RO repair Madurai, RO AMC Madurai, water purifier service Madurai" />
+            </Helmet>
             <motion.section
                 className="relative bg-linear-to-br from-blue-900 via-slate-900 to-emerald-900 text-white py-24 overflow-hidden"
                 initial={{ opacity: 0, y: 40 }}
@@ -34,7 +40,7 @@ function Servicepage() {
                         </div>
                         <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
                             <span className="bg-linear-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent">
-                                Elite Water Purification
+                                RO Service & Water Purifier Solutions in Madurai
                             </span>
                             <br />
                             <span className="text-white">Services & Solutions</span>
@@ -101,6 +107,57 @@ function Servicepage() {
                     </div>
                 </div>
             </section>
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4">
+
+                    {/* Heading */}
+                    <div className="text-center mb-12">
+                        <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                            RO Services in Madurai
+                        </h2>
+                        <p className="text-gray-600 max-w-3xl mx-auto">
+                            Complete RO water purifier services in Madurai including installation, repair, AMC, and water quality testing.
+                        </p>
+                    </div>
+
+                    {/* Service Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        {gbpServices.map((service, index) => (
+                            <div
+                                key={index}
+                                className="bg-linear-to-br from-blue-50 to-white border border-gray-100 rounded-2xl p-6 shadow-md hover:shadow-xl transition duration-300 group"
+                            >
+                                <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition">
+                                    {service.title}
+                                </h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">
+                                    {service.description}
+                                </p>
+
+                                <div className="mt-4 flex items-center justify-between">
+                                    <span className="text-xs text-green-600 font-semibold bg-green-100 px-2 py-1 rounded-full">
+                                        {service.tag}
+                                    </span>
+
+                                    <a
+                                        href="tel:+919843021579"
+                                        className="text-blue-600 text-sm font-semibold hover:underline"
+                                    >
+                                        Call Now →
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
+            </section>
+            <p className="hidden">
+                RO service Madurai, RO repair Madurai, water purifier installation Madurai,
+                RO AMC Madurai, filter replacement Madurai, TDS check Madurai,
+                Aqua Tech RO System Madurai, best RO service near me
+            </p>
             <motion.section
                 className="relative py-20 overflow-hidden"
                 initial={{ opacity: 0 }}
@@ -175,6 +232,53 @@ function Servicepage() {
         </>
     );
 }
+const gbpServices = [
+    {
+        title: "RO Installation in Madurai",
+        description: "Professional RO water purifier installation for homes and offices with leakage check and TDS testing.",
+        tag: "Popular"
+    },
+    {
+        title: "RO Repair Service in Madurai",
+        description: "Fast doorstep RO repair for low water flow, bad taste, and high TDS issues.",
+        tag: "Same Day"
+    },
+    {
+        title: "RO AMC Service in Madurai",
+        description: "Affordable annual maintenance plans with periodic service and filter replacement.",
+        tag: "Best Value"
+    },
+    {
+        title: "RO Filter Replacement",
+        description: "Timely filter replacement to maintain water purity and improve taste.",
+        tag: "Essential"
+    },
+    {
+        title: "RO Membrane Replacement",
+        description: "High-quality membrane replacement for reducing TDS and improving purification.",
+        tag: "High Demand"
+    },
+    {
+        title: "Water TDS Testing",
+        description: "Check your water quality with accurate TDS testing service.",
+        tag: "Free Check"
+    },
+    {
+        title: "Borewell RO Solution",
+        description: "Special RO setup for high TDS borewell water in Madurai.",
+        tag: "Expert"
+    },
+    {
+        title: "Commercial RO Installation",
+        description: "RO plant installation for offices, hotels, and businesses.",
+        tag: "Business"
+    },
+    {
+        title: "RO Leakage Repair",
+        description: "Fix leakage issues quickly with expert service.",
+        tag: "Urgent Fix"
+    }
+];
 const services = [
     {
         title: "RO Installation",

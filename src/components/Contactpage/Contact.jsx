@@ -1,5 +1,4 @@
 import React from "react";
-// import Navbar from "../Navbar/Navbar";
 import { motion } from "framer-motion";
 import {
     Phone,
@@ -14,6 +13,7 @@ import { useState } from "react";
 import axios from "axios";
 import BASE_URL from "../../Api-service/Config";
 import { toast } from "sonner";
+import { Helmet } from "react-helmet-async";
 function Contact() {
     const [formData, setFormData] = useState({
         name: "",
@@ -62,6 +62,21 @@ function Contact() {
     };
     return (
         <>
+            <Helmet>
+                <title>RO Service in Madurai | Contact Aqua Tech RO System</title>
+
+                <meta
+                    name="description"
+                    content="Contact Aqua Tech RO System for best RO service in Madurai. Call 9843021579 for installation, repair, AMC, filter change & water purifier service."
+                />
+
+                <meta
+                    name="keywords"
+                    content="RO service Madurai, RO repair Madurai, water purifier service Madurai, Aqua Tech RO System contact, RO installation Madurai"
+                />
+
+                <meta name="robots" content="index, follow" />
+            </Helmet>
             <motion.div
                 className="max-w-6xl mx-auto px-4 py-12"
                 initial={{ opacity: 0, y: 30 }}
@@ -75,11 +90,14 @@ function Contact() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                     >
-                        Get in <span className="text-blue-600">Touch</span>
+                        RO Service & Water Purifier Contact in Madurai | <span className="text-blue-600">Aqua Tech RO System </span>
                     </motion.h1>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                        Visit our store or connect with our water purification experts for
-                        personalized solutions
+                    <p>
+                        Looking for RO service in Madurai? Visit Aqua Tech RO System for water purifier sales, installation, repair, and maintenance services.
+                    </p>
+                    <p className="hidden">
+                        RO service Madurai, water purifier repair Madurai, RO installation Madurai,
+                        best RO service near me, Aqua Tech RO System Madurai, water filter service Tamil Nadu
                     </p>
                 </div>
                 <motion.div
@@ -90,7 +108,7 @@ function Contact() {
                 >
                     <img
                         src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                        alt="Aqua Tech RO System Store"
+                        alt="Aqua Tech RO System shop in Madurai - RO water purifier sales and service"
                         className="w-full h-100 object-cover"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end">

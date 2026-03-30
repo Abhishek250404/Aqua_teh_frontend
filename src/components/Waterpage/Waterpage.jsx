@@ -1,10 +1,26 @@
 import React from 'react';
 import { FaCheck, FaExclamationTriangle, FaTint, FaFilter, FaFlask, FaInfoCircle } from 'react-icons/fa';
 import { motion } from "framer-motion";
+import { Helmet } from 'react-helmet-async';
 
 function Waterpage() {
     return (
         <>
+            <Helmet>
+                <title>Water Quality Guide | TDS & pH Explained | Aqua Tech RO System Madurai</title>
+
+                <meta
+                    name="description"
+                    content="Complete guide to drinking water quality in Madurai. Learn about TDS levels, pH balance, RO purifier selection, and safe drinking water standards by Aqua Tech RO System."
+                />
+
+                <meta
+                    name="keywords"
+                    content="TDS water meaning, ideal TDS level drinking water, water pH level, RO purifier guide Madurai, water quality guide India, Aqua Tech RO System"
+                />
+
+                <link rel="canonical" href="https://www.aquatechrosystem.in/water-quality-guide" />
+            </Helmet>
             <motion.div
                 className="max-w-5xl mx-auto px-4 py-10 font-sans text-gray-800"
                 initial={{ opacity: 0, y: 40 }}

@@ -13,6 +13,7 @@ import {
     Zap,
     Heart
 } from 'lucide-react';
+import { Helmet } from "react-helmet-async";
 function Aboutpage() {
     const achievements = [
         { number: "2000+", label: "Happy Customers", icon: <Users className="w-6 h-6" /> },
@@ -35,6 +36,32 @@ function Aboutpage() {
     ];
     return (
         <>
+            <Helmet>
+                <title>About Aqua Tech RO System | RO Experts in Madurai</title>
+
+                <meta
+                    name="description"
+                    content="Aqua Tech RO System is a trusted RO service provider in Madurai with 15+ years experience and 2000+ happy customers. We offer installation, repair, AMC and water quality solutions."
+                />
+
+                <meta
+                    name="keywords"
+                    content="About Aqua Tech RO System, RO service Madurai, water purifier experts Madurai, RO installation Madurai, RO repair Madurai, RO AMC Madurai"
+                />
+
+                <meta name="author" content="Aqua Tech RO System" />
+
+                {/* Open Graph (for WhatsApp / Facebook sharing) */}
+                <meta property="og:title" content="About Aqua Tech RO System | Madurai" />
+                <meta property="og:description" content="15+ years experience in RO service. Trusted by 2000+ customers in Madurai." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.aquatechrosystem.in/about" />
+
+                {/* Twitter SEO */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="About Aqua Tech RO System" />
+                <meta name="twitter:description" content="Trusted RO water purifier service in Madurai." />
+            </Helmet>
             <motion.div
                 className="relative overflow-hidden bg-linear-to-r from-blue-50 to-cyan-50"
                 initial={{ opacity: 0 }}

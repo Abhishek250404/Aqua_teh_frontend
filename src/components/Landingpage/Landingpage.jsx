@@ -55,6 +55,7 @@ import sonnet from "../../assets/machine/sonnet.webp";
 import waterpia from "../../assets/machine/waterpia.jpg";
 import jade from "../../assets/machine/jade.avif";
 import dol from "../../assets/machine/dol.jpg";
+import { Helmet } from 'react-helmet-async';
 const Landingpage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -521,635 +522,846 @@ const Landingpage = () => {
   };
   const responsive = getResponsiveClasses();
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
-      <section className="relative min-h-150 sm:min-h-175 lg:min-h-screen overflow-hidden bg-linear-to-br from-cyan-50 via-blue-50 to-cyan-100">
-        <div
-          className="absolute inset-0 opacity-5 sm:opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50L50 0L100 50L50 100Z' fill='%2306b6d4' fill-opacity='0.1'/%3E%3C/svg%3E")`,
-          }}
-        ></div>
-        {windowWidth > 640 && [...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-cyan-300/20 hidden sm:block"
+    <>
+      <Helmet>
+        <title>Best RO Service in Madurai | Aqua Tech RO System</title>
+
+        <meta
+          name="description"
+          content="Looking for RO service in Madurai? Aqua Tech RO System provides fast RO installation, repair, filter replacement, and AMC service at affordable price. Call now for same day service!"
+        />
+
+        <meta
+          name="keywords"
+          content="RO service Madurai, RO repair Madurai, water purifier service Madurai, RO installation Madurai, best RO service near me, Aqua Tech RO System"
+        />
+
+        <meta name="author" content="Aqua Tech RO System" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Best RO Service in Madurai | Aqua Tech RO System" />
+        <meta property="og:description" content="Same day RO installation, repair & service in Madurai. Affordable & trusted service." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.aquatechrosystem.in/" />
+        <meta property="og:image" content="https://www.aquatechrosystem.in/logo.png" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best RO Service in Madurai" />
+        <meta name="twitter:description" content="Fast & reliable RO service in Madurai. Book now!" />
+        <meta name="twitter:image" content="https://www.aquatechrosystem.in/logo.png" />
+
+        {/* Local SEO */}
+        <meta name="geo.region" content="IN-TN" />
+        <meta name="geo.placename" content="Madurai" />
+        <meta name="geo.position" content="9.9252;78.1198" />
+
+        {/* Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Aqua Tech RO System",
+            "url": "https://www.aquatechrosystem.in",
+            "telephone": "+919843021579",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Madurai",
+              "addressRegion": "Tamil Nadu",
+              "addressCountry": "India"
+            },
+            "description": "Best RO service in Madurai including installation, repair and maintenance."
+          })}
+        </script>
+      </Helmet>
+      <div className="min-h-screen bg-white overflow-x-hidden">
+        <section className="relative min-h-150 sm:min-h-175 lg:min-h-screen overflow-hidden bg-linear-to-br from-cyan-50 via-blue-50 to-cyan-100">
+          <div
+            className="absolute inset-0 opacity-5 sm:opacity-10"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${Math.random() * 30 + 20}px`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50L50 0L100 50L50 100Z' fill='%2306b6d4' fill-opacity='0.1'/%3E%3C/svg%3E")`,
             }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0.1, 0.3, 0.1],
-            }}
-            transition={{
-              duration: Math.random() * 5 + 3,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          >
-            <Droplets />
-          </motion.div>
-        ))}
-        <div className={`relative max-w-7xl mx-auto ${responsive.containerPadding} pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20`}>
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          ></div>
+          {windowWidth > 640 && [...Array(20)].map((_, i) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center lg:text-left"
+              key={i}
+              className="absolute text-cyan-300/20 hidden sm:block"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                fontSize: `${Math.random() * 30 + 20}px`,
+              }}
+              animate={{
+                y: [0, -100, 0],
+                opacity: [0.1, 0.3, 0.1],
+              }}
+              transition={{
+                duration: Math.random() * 5 + 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
             >
-              <div className="inline-flex items-center gap-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8">
-                <span className="text-base sm:text-lg">🏆</span>
-                <span className="text-sm sm:text-base font-semibold">#1 RO Service in Madurai</span>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 lg:mb-8">
-                <span className="text-gray-900 block">
-                  Best RO Water Purifier Service in Madurai
-                </span>
-                <span className="block mt-2 bg-linear-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent text-md sm:text-xl md:text-2xl lg:text-2xl font-semibold">
-                  Same Day RO Service • Installation • Repair
-                </span>
-                <p className="text-sm mt-2 sm:text-base text-cyan-600 font-semibold">
-                  ✔ Same Day Service | ✔ Affordable Price | ✔ Expert Technicians
+              <Droplets />
+            </motion.div>
+          ))}
+          <div className={`relative max-w-7xl mx-auto ${responsive.containerPadding} pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20`}>
+            <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center lg:text-left"
+              >
+                <div className="inline-flex items-center gap-2 bg-linear-to-r from-cyan-500 to-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8">
+                  <span className="text-base sm:text-lg">🏆</span>
+                  <span className="text-sm sm:text-base font-semibold">#1 RO Service in Madurai</span>
+                </div>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 lg:mb-8">
+                  <h1>Best RO Water Purifier Service in Madurai</h1>
+                  <span className="block mt-2 bg-linear-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent text-md sm:text-xl md:text-2xl lg:text-2xl font-semibold">
+                    Same Day RO Service • Installation • Repair
+                  </span>
+                  <p className="text-sm mt-2 sm:text-base text-cyan-600 font-semibold">
+                    ✔ Same Day Service | ✔ Affordable Price | ✔ Expert Technicians
+                  </p>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                  <p>
+                    Aqua Tech RO System offers the best RO water purifier service in Madurai, including RO installation, RO repair, filter replacement, and TDS water testing for homes and offices in Madurai.
+                  </p>
+                  We provide installation, repair, filter replacement, and complete maintenance for all types of RO systems.
+                  Facing bad taste, low water flow, or service issues? Our expert technicians will fix it quickly using genuine spare parts.
                 </p>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Aqua Tech RO System offers professional RO water purifier service in Madurai for homes and offices.
-                We provide installation, repair, filter replacement, and complete maintenance for all types of RO systems.
-                Facing bad taste, low water flow, or service issues? Our expert technicians will fix it quickly using genuine spare parts.
-              </p>
-              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 lg:mb-12">
-                <motion.a
-                  href="tel:+919843021579"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all"
-                >
-                  <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="whitespace-nowrap">Book Free Demo</span>
-                </motion.a>
-                <motion.a
-                  href="#services"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-cyan-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg border-2 border-cyan-600 hover:bg-cyan-50 transition-all"
-                >
-                  <Play className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span>View Services</span>
-                </motion.a>
-              </div>
-              <div className="grid grid-cols-5 sm:grid-cols-5 gap-3 sm:gap-4 lg:gap-6 max-w-2xl mx-auto lg:mx-0">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 + index * 0.1 }}
-                    className="text-center p-2 sm:p-0"
+                <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 lg:mb-12">
+                  <motion.a
+                    href="tel:+919843021579"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all"
                   >
-                    <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-600 mb-1 sm:mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs sm:text-sm text-gray-600 flex items-center justify-center gap-1 sm:gap-2">
-                      <span className="text-xs sm:text-sm text-gray-600 flex  flex-col items-center justify-center gap-1 sm:gap-2">
-                        <span className="text-cyan-500">{stat.icon}</span>
-                        <span className="sm:hidden">
-                          {stat.label.split(' ')[0]}
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="whitespace-nowrap">Book Free Demo</span>
+                  </motion.a>
+                  <motion.a
+                    href="#services"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-cyan-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg border-2 border-cyan-600 hover:bg-cyan-50 transition-all"
+                  >
+                    <Play className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span>View Services</span>
+                  </motion.a>
+                </div>
+                <div className="grid grid-cols-5 sm:grid-cols-5 gap-3 sm:gap-4 lg:gap-6 max-w-2xl mx-auto lg:mx-0">
+                  {stats.map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 + index * 0.1 }}
+                      className="text-center p-2 sm:p-0"
+                    >
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-600 mb-1 sm:mb-2">
+                        {stat.value}
+                      </div>
+                      <div className="text-xs sm:text-sm text-gray-600 flex items-center justify-center gap-1 sm:gap-2">
+                        <span className="text-xs sm:text-sm text-gray-600 flex  flex-col items-center justify-center gap-1 sm:gap-2">
+                          <span className="text-cyan-500">{stat.icon}</span>
+                          <span className="sm:hidden">
+                            {stat.label.split(' ')[0]}
+                          </span>
+                          <span className="hidden sm:inline">
+                            {stat.label}
+                          </span>
                         </span>
-                        <span className="hidden sm:inline">
-                          {stat.label}
-                        </span>
-                      </span>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="relative hidden md:block"
+              >
+                <div className="relative">
+                  <img
+                    src={ro1}
+                    alt="RO Water Purifier"
+                    loading="lazy"
+                    className="rounded-2xl sm:rounded-3xl shadow-2xl w-full h-75 sm:h-100 lg:h-125 object-cover"
+                  />
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute -top-10 sm:-top-15 -right-10 sm:-right-18 bg-linear-to-r from-emerald-500 to-green-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl"
+                  >
+                    <div className="text-center">
+                      <div className="text-xl sm:text-2xl font-bold">30% OFF</div>
+                      <div className="text-xs sm:text-sm">First Service</div>
                     </div>
                   </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="relative hidden md:block"
-            >
-              <div className="relative">
-                <img
-                  src={ro1}
-                  alt="RO Water Purifier"
-                  className="rounded-2xl sm:rounded-3xl shadow-2xl w-full h-75 sm:h-100 lg:h-125 object-cover"
-                />
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute -top-10 sm:-top-15 -right-10 sm:-right-18 bg-linear-to-r from-emerald-500 to-green-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl"
-                >
-                  <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold">30% OFF</div>
-                    <div className="text-xs sm:text-sm">First Service</div>
-                  </div>
-                </motion.div>
-                <motion.div
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-                  className="absolute -bottom-8 sm:-bottom-10 -left-8 sm:-left-10 bg-linear-to-r from-amber-500 to-orange-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl"
-                >
-                  <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold">Free</div>
-                    <div className="text-xs sm:text-sm">Installation</div>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
-        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
-          <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
-              Premium <span className="text-cyan-600">RO Products</span>
-            </h2>
-            <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
-              Explore our wide range of high-quality RO water purifiers from top brands
-            </p>
-          </div>
-          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 lg:mb-12">
-            {products.slice(0, windowWidth < 640 ? 2 : windowWidth < 768 ? 4 : windowWidth < 1024 ? 6 : 8).map((product, index) => (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                onClick={() => handleProductClick(product)}
-                className="group bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
-              >
-                <div className="relative h-40 xs:h-44 sm:h-48 overflow-hidden bg-gray-100">
-                  <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
-                    <span className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold rounded-full bg-linear-to-r from-cyan-500 to-blue-500 text-white">
-                      {product.badge || 'NEW'}
-                    </span>
-                  </div>
-                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2">
-                    <button
-                      className="p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Eye className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700" />
-                    </button>
-                    <button
-                      className="p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700" />
-                    </button>
-                  </div>
-                </div>
-                <div className="p-3 sm:p-4 lg:p-6">
-                  {/* Rating */}
-                  <div className="flex items-center gap-0.5 sm:gap-1 mb-1 sm:mb-2 lg:mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`}
-                      />
-                    ))}
-                    <span className="text-[10px] sm:text-xs text-gray-500 ml-1">({product.rating})</span>
-                  </div>
-                  <h3 className="font-bold text-gray-900 text-sm sm:text-base lg:text-lg mb-1 lg:mb-2 line-clamp-1">
-                    {product.name}
-                  </h3>
-                  <p className="text-gray-600 text-xs sm:text-sm mb-2 lg:mb-4 line-clamp-2 hidden xs:block">
-                    {product.description}
-                  </p>
-                  <div className="space-y-0.5 sm:space-y-1 mb-3 sm:mb-4 lg:mb-6">
-                    {product.features.slice(0, windowWidth < 640 ? 1 : 2).map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-1 sm:gap-2">
-                        <CheckCircle className="w-2 h-2 sm:w-3 sm:h-3 text-green-500 shrink-0" />
-                        <span className="text-[10px] sm:text-xs text-gray-600 truncate">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
-                    <div>
-                      <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">
-                        ₹{product.price.toLocaleString()}
-                      </div>
-                      <div className="text-[10px] sm:text-xs text-gray-500 line-through">
-                        ₹{product.originalPrice.toLocaleString()}
-                      </div>
+                  <motion.div
+                    animate={{ y: [0, -15, 0] }}
+                    transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
+                    className="absolute -bottom-8 sm:-bottom-10 -left-8 sm:-left-10 bg-linear-to-r from-amber-500 to-orange-600 text-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-xl"
+                  >
+                    <div className="text-center">
+                      <div className="text-xl sm:text-2xl font-bold">Free</div>
+                      <div className="text-xs sm:text-sm">Installation</div>
                     </div>
-                    <span className="text-[8px] sm:text-[10px] lg:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 bg-red-100 text-red-600 rounded">
-                      SAVE ₹{(product.originalPrice - product.price).toLocaleString('en-IN')}
-                    </span>
-                  </div>
-                  <div className="flex gap-2">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={(e) => handleBuyNow(product.id, e)}
-                      className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-2 sm:py-2.5 lg:py-3 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 hover:shadow-lg transition-all"
-                    >
-                      <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span className="hidden xs:inline">Buy</span>
-                      <span className="xs:hidden">Buy</span>
-                    </motion.button>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleProductClick(product);
-                      }}
-                      className="px-2 sm:px-3 lg:px-4 border border-cyan-600 text-cyan-600 rounded-lg sm:rounded-xl font-medium hover:bg-cyan-50 transition-colors flex items-center justify-center"
-                    >
-                      <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                    </motion.button>
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
-            ))}
+            </div>
           </div>
-          <div className="text-center">
-            <motion.button
-              onClick={() => window.location.href = "/product"}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all"
-            >
-              <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>View All Products</span>
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-            </motion.button>
-          </div>
-        </div>
-      </section>
-      <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
-        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
-              Why Choose <span className="text-cyan-600">Our RO Service?</span>
-            </h2>
-            <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
-              Premium water purification solutions with guaranteed results
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-linear-to-b from-white to-cyan-50 border border-cyan-100 shadow-lg hover:shadow-xl transition-all"
-              >
-                <div className="h-32 sm:h-40 lg:h-48 overflow-hidden">
-                  <img
-                    src={feature.image}
-                    alt={feature.title}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-4 sm:p-5 lg:p-6">
-                  <div className="inline-flex p-2 sm:p-2.5 lg:p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-lg sm:rounded-xl mb-3 sm:mb-4 text-white">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1 sm:mb-2 text-gray-900">{feature.title}</h3>
-                  <p className="text-xs sm:text-sm text-gray-600">{feature.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className={`py-12 sm:py-16 lg:py-20 bg-linear-to-b from-cyan-50 to-white`}>
-        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
-              Our <span className="text-cyan-600">Services</span>
-            </h2>
-            <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
-              Expert RO solutions tailored to your needs with guaranteed quality and satisfaction
-            </p>
-          </div>
-          <div className="relative mb-8 sm:mb-12 lg:mb-16">
-            <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:flex-wrap sm:justify-center gap-2 sm:gap-3 lg:gap-4 scrollbar-hide">
-              {services.map((service, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`relative px-4 sm:px-5 lg:px-7 py-2 sm:py-3 lg:py-4 rounded-full font-semibold transition-all duration-300 shadow-lg whitespace-nowrap text-xs sm:text-sm lg:text-base
-                    ${activeTab === index
-                      ? "bg-linear-to-r from-cyan-600 via-blue-500 to-cyan-600 text-white shadow-xl shadow-cyan-500/25 scale-105"
-                      : "bg-white text-gray-700 hover:bg-cyan-50 hover:shadow-xl border border-cyan-100"
-                    }`}
+        </section>
+        <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
+          <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+            <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+              <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
+                Premium <span className="text-cyan-600">RO Products</span>
+              </h2>
+              <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
+                Explore our wide range of high-quality RO water purifiers from top brands
+              </p>
+            </div>
+            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 lg:mb-12">
+              {products.slice(0, windowWidth < 640 ? 2 : windowWidth < 768 ? 4 : windowWidth < 1024 ? 6 : 8).map((product, index) => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -10 }}
+                  onClick={() => handleProductClick(product)}
+                  className="group bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
                 >
-                  <span className="flex items-center gap-1 sm:gap-2 lg:gap-3">
-                    {service.icon}
-                    {windowWidth >= 640 ? service.title : service.title.split(' ')[0]}
-                  </span>
-                </motion.button>
+                  <div className="relative h-40 xs:h-44 sm:h-48 overflow-hidden bg-gray-100">
+                    <img
+                      src={product.images[0]}
+                      loading="lazy"
+                      alt={`${product.name} RO Water Purifier in Madurai - Aqua Tech RO System`}
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
+                      <span className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold rounded-full bg-linear-to-r from-cyan-500 to-blue-500 text-white">
+                        {product.badge || 'NEW'}
+                      </span>
+                    </div>
+                    <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2">
+                      <button
+                        className="p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Eye className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700" />
+                      </button>
+                      <button
+                        className="p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-gray-700" />
+                      </button>
+                    </div>
+                  </div>
+                  <div className="p-3 sm:p-4 lg:p-6">
+                    {/* Rating */}
+                    <div className="flex items-center gap-0.5 sm:gap-1 mb-1 sm:mb-2 lg:mb-3">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`w-3 h-3 sm:w-3.5 sm:h-3.5 lg:w-4 lg:h-4 ${i < Math.floor(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`}
+                        />
+                      ))}
+                      <span className="text-[10px] sm:text-xs text-gray-500 ml-1">({product.rating})</span>
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-sm sm:text-base lg:text-lg mb-1 lg:mb-2 line-clamp-1">
+                      {product.name}
+                    </h3>
+                    <p className="text-gray-600 text-xs sm:text-sm mb-2 lg:mb-4 line-clamp-2 hidden xs:block">
+                      {product.description}
+                    </p>
+                    <div className="space-y-0.5 sm:space-y-1 mb-3 sm:mb-4 lg:mb-6">
+                      {product.features.slice(0, windowWidth < 640 ? 1 : 2).map((feature, idx) => (
+                        <div key={idx} className="flex items-center gap-1 sm:gap-2">
+                          <CheckCircle className="w-2 h-2 sm:w-3 sm:h-3 text-green-500 shrink-0" />
+                          <span className="text-[10px] sm:text-xs text-gray-600 truncate">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
+                      <div>
+                        <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">
+                          ₹{product.price.toLocaleString()}
+                        </div>
+                        <div className="text-[10px] sm:text-xs text-gray-500 line-through">
+                          ₹{product.originalPrice.toLocaleString()}
+                        </div>
+                      </div>
+                      <span className="text-[8px] sm:text-[10px] lg:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 bg-red-100 text-red-600 rounded">
+                        SAVE ₹{(product.originalPrice - product.price).toLocaleString('en-IN')}
+                      </span>
+                    </div>
+                    <div className="flex gap-2">
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={(e) => handleBuyNow(product.id, e)}
+                        className="flex-1 bg-linear-to-r from-cyan-600 to-blue-600 text-white py-2 sm:py-2.5 lg:py-3 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 hover:shadow-lg transition-all"
+                      >
+                        <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span className="hidden xs:inline">Buy</span>
+                        <span className="xs:hidden">Buy</span>
+                      </motion.button>
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleProductClick(product);
+                        }}
+                        className="px-2 sm:px-3 lg:px-4 border border-cyan-600 text-cyan-600 rounded-lg sm:rounded-xl font-medium hover:bg-cyan-50 transition-colors flex items-center justify-center"
+                      >
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                      </motion.button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <div className="text-center">
+              <motion.a
+                href="/product"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all"
+              >
+                <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span>View All Products</span>
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              </motion.a>
+            </div>
+          </div>
+        </section>
+        <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
+          <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
+                Why Choose <span className="text-cyan-600">Our RO Service?</span>
+              </h2>
+              <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
+                Premium water purification solutions with guaranteed results
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -5 }}
+                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-linear-to-b from-white to-cyan-50 border border-cyan-100 shadow-lg hover:shadow-xl transition-all"
+                >
+                  <div className="h-32 sm:h-40 lg:h-48 overflow-hidden">
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      loading="lazy"
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-4 sm:p-5 lg:p-6">
+                    <div className="inline-flex p-2 sm:p-2.5 lg:p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-lg sm:rounded-xl mb-3 sm:mb-4 text-white">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-1 sm:mb-2 text-gray-900">{feature.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-600">{feature.desc}</p>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="relative"
-          >
-            <div className="relative bg-linear-to-br from-white via-white to-cyan-50 border border-cyan-100/50 shadow-2xl rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden">
-              <div className="h-1 bg-linear-to-r from-cyan-500 via-blue-500 to-cyan-500" />
-              <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
-                <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-                  <div>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                      <div className="p-2 sm:p-2.5 lg:p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-lg sm:rounded-xl text-white w-fit">
-                        {services[activeTab].icon}
+        </section>
+        <section className={`py-12 sm:py-16 lg:py-20 bg-linear-to-b from-cyan-50 to-white`}>
+          <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
+                RO Services<span className="text-cyan-600">in Madurai</span>
+              </h2>
+              <p className={`${responsive.subheadingSize} text-gray-600 max-w-3xl mx-auto px-4`}>
+                Expert RO solutions tailored to your needs with guaranteed quality and satisfaction
+              </p>
+            </div>
+            <div className="relative mb-8 sm:mb-12 lg:mb-16">
+              <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:flex-wrap sm:justify-center gap-2 sm:gap-3 lg:gap-4 scrollbar-hide">
+                {services.map((service, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => setActiveTab(index)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`relative px-4 sm:px-5 lg:px-7 py-2 sm:py-3 lg:py-4 rounded-full font-semibold transition-all duration-300 shadow-lg whitespace-nowrap text-xs sm:text-sm lg:text-base
+                    ${activeTab === index
+                        ? "bg-linear-to-r from-cyan-600 via-blue-500 to-cyan-600 text-white shadow-xl shadow-cyan-500/25 scale-105"
+                        : "bg-white text-gray-700 hover:bg-cyan-50 hover:shadow-xl border border-cyan-100"
+                      }`}
+                  >
+                    <span className="flex items-center gap-1 sm:gap-2 lg:gap-3">
+                      {service.icon}
+                      {windowWidth >= 640 ? service.title : service.title.split(' ')[0]}
+                    </span>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="relative"
+            >
+              <div className="relative bg-linear-to-br from-white via-white to-cyan-50 border border-cyan-100/50 shadow-2xl rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden">
+                <div className="h-1 bg-linear-to-r from-cyan-500 via-blue-500 to-cyan-500" />
+                <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
+                  <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+                    <div>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div className="p-2 sm:p-2.5 lg:p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-lg sm:rounded-xl text-white w-fit">
+                          {services[activeTab].icon}
+                        </div>
+                        <div>
+                          <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800">
+                            {services[activeTab].title}
+                          </h3>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800">
-                          {services[activeTab].title}
+                      <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
+                        {services[activeTab].desc}
+                      </p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                        {services[activeTab].features.map((feature, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="flex items-center gap-2 sm:gap-3 bg-white/80 backdrop-blur-sm p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl border border-cyan-100 hover:border-cyan-300 transition-all"
+                          >
+                            <div className="p-1 sm:p-1.5 lg:p-2 bg-green-100 rounded-lg shrink-0">
+                              <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-green-600" />
+                            </div>
+                            <span className="text-xs sm:text-sm lg:text-base text-gray-700 font-medium">{feature}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                      <motion.a
+                        href="tel:+919843021579"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-5 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto justify-center"
+                      >
+                        <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span>Book This Service Now</span>
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                      </motion.a>
+                    </div>
+                    <div className="relative hidden md:block">
+                      <div className="relative h-48 sm:h-56 lg:h-64 xl:h-80 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
+                        <img
+                          src={roImages[activeTab % roImages.length]}
+                          alt={services[activeTab].title}
+                          loading="lazy"
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
+                      </div>
+                      <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
+                        <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
+                          <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">24/7</div>
+                          <div className="text-[10px] sm:text-xs text-gray-600">Support</div>
+                        </div>
+                        <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
+                          <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">100%</div>
+                          <div className="text-[10px] sm:text-xs text-gray-600">Guarantee</div>
+                        </div>
+                        <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
+                          <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">45 min</div>
+                          <div className="text-[10px] sm:text-xs text-gray-600">Response</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-6 sm:mt-8 lg:mt-12 pt-4 sm:pt-6 lg:pt-8 border-t border-cyan-100 hidden sm:block">
+                    <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-6">
+                      <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                        <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-green-500" />
+                        <span className="text-xs sm:text-sm text-gray-700">1 Year Service Warranty</span>
+                      </div>
+                      <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                        <Clock className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-amber-500" />
+                        <span className="text-xs sm:text-sm text-gray-700">Same Day Service Available</span>
+                      </div>
+                      <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+                        <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-500" />
+                        <span className="text-xs sm:text-sm text-gray-700">2000+ Satisfied Customers</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 md:hidden">
+              <button
+                onClick={() => setActiveTab((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
+                className="p-2 sm:p-3 bg-white rounded-full shadow-lg border border-cyan-100"
+              >
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
+              </button>
+              <button
+                onClick={() => setActiveTab((prev) => (prev === services.length - 1 ? 0 : prev + 1))}
+                className="p-2 sm:p-3 bg-white rounded-full shadow-lg border border-cyan-100"
+              >
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
+              </button>
+            </div>
+            <div className="mt-12 sm:mt-16 lg:mt-20 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 hidden sm:grid">
+              {services.slice(0, 3).map((service, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ y: -5 }}
+                  className="p-4 sm:p-5 lg:p-6 bg-white rounded-xl sm:rounded-2xl border border-cyan-100 shadow-lg hover:shadow-xl transition-all cursor-pointer"
+                  onClick={() => setActiveTab(index)}
+                >
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-2.5 lg:p-3 bg-cyan-100 rounded-lg sm:rounded-xl text-cyan-600">
+                      {service.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-800 text-sm sm:text-base lg:text-lg mb-1">{service.title}</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">{service.desc.substring(0, 50)}...</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+        <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
+          <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
+                Our <span className="text-cyan-600">RO Gallery</span>
+              </h2>
+              <p className={`${responsive.subheadingSize} text-gray-600`}>
+                See our RO installations and services
+              </p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
+              {roImages2.slice(0, windowWidth < 640 ? 4 : windowWidth < 1024 ? 6 : 8).map((image, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer group aspect-square"
+                >
+                  <img
+                    src={image}
+                    alt={`RO Installation ${index + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2 sm:p-3 lg:p-4">
+                    <span className="text-white font-semibold text-xs sm:text-sm">RO Service #{index + 1}</span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            {windowWidth < 640 && roImages2.length > 4 && (
+              <div className="text-center mt-4 sm:mt-6">
+                <button
+                  onClick={() => {/* Handle view more */ }}
+                  className="text-cyan-600 font-semibold text-sm hover:text-cyan-700 transition-colors"
+                >
+                  View More Photos →
+                </button>
+              </div>
+            )}
+          </div>
+        </section>
+        <section className={`py-12 sm:py-16 lg:py-20 bg-linear-to-b from-white to-cyan-50`}>
+          <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+            <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+              <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
+                Customer <span className="text-cyan-600">Reviews</span>
+              </h2>
+              <p className={`${responsive.subheadingSize} text-gray-600`}>
+                What our customers say about us
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              {testimonials.slice(0, windowWidth < 640 ? 1 : windowWidth < 1024 ? 2 : 3).map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                  className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100"
+                >
+                  <div className="flex items-center gap-1 text-amber-400 mb-3 sm:mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
+                    ))}
+                  </div>
+                  <p className="text-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base">"{testimonial.text}"</p>
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0">
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${colors[index % colors.length]} flex items-center justify-center text-white font-bold text-sm sm:text-base`}>
+                          {testimonial.name.charAt(0)}
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-900 text-sm sm:text-base">{testimonial.name}</div>
+                      <div className="text-xs sm:text-sm text-gray-600">{testimonial.role}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            {windowWidth < 640 && testimonials.length > 1 && (
+              <div className="text-center mt-4 sm:mt-6">
+                <button
+                  onClick={() => {/* Handle view more */ }}
+                  className="text-cyan-600 font-semibold text-sm hover:text-cyan-700 transition-colors"
+                >
+                  View More Reviews →
+                </button>
+              </div>
+            )}
+          </div>
+        </section>
+        <section className="py-12 sm:py-16 lg:py-20 bg-linear-to-r from-cyan-600 to-blue-600">
+          <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
+            <div className="text-center text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8">
+                Get Pure Water Today
+              </h2>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto opacity-90 px-4">
+                Call now for a free consultation and get 30% off on your first service
+              </p>
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto opacity-90 px-4">
+                Looking for RO service near you in Madurai? Aqua Tech RO System provides fast RO repair, installation, and maintenance at affordable prices.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 lg:mb-12 px-4">
+                <motion.a
+                  href="tel:+919843021579"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-cyan-600 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg"
+                >
+                  📞 Call Now: +91 98430 21579
+                </motion.a>
+                <motion.a
+                  href="https://wa.me/919843021579"
+                  target="_blank"
+                  className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-emerald-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg"
+                >
+                  💬 WhatsApp Now
+                </motion.a>
+              </div>
+              <div className="mt-6 mb-5 text-lg text-white sm:text-md">
+                ✔ 1000+ Happy Customers
+                ✔ 45 Min Quick Response
+                ✔ 100% Satisfaction Guarantee
+              </div>
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-2xl mx-auto px-4">
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">24/7</div>
+                  <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Service</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">98%</div>
+                  <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Satisfaction</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">45 min</div>
+                  <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Response</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-gray-900">
+                Frequently Asked <span className="text-cyan-600">Questions</span>
+              </h2>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto px-4">
+                Find answers to common questions about our RO services in Madurai
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-4 sm:space-y-6">
+                {/* FAQ Item 1 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                >
+                  <details className="group">
+                    <summary className="flex items-center justify-between cursor-pointer p-4 sm:p-6 lg:p-8 list-none">
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="p-2 sm:p-2.5 bg-cyan-100 rounded-lg sm:rounded-xl text-cyan-600 shrink-0">
+                          <Droplets className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-base sm:text-lg lg:text-xl">
+                          Which is the best RO service in Madurai?
                         </h3>
                       </div>
-                    </div>
-                    <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
-                      {services[activeTab].desc}
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
-                      {services[activeTab].features.map((feature, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: i * 0.1 }}
-                          className="flex items-center gap-2 sm:gap-3 bg-white/80 backdrop-blur-sm p-2 sm:p-3 lg:p-4 rounded-lg sm:rounded-xl border border-cyan-100 hover:border-cyan-300 transition-all"
-                        >
-                          <div className="p-1 sm:p-1.5 lg:p-2 bg-green-100 rounded-lg shrink-0">
-                            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-green-600" />
-                          </div>
-                          <span className="text-xs sm:text-sm lg:text-base text-gray-700 font-medium">{feature}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                    <motion.a
-                      href="tel:+919843021579"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-2 sm:gap-3 bg-linear-to-r from-cyan-600 to-blue-600 text-white px-5 sm:px-6 lg:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto justify-center"
-                    >
-                      <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
-                      <span>Book This Service Now</span>
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </motion.a>
-                  </div>
-                  <div className="relative hidden md:block">
-                    <div className="relative h-48 sm:h-56 lg:h-64 xl:h-80 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
-                      <img
-                        src={roImages[activeTab % roImages.length]}
-                        alt={services[activeTab].title}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
-                    </div>
-                    <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
-                      <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
-                        <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">24/7</div>
-                        <div className="text-[10px] sm:text-xs text-gray-600">Support</div>
+                      <div className="text-cyan-600 group-open:rotate-180 transition-transform duration-300">
+                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
-                      <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
-                        <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">100%</div>
-                        <div className="text-[10px] sm:text-xs text-gray-600">Guarantee</div>
+                    </summary>
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 lg:px-8 lg:pb-8 pt-0 border-t border-gray-100">
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        Aqua Tech RO System provides the best RO service in Madurai with fast response,
+                        expert technicians, and affordable pricing. We offer same-day service, genuine
+                        spare parts, and 100% satisfaction guarantee for all RO installation, repair,
+                        and maintenance needs.
+                      </p>
+                    </div>
+                  </details>
+                </motion.div>
+
+                {/* FAQ Item 2 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                >
+                  <details className="group">
+                    <summary className="flex items-center justify-between cursor-pointer p-4 sm:p-6 lg:p-8 list-none">
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="p-2 sm:p-2.5 bg-cyan-100 rounded-lg sm:rounded-xl text-cyan-600 shrink-0">
+                          <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-base sm:text-lg lg:text-xl">
+                          Do you provide same day RO service?
+                        </h3>
                       </div>
-                      <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
-                        <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">45 min</div>
-                        <div className="text-[10px] sm:text-xs text-gray-600">Response</div>
+                      <div className="text-cyan-600 group-open:rotate-180 transition-transform duration-300">
+                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
+                    </summary>
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 lg:px-8 lg:pb-8 pt-0 border-t border-gray-100">
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        Yes, we provide same day RO installation and repair service in Madurai.
+                        Our team of expert technicians is available 24/7 to respond to your service
+                        requests. Book your service before 12 PM for guaranteed same-day resolution.
+                      </p>
                     </div>
-                  </div>
-                </div>
-                <div className="mt-6 sm:mt-8 lg:mt-12 pt-4 sm:pt-6 lg:pt-8 border-t border-cyan-100 hidden sm:block">
-                  <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-6">
-                    <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
-                      <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-green-500" />
-                      <span className="text-xs sm:text-sm text-gray-700">1 Year Service Warranty</span>
+                  </details>
+                </motion.div>
+
+                {/* FAQ Item 3 */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                >
+                  <details className="group">
+                    <summary className="flex items-center justify-between cursor-pointer p-4 sm:p-6 lg:p-8 list-none">
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <div className="p-2 sm:p-2.5 bg-cyan-100 rounded-lg sm:rounded-xl text-cyan-600 shrink-0">
+                          <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-base sm:text-lg lg:text-xl">
+                          What is RO service cost in Madurai?
+                        </h3>
+                      </div>
+                      <div className="text-cyan-600 group-open:rotate-180 transition-transform duration-300">
+                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                      </div>
+                    </summary>
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 lg:px-8 lg:pb-8 pt-0 border-t border-gray-100">
+                      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        RO service cost in Madurai depends on the issue, but we offer affordable pricing
+                        with no hidden charges. Our service starts from just ₹399 for basic maintenance.
+                        Filter replacement, membrane change, and repair costs vary based on the model
+                        and parts required. Call us for a free estimate!
+                      </p>
                     </div>
-                    <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
-                      <Clock className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-amber-500" />
-                      <span className="text-xs sm:text-sm text-gray-700">Same Day Service Available</span>
-                    </div>
-                    <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
-                      <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-500" />
-                      <span className="text-xs sm:text-sm text-gray-700">2000+ Satisfied Customers</span>
-                    </div>
-                  </div>
-                </div>
+                  </details>
+                </motion.div>
               </div>
-            </div>
-          </motion.div>
-          <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 md:hidden">
-            <button
-              onClick={() => setActiveTab((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
-              className="p-2 sm:p-3 bg-white rounded-full shadow-lg border border-cyan-100"
-            >
-              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
-            </button>
-            <button
-              onClick={() => setActiveTab((prev) => (prev === services.length - 1 ? 0 : prev + 1))}
-              className="p-2 sm:p-3 bg-white rounded-full shadow-lg border border-cyan-100"
-            >
-              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
-            </button>
-          </div>
-          <div className="mt-12 sm:mt-16 lg:mt-20 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 hidden sm:grid">
-            {services.slice(0, 3).map((service, index) => (
+
+              {/* Additional Info Card */}
               <motion.div
-                key={index}
-                whileHover={{ y: -5 }}
-                className="p-4 sm:p-5 lg:p-6 bg-white rounded-xl sm:rounded-2xl border border-cyan-100 shadow-lg hover:shadow-xl transition-all cursor-pointer"
-                onClick={() => setActiveTab(index)}
-              >
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="p-2 sm:p-2.5 lg:p-3 bg-cyan-100 rounded-lg sm:rounded-xl text-cyan-600">
-                    {service.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-800 text-sm sm:text-base lg:text-lg mb-1">{service.title}</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">{service.desc.substring(0, 50)}...</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
-        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
-              Our <span className="text-cyan-600">RO Gallery</span>
-            </h2>
-            <p className={`${responsive.subheadingSize} text-gray-600`}>
-              See our RO installations and services
-            </p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
-            {roImages2.slice(0, windowWidth < 640 ? 4 : windowWidth < 1024 ? 6 : 8).map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="relative overflow-hidden rounded-lg sm:rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer group aspect-square"
-              >
-                <img
-                  src={image}
-                  alt={`RO Installation ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2 sm:p-3 lg:p-4">
-                  <span className="text-white font-semibold text-xs sm:text-sm">RO Service #{index + 1}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          {windowWidth < 640 && roImages2.length > 4 && (
-            <div className="text-center mt-4 sm:mt-6">
-              <button
-                onClick={() => {/* Handle view more */ }}
-                className="text-cyan-600 font-semibold text-sm hover:text-cyan-700 transition-colors"
-              >
-                View More Photos →
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
-      <section className={`py-12 sm:py-16 lg:py-20 bg-linear-to-b from-white to-cyan-50`}>
-        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
-          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <h2 className={`${responsive.headingSize} mb-4 sm:mb-6 text-gray-900`}>
-              Customer <span className="text-cyan-600">Reviews</span>
-            </h2>
-            <p className={`${responsive.subheadingSize} text-gray-600`}>
-              What our customers say about us
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {testimonials.slice(0, windowWidth < 640 ? 1 : windowWidth < 1024 ? 2 : 3).map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-100"
+                transition={{ delay: 0.4 }}
+                className="mt-8 sm:mt-10 lg:mt-12 bg-linear-to-r from-cyan-50 to-blue-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-cyan-100"
               >
-                <div className="flex items-center gap-1 text-amber-400 mb-3 sm:mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-600 mb-4 sm:mb-6 italic text-sm sm:text-base">"{testimonial.text}"</p>
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0">
-                    <div className="flex items-center gap-3 sm:gap-4">
-                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${colors[index % colors.length]} flex items-center justify-center text-white font-bold text-sm sm:text-base`}>
-                        {testimonial.name.charAt(0)}
-                      </div>
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="p-2 sm:p-3 bg-white rounded-full shadow-md">
+                      <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-800 text-sm sm:text-base">Still have questions?</h4>
+                      <p className="text-xs sm:text-sm text-gray-600">Our support team is here to help you</p>
                     </div>
                   </div>
-                  <div>
-                    <div className="font-bold text-gray-900 text-sm sm:text-base">{testimonial.name}</div>
-                    <div className="text-xs sm:text-sm text-gray-600">{testimonial.role}</div>
+                  <div className="flex gap-3">
+                    <a
+                      href="tel:+919843021579"
+                      className="inline-flex items-center gap-2 bg-cyan-600 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold text-sm hover:bg-cyan-700 transition-colors"
+                    >
+                      <Phone className="w-4 h-4" />
+                      Call Now
+                    </a>
+                    <a
+                      href="https://wa.me/919843021579"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-emerald-500 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg font-semibold text-sm hover:bg-emerald-600 transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                      WhatsApp
+                    </a>
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
-          {windowWidth < 640 && testimonials.length > 1 && (
-            <div className="text-center mt-4 sm:mt-6">
-              <button
-                onClick={() => {/* Handle view more */ }}
-                className="text-cyan-600 font-semibold text-sm hover:text-cyan-700 transition-colors"
-              >
-                View More Reviews →
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
-      <section className="py-12 sm:py-16 lg:py-20 bg-linear-to-r from-cyan-600 to-blue-600">
-        <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
-          <div className="text-center text-white">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 lg:mb-8">
-              Get Pure Water Today
-            </h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto opacity-90 px-4">
-              Call now for a free consultation and get 30% off on your first service
-            </p>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto opacity-90 px-4">
-              Looking for RO service near you in Madurai? Aqua Tech RO System provides fast RO repair, installation, and maintenance at affordable prices.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 lg:mb-12 px-4">
-              <motion.a
-                href="tel:+919843021579"
-                className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-white text-cyan-600 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg"
-              >
-                📞 Call Now: +91 98430 21579
-              </motion.a>
-              <motion.a
-                href="https://wa.me/919843021579"
-                target="_blank"
-                className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-emerald-500 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl font-bold text-sm sm:text-base lg:text-lg shadow-lg"
-              >
-                💬 WhatsApp Now
-              </motion.a>
-            </div>
-            <div className="mt-6 mb-5 text-lg text-white sm:text-md">
-              ✔ 1000+ Happy Customers
-              ✔ 45 Min Quick Response
-              ✔ 100% Satisfaction Guarantee
-            </div>
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-2xl mx-auto px-4">
-              <div className="text-center">
-                <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">24/7</div>
-                <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Service</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">98%</div>
-                <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold">45 min</div>
-                <div className="text-[10px] sm:text-xs lg:text-sm opacity-90">Response</div>
-              </div>
             </div>
           </div>
-        </div>
-      </section>
-      {selectedProduct && (
-        <ProductDetail
-          product={selectedProduct}
-          onClose={() => setSelectedProduct(null)}
-          onAddToCart={handleAddToCart}
-          onBuyNow={handleBuyNowFromDetail}
-        />
-      )}
-      <style jsx="true">{`
+        </section>
+
+        {selectedProduct && (
+          <ProductDetail
+            product={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+            onAddToCart={handleAddToCart}
+            onBuyNow={handleBuyNowFromDetail}
+          />
+        )}
+        <style jsx="true">{`
         @media (max-width: 320px) {
           .xs\\:grid-cols-2 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1184,7 +1396,7 @@ const Landingpage = () => {
           scrollbar-width: none;  /* Firefox */
         }
       `}</style>
-    </div>
+      </div></>
   );
 };
 export default Landingpage;
