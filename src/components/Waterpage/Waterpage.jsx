@@ -1,19 +1,16 @@
 import React from 'react';
 import { FaCheck, FaExclamationTriangle, FaTint, FaFilter, FaFlask, FaInfoCircle } from 'react-icons/fa';
-// import Navbar from '../Navbar/Navbar';
 import { motion } from "framer-motion";
 
 function Waterpage() {
     return (
         <>
-            {/* <Navbar /> */}
             <motion.div
                 className="max-w-5xl mx-auto px-4 py-10 font-sans text-gray-800"
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
             >
-                {/* 页面标题 */}
                 <header className="text-center mb-12">
                     <div className="inline-block px-6 py-2 bg-blue-50 rounded-full mb-4">
                         <span className="text-blue-600 font-medium">Water Quality Guide</span>
@@ -26,8 +23,6 @@ function Waterpage() {
                         Make informed decisions about your water purification needs
                     </p>
                 </header>
-
-                {/* TDS 介绍 */}
                 <section className="mb-12">
                     <div className="flex items-center mb-6">
                         <div className="bg-blue-100 p-2 rounded-lg mr-3">
@@ -35,12 +30,10 @@ function Waterpage() {
                         </div>
                         <h2 className="text-2xl font-bold text-gray-800">Understanding TDS in Water</h2>
                     </div>
-
                     <div className="bg-white border border-gray-200 rounded-xl p-6">
                         <p className="text-gray-700 mb-6">
                             <span className="font-bold text-blue-700">Total Dissolved Solids (TDS)</span> measures all inorganic and organic substances dissolved in water, expressed in mg/L. Not all dissolved solids are harmful - many are essential minerals.
                         </p>
-
                         <div className="grid md:grid-cols-2 gap-6">
                             <div>
                                 <h3 className="font-bold text-gray-800 mb-3">Key Facts</h3>
@@ -100,8 +93,6 @@ function Waterpage() {
                         </div>
                     </div>
                 </section>
-
-                {/* TDS 表格 - 核心内容 */}
                 <section className="mb-12">
                     <div className="flex items-center mb-6">
                         <div className="bg-blue-100 p-2 rounded-lg mr-3">
@@ -109,7 +100,6 @@ function Waterpage() {
                         </div>
                         <h2 className="text-2xl font-bold text-gray-800">TDS Guide & Purification Recommendations</h2>
                     </div>
-
                     <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
                         <div className="overflow-x-auto">
                             <table className="min-w-full divide-y divide-gray-200">
@@ -177,8 +167,6 @@ function Waterpage() {
                             <p className="text-sm text-gray-600">*BIS allows usage only in absence of alternatives</p>
                         </div>
                     </div>
-
-                    {/* 移动端视图 */}
                     <div className="md:hidden mt-6 space-y-4">
                         {[
                             { tds: "0-100 mg/L", level: "Very Low", safety: "Not Recommended", tech: "Gravity/MF/UF", color: "red" },
@@ -201,8 +189,6 @@ function Waterpage() {
                         ))}
                     </div>
                 </section>
-
-                {/* pH值部分 */}
                 <section className="mb-12">
                     <div className="flex items-center mb-6">
                         <div className="bg-blue-100 p-2 rounded-lg mr-3">
@@ -210,7 +196,6 @@ function Waterpage() {
                         </div>
                         <h2 className="text-2xl font-bold text-gray-800">Understanding pH Levels</h2>
                     </div>
-
                     <div className="bg-white border border-gray-200 rounded-xl p-6">
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
@@ -236,7 +221,6 @@ function Waterpage() {
                                     </div>
                                 </div>
                             </div>
-
                             <div>
                                 <div className="mb-6">
                                     <div className="flex justify-between text-sm text-gray-600 mb-2">
@@ -253,7 +237,6 @@ function Waterpage() {
                                         <p className="text-gray-600 mt-1">WHO Recommended Range</p>
                                     </div>
                                 </div>
-
                                 <div className="bg-blue-50 p-4 rounded-lg">
                                     <h4 className="font-bold text-blue-800 mb-2">Important Note</h4>
                                     <p className="text-sm text-gray-700">
@@ -264,11 +247,8 @@ function Waterpage() {
                         </div>
                     </div>
                 </section>
-
-                {/* 影响因素 */}
                 <section className="mb-12">
                     <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">Key Water Quality Factors</h2>
-
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
                             <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4">
@@ -279,7 +259,6 @@ function Waterpage() {
                                 Municipal, bore-well, or tanker water each have unique purification needs.
                             </p>
                         </div>
-
                         <div className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
                             <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4">
                                 <span className="font-bold text-blue-600">2</span>
@@ -289,7 +268,6 @@ function Waterpage() {
                                 Bypass valves mix impure water with RO output, defeating the purification purpose.
                             </p>
                         </div>
-
                         <div className="bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
                             <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4">
                                 <span className="font-bold text-blue-600">3</span>
@@ -301,12 +279,9 @@ function Waterpage() {
                         </div>
                     </div>
                 </section>
-
-                {/* 结论部分 */}
                 <section className="mb-12">
                     <div className="bg-blue-50 border border-blue-100 rounded-xl p-8">
                         <h2 className="text-2xl font-bold text-blue-800 mb-6 text-center">Key Takeaways</h2>
-
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
                                 <h3 className="font-bold text-gray-800 mb-4">Summary</h3>
@@ -337,7 +312,6 @@ function Waterpage() {
                                     </li>
                                 </ul>
                             </div>
-
                             <div>
                                 <h3 className="font-bold text-gray-800 mb-4">Final Recommendation</h3>
                                 <div className="bg-white p-4 rounded-lg">
@@ -355,8 +329,6 @@ function Waterpage() {
                         </div>
                     </div>
                 </section>
-
-                {/* 页脚 */}
                 <footer className="text-center pt-8 border-t border-gray-200">
                     <p className="text-gray-600 text-sm">
                         Based on WHO and BIS recommendations. Consult local water experts for specific advice.
@@ -366,5 +338,4 @@ function Waterpage() {
         </>
     );
 }
-
 export default Waterpage;

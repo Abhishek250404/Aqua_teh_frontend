@@ -3,27 +3,26 @@ import logo from "../../assets/logo.png";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-12">
+    <footer className="bg-linear-to-br from-slate-900 via-slate-800 to-blue-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Contact Info Card with Logo */}
         <div className="transform transition-transform hover:scale-[1.02] duration-300">
           <div className="bg-slate-800/70 backdrop-blur-sm p-6 rounded-2xl shadow-2xl border border-teal-500/20 hover:border-teal-400/40 transition-all h-full flex flex-col">
             {/* Logo Section */}
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-12 h-12 bg-linear-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center shadow-lg">
                 <img src={logo} alt="" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-400">
-                  Aqua Tech Ro System
+                <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-teal-300 to-cyan-400">
+                  Aqua Tech  Ro System
                 </h2>
                 <p className="text-slate-300 text-sm">Pure Water. Healthy Life. Trusted RO Solutions.</p>
               </div>
             </div>
-
-            <div className="space-y-4 flex-grow">
+            <div className="space-y-4 grow">
               <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-teal-500/20 to-cyan-500/20 p-2 rounded-lg">
+                <div className="bg-linear-to-br from-teal-500/20 to-cyan-500/20 p-2 rounded-lg">
                   <i className="fas fa-building text-cyan-300"></i>
                 </div>
                 <div>
@@ -31,9 +30,8 @@ function Footer() {
                   <p className="text-slate-300 text-sm">Madurai, Tamil Nadu 625014</p>
                 </div>
               </div>
-
               <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-rose-500/20 to-pink-500/20 p-2 rounded-lg">
+                <div className="bg-linear-to-br from-rose-500/20 to-pink-500/20 p-2 rounded-lg">
                   <i className="fas fa-globe text-rose-300"></i>
                 </div>
                 <a
@@ -45,9 +43,8 @@ function Footer() {
                   aquatechrosystem.in
                 </a>
               </div>
-
               <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-emerald-500/20 to-green-500/20 p-2 rounded-lg">
+                <div className="bg-linear-to-br from-emerald-500/20 to-green-500/20 p-2 rounded-lg">
                   <i className="fas fa-phone text-emerald-300"></i>
                 </div>
                 <a
@@ -57,9 +54,8 @@ function Footer() {
                   +91 98430 21579
                 </a>
               </div>
-
               <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-amber-500/20 to-yellow-500/20 p-2 rounded-lg">
+                <div className="bg-linear-to-br from-amber-500/20 to-yellow-500/20 p-2 rounded-lg">
                   <i className="fas fa-envelope text-amber-300"></i>
                 </div>
                 <a
@@ -72,18 +68,15 @@ function Footer() {
             </div>
           </div>
         </div>
-
-        {/* Map Card */}
         <div className="transform transition-transform hover:scale-[1.02] duration-300">
           <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-blue-500/20 hover:border-blue-400/40 transition-all h-full flex flex-col">
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-transparent to-transparent z-10 pointer-events-none"></div>
             <div className="p-4 bg-slate-800/70 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center">
-                  {/* <i className="fas fa-map-marked-alt text-white"></i> */}
+                <div className="w-10 h-10 bg-linear-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center">
                   <HiOutlineLocationMarker size={25} />
                 </div>
-                <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-300 to-blue-400">
+                <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-sky-300 to-blue-400">
                   Visit Us
                 </h2>
               </div>
@@ -93,7 +86,7 @@ function Footer() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.43311754654!2d78.14021647507779!3d9.981035690123408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c724a7f78e55%3A0x1be471c5b566053!2sAqua%20Tech%20Ro%20System!5e0!3m2!1sen!2sin!4v1770128574285!5m2!1sen!2sin"
               width="100%"
               height="200"
-              className="rounded-b-2xl transition-all duration-500 flex-grow"
+              className="rounded-b-2xl transition-all duration-500 grow"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
@@ -104,23 +97,16 @@ function Footer() {
             </div>
           </div>
         </div>
-
-        {/* Quick Links Card with Logo */}
         <div className="transform transition-transform hover:scale-[1.02] duration-300">
           <div className="bg-slate-800/70 backdrop-blur-sm p-6 rounded-2xl shadow-2xl border border-indigo-500/20 hover:border-indigo-400/40 transition-all h-full flex flex-col">
-            {/* Logo Section */}
             <div className="flex items-center gap-3 mb-6">
-              {/* <div className="w-12 h-12 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                <i className="fas fa-link text-white text-xl"></i>
-              </div> */}
-              <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-indigo-400">
+              <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-violet-300 to-indigo-400">
                 Quick Links
               </h2>
             </div>
-
-            <div className="grid grid-cols-2 gap-3 mb-8 flex-grow">
-              <a href="/" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-gradient-to-r hover:from-blue-900/40 hover:to-cyan-900/40 transition-all duration-300 border border-slate-700/50 hover:border-cyan-500/30 h-full">
-                <div className="bg-gradient-to-br from-blue-500/20 to-cyan-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="grid grid-cols-2 gap-3 mb-8 grow">
+              <a href="/" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-blue-900/40 hover:to-cyan-900/40 transition-all duration-300 border border-slate-700/50 hover:border-cyan-500/30 h-full">
+                <div className="bg-linear-to-br from-blue-500/20 to-cyan-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-home text-blue-300"></i>
                 </div>
                 <div>
@@ -128,9 +114,8 @@ function Footer() {
                   <span className="text-slate-400 text-xs group-hover:text-cyan-300">Main Page</span>
                 </div>
               </a>
-
-              <a href="/about" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-gradient-to-r hover:from-emerald-900/40 hover:to-teal-900/40 transition-all duration-300 border border-slate-700/50 hover:border-emerald-500/30 h-full">
-                <div className="bg-gradient-to-br from-emerald-500/20 to-teal-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+              <a href="/about" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-emerald-900/40 hover:to-teal-900/40 transition-all duration-300 border border-slate-700/50 hover:border-emerald-500/30 h-full">
+                <div className="bg-linear-to-br from-emerald-500/20 to-teal-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-info-circle text-emerald-300"></i>
                 </div>
                 <div>
@@ -138,9 +123,8 @@ function Footer() {
                   <span className="text-slate-400 text-xs group-hover:text-emerald-300">Our Story</span>
                 </div>
               </a>
-
-              <a href="/services" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-gradient-to-r hover:from-violet-900/40 hover:to-purple-900/40 transition-all duration-300 border border-slate-700/50 hover:border-violet-500/30 h-full">
-                <div className="bg-gradient-to-br from-violet-500/20 to-purple-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+              <a href="/services" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-violet-900/40 hover:to-purple-900/40 transition-all duration-300 border border-slate-700/50 hover:border-violet-500/30 h-full">
+                <div className="bg-linear-to-br from-violet-500/20 to-purple-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-cogs text-violet-300"></i>
                 </div>
                 <div>
@@ -148,9 +132,8 @@ function Footer() {
                   <span className="text-slate-400 text-xs group-hover:text-violet-300">What we do</span>
                 </div>
               </a>
-
-              <a href="/contact" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-gradient-to-r hover:from-amber-900/40 hover:to-orange-900/40 transition-all duration-300 border border-slate-700/50 hover:border-amber-500/30 h-full">
-                <div className="bg-gradient-to-br from-amber-500/20 to-orange-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
+              <a href="/contact" className="group flex items-center gap-3 p-3 rounded-xl bg-slate-700/40 hover:bg-linear-to-r hover:from-amber-900/40 hover:to-orange-900/40 transition-all duration-300 border border-slate-700/50 hover:border-amber-500/30 h-full">
+                <div className="bg-linear-to-br from-amber-500/20 to-orange-500/20 p-2 rounded-lg group-hover:scale-110 transition-transform duration-300">
                   <i className="fas fa-envelope text-amber-300"></i>
                 </div>
                 <div>
@@ -159,34 +142,9 @@ function Footer() {
                 </div>
               </a>
             </div>
-
-            {/* Social Media
-            <div className="mt-auto">
-              <h3 className="text-lg font-semibold mb-4 text-slate-300">Connect With Us</h3>
-              <div className="flex gap-2">
-                <a href="#" className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-2 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm">
-                  <i className="fab fa-facebook-f"></i>
-                  <span>FB</span>
-                </a>
-                <a href="#" className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-2 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm">
-                  <i className="fab fa-whatsapp"></i>
-                  <span>WA</span>
-                </a>
-                <a href="#" className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-400 hover:to-rose-500 text-white px-2 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm">
-                  <i className="fab fa-instagram"></i>
-                  <span>IG</span>
-                </a>
-                <a href="#" className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white px-2 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm">
-                  <i className="fab fa-linkedin-in"></i>
-                  <span>IN</span>
-                </a>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>
-
-      {/* Bottom Section - Elegant */}
       <div className="mt-12 pt-6 border-t border-slate-700/50">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
@@ -195,11 +153,10 @@ function Footer() {
               Pure Water Solutions for a Better Tomorrow
             </p>
           </div>
-
           <div className="text-center">
             <p className="text-slate-400 text-sm">
               &copy; {new Date().getFullYear()}{" "}
-              <span className="font-bold bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+              <span className="font-bold bg-linear-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 Aquatechro
               </span>
               . All rights reserved.
@@ -208,7 +165,6 @@ function Footer() {
               Made with <i className="fas fa-heart text-rose-400 mx-1 animate-pulse"></i> for clean water
             </p>
           </div>
-
           <div>
             <div className="flex gap-4 text-slate-400 text-sm">
               <a href="#" className="hover:text-cyan-300 transition-colors duration-300">Privacy Policy</a>
@@ -223,5 +179,4 @@ function Footer() {
     </footer>
   );
 }
-
 export default Footer;

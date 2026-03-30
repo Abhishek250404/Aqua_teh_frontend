@@ -21,7 +21,6 @@ import {
   Share2,
   Phone
 } from 'lucide-react';
-
 const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
   const [activeTab, setActiveTab] = useState('description');
   const [selectedImage, setSelectedImage] = useState(0);
@@ -31,7 +30,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
   const [isZoomed, setIsZoomed] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobileDetail, setIsMobileDetail] = useState(false);
-
   useEffect(() => {
     const checkMobile = () => {
       setIsMobileDetail(window.innerWidth < 768);
@@ -40,23 +38,18 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  // Prevent body scroll
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, []);
-
   const nextImage = () => {
     setSelectedImage((prev) => (prev + 1) % product.images.length);
   };
-
   const prevImage = () => {
     setSelectedImage((prev) => (prev - 1 + product.images.length) % product.images.length);
   };
-
   const handleMouseMove = (e) => {
     if (!isZoomed) return;
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -64,7 +57,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
     const y = ((e.clientY - top) / height) * 100;
     setMousePosition({ x, y });
   };
-
   const handleAddToCart = () => {
     if (onAddToCart) {
       onAddToCart(product, quantity);
@@ -72,7 +64,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
       console.log('Added to cart:', product.name, quantity);
     }
   };
-
   const handleBuyNow = () => {
     if (onBuyNow) {
       onBuyNow(product, quantity);
@@ -80,7 +71,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
       console.log('Buy now:', product.name, quantity);
     }
   };
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -88,7 +78,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-100 bg-white overflow-y-auto"
     >
-      {/* Sticky Header */}
       <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b shadow-sm">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-2 sm:py-3 lg:py-4">
           <div className="flex items-center justify-between">
@@ -102,7 +91,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
               </div>
               <span className="text-xs sm:text-sm font-medium hidden xs:inline">Back</span>
             </motion.button>
-
             <div className="flex items-center gap-1 sm:gap-2 lg:gap-3">
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -112,7 +100,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
               >
                 <Heart className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors ${isWishlisted ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} />
               </motion.button>
-
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -121,7 +108,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
               >
                 <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
               </motion.button>
-
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -130,7 +116,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
               >
                 <Share2 className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
               </motion.button>
-
               <AnimatePresence>
                 {showShareOptions && (
                   <motion.div
@@ -157,13 +142,9 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
           </div>
         </div>
       </div>
-
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 py-4 sm:py-6 lg:py-8">
-        {/* Product Main Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 xl:gap-12 mb-8 sm:mb-10 lg:mb-12">
-          {/* Product Images */}
           <div>
-            {/* Main Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -195,8 +176,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                   }}
                 />
               )}
-
-              {/* Badges */}
               <div className="absolute top-2 sm:top-3 lg:top-4 left-2 sm:left-3 lg:left-4 z-10 flex flex-col gap-1 sm:gap-2">
                 {product.badge && (
                   <motion.span
@@ -210,8 +189,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                   </motion.span>
                 )}
               </div>
-
-              {/* Discount Badge */}
               {product.originalPrice && (
                 <motion.div
                   initial={{ scale: 0 }}
@@ -224,8 +201,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                   </span>
                 </motion.div>
               )}
-
-              {/* Navigation Arrows */}
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -244,14 +219,10 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
               >
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
-
-              {/* Image Counter */}
               <div className="absolute bottom-2 sm:bottom-3 lg:bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs z-10">
                 {selectedImage + 1} / {product.images.length}
               </div>
             </motion.div>
-
-            {/* Thumbnail Gallery */}
             <div className="grid grid-cols-4 gap-1 sm:gap-2 lg:gap-3 xl:gap-4">
               {product.images.map((image, index) => (
                 <motion.button
@@ -269,10 +240,7 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
               ))}
             </div>
           </div>
-
-          {/* Product Info */}
           <div className="mt-4 lg:mt-0">
-            {/* Brand and Model */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -285,8 +253,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                 {product.model}
               </span>
             </motion.div>
-
-            {/* Title */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -300,8 +266,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
             >
               {product.name}
             </motion.h1>
-
-            {/* Rating */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -319,8 +283,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                 {product.stock}
               </span>
             </motion.div>
-
-            {/* Description */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -329,8 +291,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
             >
               <p className="text-xs sm:text-sm lg:text-base text-gray-700 leading-relaxed">{product.description}</p>
             </motion.div>
-
-            {/* Price */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -364,8 +324,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                 )}
               </div>
             </motion.div>
-
-            {/* Key Features */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -389,8 +347,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                 ))}
               </div>
             </motion.div>
-
-            {/* Quantity and Actions */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -427,7 +383,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                   Only 10 left!
                 </div>
               </div>
-
               <div className="flex flex-col xs:flex-row gap-2 sm:gap-3">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
@@ -438,7 +393,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                   <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform" />
                   Add to Cart
                 </motion.button>
-
                 <motion.a
                   href="tel:9843021579"
                   whileHover={{ scale: 1.02 }}
@@ -458,8 +412,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                 </motion.a>
               </div>
             </motion.div>
-
-            {/* Delivery Info */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -487,8 +439,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                 </motion.div>
               ))}
             </motion.div>
-
-            {/* Limited Time Offer */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -512,10 +462,7 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
             </motion.div>
           </div>
         </div>
-
-        {/* Tabs Section */}
         <div className="mb-8 sm:mb-10 lg:mb-12">
-          {/* Tab Headers */}
           <div className="border-b overflow-x-auto scrollbar-hide">
             <div className="flex gap-1 sm:gap-2 min-w-max pb-0.5">
               {[
@@ -543,8 +490,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
               ))}
             </div>
           </div>
-
-          {/* Tab Content */}
           <div className="py-4 sm:py-6 lg:py-8">
             <AnimatePresence mode="wait">
               {activeTab === 'description' && (
@@ -579,7 +524,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                   </div>
                 </motion.div>
               )}
-
               {activeTab === 'specifications' && (
                 <motion.div
                   key="specifications"
@@ -603,7 +547,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                   ))}
                 </motion.div>
               )}
-
               {activeTab === 'reviews' && (
                 <motion.div
                   key="reviews"
@@ -613,7 +556,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                   transition={{ duration: 0.3 }}
                   className="space-y-4 sm:space-y-5 lg:space-y-6"
                 >
-                  {/* Rating Summary */}
                   <div className="bg-linear-to-r from-amber-50 to-orange-50 p-4 sm:p-5 lg:p-6 rounded-lg sm:rounded-xl lg:rounded-2xl mb-4 sm:mb-5 lg:mb-6">
                     <div className="flex flex-col xs:flex-row items-start xs:items-center gap-3 sm:gap-4">
                       <div className="text-center">
@@ -638,8 +580,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                       </motion.button>
                     </div>
                   </div>
-
-                  {/* Reviews List */}
                   {product.reviewList && product.reviewList.length > 0 ? (
                     product.reviewList.map((review, idx) => (
                       <motion.div
@@ -670,8 +610,6 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
                           </div>
                         </div>
                         <p className="text-gray-700 text-xs sm:text-sm ml-8 sm:ml-10">{review.comment}</p>
-
-                        {/* Review Actions */}
                         <div className="flex items-center gap-3 sm:gap-4 mt-2 ml-8 sm:ml-10">
                           <motion.button
                             whileHover={{ scale: 1.05 }}
@@ -697,19 +635,15 @@ const ProductDetail = ({ product, onClose, onAddToCart, onBuyNow }) => {
             </AnimatePresence>
           </div>
         </div>
-
-        {/* Related Products */}
         <div>
           <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-5 lg:mb-6 flex items-center gap-2">
             <span className="w-1 h-5 sm:h-6 lg:h-8 bg-linear-to-b from-cyan-600 to-blue-600 rounded-full"></span>
             You May Also Like
           </h2>
-          {/* Note: Related products logic should be handled by parent component */}
           <p className="text-gray-500 text-center py-4">Related products will be displayed here</p>
         </div>
       </div>
     </motion.div>
   );
 };
-
 export default ProductDetail;

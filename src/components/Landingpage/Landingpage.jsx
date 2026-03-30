@@ -55,20 +55,16 @@ import sonnet from "../../assets/machine/sonnet.webp";
 import waterpia from "../../assets/machine/waterpia.jpg";
 import jade from "../../assets/machine/jade.avif";
 import dol from "../../assets/machine/dol.jpg";
-// Import ProductDetail component
-
 const Landingpage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
-
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -399,32 +395,23 @@ const Landingpage = () => {
       ]
     },
   ];
-
-  // Function to handle product click for detailed view
   const handleProductClick = (product) => {
     setSelectedProduct(product);
     setSelectedImage(0);
     setQuantity(1);
   };
-
-  // Function to handle Buy Now
   const handleBuyNow = (productId, e) => {
     e.stopPropagation();
     alert(`Adding product ${productId} to cart...`);
   };
-
-  // Function to handle Add to Cart from detail view
   const handleAddToCart = (product, quantity) => {
     console.log('Added to cart:', product.name, quantity);
     alert(`${product.name} added to cart!`);
   };
-
-  // Function to handle Buy Now from detail view
   const handleBuyNowFromDetail = (product, quantity) => {
     console.log('Buy now:', product.name, quantity);
     alert(`Proceeding to buy ${product.name}`);
   };
-
   const roImages2 = [
     in1,
     in2,
@@ -435,7 +422,6 @@ const Landingpage = () => {
     in7,
     in8,
   ];
-
   const roImages = [
     'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80',
     'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
@@ -446,14 +432,12 @@ const Landingpage = () => {
     'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80',
     'https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=800&q=80',
   ];
-
   const stats = [
     { value: '5000+', label: 'Happy Customers', icon: <Users className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" /> },
     { value: '15+', label: 'Years Experience', icon: <Award className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" /> },
     { value: '98%', label: 'Satisfaction', icon: <Star className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" /> },
     { value: '45 min', label: 'Response Time', icon: <Clock className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" /> },
   ];
-
   const features = [
     {
       icon: <Filter className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />,
@@ -480,7 +464,6 @@ const Landingpage = () => {
       image: hours
     },
   ];
-
   const [activeTab, setActiveTab] = useState(0);
   const services = [
     {
@@ -527,8 +510,6 @@ const Landingpage = () => {
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80'
     }
   ];
-
-  // Responsive font sizes and spacing
   const getResponsiveClasses = () => {
     return {
       sectionPadding: 'py-12 sm:py-16 md:py-20',
@@ -538,30 +519,16 @@ const Landingpage = () => {
       bodyText: 'text-sm sm:text-base md:text-lg',
     };
   };
-
   const responsive = getResponsiveClasses();
-
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
-      {/* Mobile Menu Button - Add if needed */}
-      <button
-        className="fixed top-4 right-4 z-50 lg:hidden bg-white p-2 rounded-lg shadow-lg"
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-      >
-        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-      </button>
-
-      {/* Hero Section */}
       <section className="relative min-h-150 sm:min-h-175 lg:min-h-screen overflow-hidden bg-linear-to-br from-cyan-50 via-blue-50 to-cyan-100">
-        {/* Background Pattern - Reduced opacity for mobile */}
         <div
           className="absolute inset-0 opacity-5 sm:opacity-10"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50L50 0L100 50L50 100Z' fill='%2306b6d4' fill-opacity='0.1'/%3E%3C/svg%3E")`,
           }}
         ></div>
-
-        {/* Water Droplets - Hidden on very small screens */}
         {windowWidth > 640 && [...Array(20)].map((_, i) => (
           <motion.div
             key={i}
@@ -584,7 +551,6 @@ const Landingpage = () => {
             <Droplets />
           </motion.div>
         ))}
-
         <div className={`relative max-w-7xl mx-auto ${responsive.containerPadding} pt-16 sm:pt-20 lg:pt-24 pb-12 sm:pb-16 lg:pb-20`}>
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             <motion.div
@@ -597,7 +563,6 @@ const Landingpage = () => {
                 <span className="text-base sm:text-lg">🏆</span>
                 <span className="text-sm sm:text-base font-semibold">#1 RO Service in Madurai</span>
               </div>
-
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 lg:mb-8">
                 <span className="text-gray-900 block">
                   Best RO Water Purifier Service in Madurai
@@ -609,13 +574,11 @@ const Landingpage = () => {
                   ✔ Same Day Service | ✔ Affordable Price | ✔ Expert Technicians
                 </p>
               </h1>
-
               <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8 lg:mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 Aqua Tech RO System offers professional RO water purifier service in Madurai for homes and offices.
                 We provide installation, repair, filter replacement, and complete maintenance for all types of RO systems.
                 Facing bad taste, low water flow, or service issues? Our expert technicians will fix it quickly using genuine spare parts.
               </p>
-
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10 lg:mb-12">
                 <motion.a
                   href="tel:+919843021579"
@@ -626,7 +589,6 @@ const Landingpage = () => {
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span className="whitespace-nowrap">Book Free Demo</span>
                 </motion.a>
-
                 <motion.a
                   href="#services"
                   whileHover={{ scale: 1.05 }}
@@ -637,8 +599,6 @@ const Landingpage = () => {
                   <span>View Services</span>
                 </motion.a>
               </div>
-
-              {/* Stats - Responsive grid */}
               <div className="grid grid-cols-5 sm:grid-cols-5 gap-3 sm:gap-4 lg:gap-6 max-w-2xl mx-auto lg:mx-0">
                 {stats.map((stat, index) => (
                   <motion.div
@@ -666,8 +626,6 @@ const Landingpage = () => {
                 ))}
               </div>
             </motion.div>
-
-            {/* Hero Image - Hidden on mobile, visible on tablet and up */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -680,8 +638,6 @@ const Landingpage = () => {
                   alt="RO Water Purifier"
                   className="rounded-2xl sm:rounded-3xl shadow-2xl w-full h-75 sm:h-100 lg:h-125 object-cover"
                 />
-
-                {/* Floating Badges - Adjusted positions for tablet */}
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -692,7 +648,6 @@ const Landingpage = () => {
                     <div className="text-xs sm:text-sm">First Service</div>
                   </div>
                 </motion.div>
-
                 <motion.div
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
@@ -708,8 +663,6 @@ const Landingpage = () => {
           </div>
         </div>
       </section>
-
-      {/* Products Section */}
       <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
         <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
           <div className="text-center mb-10 sm:mb-12 lg:mb-16">
@@ -720,8 +673,6 @@ const Landingpage = () => {
               Explore our wide range of high-quality RO water purifiers from top brands
             </p>
           </div>
-
-          {/* Products Grid - Responsive columns */}
           <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10 lg:mb-12">
             {products.slice(0, windowWidth < 640 ? 2 : windowWidth < 768 ? 4 : windowWidth < 1024 ? 6 : 8).map((product, index) => (
               <motion.div
@@ -734,22 +685,17 @@ const Landingpage = () => {
                 onClick={() => handleProductClick(product)}
                 className="group bg-white rounded-xl sm:rounded-2xl border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer"
               >
-                {/* Product Image */}
                 <div className="relative h-40 xs:h-44 sm:h-48 overflow-hidden bg-gray-100">
                   <img
                     src={product.images[0]}
                     alt={product.name}
                     className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                   />
-
-                  {/* Category Badge */}
                   <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
                     <span className="px-2 sm:px-3 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold rounded-full bg-linear-to-r from-cyan-500 to-blue-500 text-white">
                       {product.badge || 'NEW'}
                     </span>
                   </div>
-
-                  {/* Quick Actions - Hidden on very small screens */}
                   <div className="absolute top-2 sm:top-4 right-2 sm:right-4 flex gap-1 sm:gap-2">
                     <button
                       className="p-1.5 sm:p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
@@ -765,8 +711,6 @@ const Landingpage = () => {
                     </button>
                   </div>
                 </div>
-
-                {/* Product Info */}
                 <div className="p-3 sm:p-4 lg:p-6">
                   {/* Rating */}
                   <div className="flex items-center gap-0.5 sm:gap-1 mb-1 sm:mb-2 lg:mb-3">
@@ -778,18 +722,12 @@ const Landingpage = () => {
                     ))}
                     <span className="text-[10px] sm:text-xs text-gray-500 ml-1">({product.rating})</span>
                   </div>
-
-                  {/* Name */}
                   <h3 className="font-bold text-gray-900 text-sm sm:text-base lg:text-lg mb-1 lg:mb-2 line-clamp-1">
                     {product.name}
                   </h3>
-
-                  {/* Description - Hidden on very small screens */}
                   <p className="text-gray-600 text-xs sm:text-sm mb-2 lg:mb-4 line-clamp-2 hidden xs:block">
                     {product.description}
                   </p>
-
-                  {/* Features - Show fewer on mobile */}
                   <div className="space-y-0.5 sm:space-y-1 mb-3 sm:mb-4 lg:mb-6">
                     {product.features.slice(0, windowWidth < 640 ? 1 : 2).map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-1 sm:gap-2">
@@ -798,8 +736,6 @@ const Landingpage = () => {
                       </div>
                     ))}
                   </div>
-
-                  {/* Price */}
                   <div className="flex items-center justify-between mb-3 sm:mb-4 lg:mb-6">
                     <div>
                       <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">
@@ -813,8 +749,6 @@ const Landingpage = () => {
                       SAVE ₹{(product.originalPrice - product.price).toLocaleString('en-IN')}
                     </span>
                   </div>
-
-                  {/* Action Buttons */}
                   <div className="flex gap-2">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
@@ -826,7 +760,6 @@ const Landingpage = () => {
                       <span className="hidden xs:inline">Buy</span>
                       <span className="xs:hidden">Buy</span>
                     </motion.button>
-
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -843,8 +776,6 @@ const Landingpage = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* View More Products Button */}
           <div className="text-center">
             <motion.button
               onClick={() => window.location.href = "/product"}
@@ -857,24 +788,8 @@ const Landingpage = () => {
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </div>
-
-          {/* Brands Banner - Scrollable on mobile */}
-          {/* <div className="mt-12 sm:mt-16 lg:mt-20 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8">
-            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-center mb-4 sm:mb-6 lg:mb-8 text-gray-800">
-              Trusted by Top Brands
-            </h3>
-            <div className="flex overflow-x-auto pb-2 sm:pb-0 sm:grid sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 lg:gap-6 items-center scrollbar-hide">
-              {['Kent', 'Aquaguard', 'Pureit', 'Livpure', 'AO Smith', 'Blue Star', 'Whirlpool', 'HUL'].map((brand, idx) => (
-                <div key={idx} className="flex-shrink-0 w-24 sm:w-auto text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                  <span className="font-bold text-gray-800 text-xs sm:text-sm lg:text-base whitespace-nowrap">{brand}</span>
-                </div>
-              ))}
-            </div>
-          </div> */}
         </div>
       </section>
-
-      {/* Features Section */}
       <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
         <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -885,7 +800,6 @@ const Landingpage = () => {
               Premium water purification solutions with guaranteed results
             </p>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {features.map((feature, index) => (
               <motion.div
@@ -916,8 +830,6 @@ const Landingpage = () => {
           </div>
         </div>
       </section>
-
-      {/* Services Section */}
       <section className={`py-12 sm:py-16 lg:py-20 bg-linear-to-b from-cyan-50 to-white`}>
         <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -928,8 +840,6 @@ const Landingpage = () => {
               Expert RO solutions tailored to your needs with guaranteed quality and satisfaction
             </p>
           </div>
-
-          {/* Tab Buttons - Horizontal scroll on mobile */}
           <div className="relative mb-8 sm:mb-12 lg:mb-16">
             <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:flex-wrap sm:justify-center gap-2 sm:gap-3 lg:gap-4 scrollbar-hide">
               {services.map((service, index) => (
@@ -952,8 +862,6 @@ const Landingpage = () => {
               ))}
             </div>
           </div>
-
-          {/* Content Card */}
           <motion.div
             key={activeTab}
             initial={{ opacity: 0, y: 20 }}
@@ -963,10 +871,8 @@ const Landingpage = () => {
           >
             <div className="relative bg-linear-to-br from-white via-white to-cyan-50 border border-cyan-100/50 shadow-2xl rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden">
               <div className="h-1 bg-linear-to-r from-cyan-500 via-blue-500 to-cyan-500" />
-
               <div className="p-4 sm:p-6 lg:p-8 xl:p-12">
                 <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-                  {/* Left Content */}
                   <div>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
                       <div className="p-2 sm:p-2.5 lg:p-3 bg-linear-to-r from-cyan-500 to-blue-600 rounded-lg sm:rounded-xl text-white w-fit">
@@ -978,12 +884,9 @@ const Landingpage = () => {
                         </h3>
                       </div>
                     </div>
-
                     <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 lg:mb-8 leading-relaxed">
                       {services[activeTab].desc}
                     </p>
-
-                    {/* Features - Responsive grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
                       {services[activeTab].features.map((feature, i) => (
                         <motion.div
@@ -1000,8 +903,6 @@ const Landingpage = () => {
                         </motion.div>
                       ))}
                     </div>
-
-                    {/* CTA Button */}
                     <motion.a
                       href="tel:+919843021579"
                       whileHover={{ scale: 1.05 }}
@@ -1013,8 +914,6 @@ const Landingpage = () => {
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </motion.a>
                   </div>
-
-                  {/* Right Image - Hidden on mobile */}
                   <div className="relative hidden md:block">
                     <div className="relative h-48 sm:h-56 lg:h-64 xl:h-80 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
                       <img
@@ -1024,8 +923,6 @@ const Landingpage = () => {
                       />
                       <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent" />
                     </div>
-
-                    {/* Stats - Hidden on tablet and below */}
                     <div className="mt-4 sm:mt-6 grid grid-cols-3 gap-2 sm:gap-3 lg:gap-4">
                       <div className="text-center p-2 sm:p-3 lg:p-4 bg-white rounded-lg sm:rounded-xl border border-cyan-100">
                         <div className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-cyan-600">24/7</div>
@@ -1042,8 +939,6 @@ const Landingpage = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Bottom Info Bar - Hidden on mobile */}
                 <div className="mt-6 sm:mt-8 lg:mt-12 pt-4 sm:pt-6 lg:pt-8 border-t border-cyan-100 hidden sm:block">
                   <div className="flex flex-wrap items-center justify-between gap-4 sm:gap-6">
                     <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
@@ -1063,8 +958,6 @@ const Landingpage = () => {
               </div>
             </div>
           </motion.div>
-
-          {/* Mobile Navigation Arrows */}
           <div className="flex justify-center gap-3 sm:gap-4 mt-6 sm:mt-8 md:hidden">
             <button
               onClick={() => setActiveTab((prev) => (prev === 0 ? services.length - 1 : prev - 1))}
@@ -1079,8 +972,6 @@ const Landingpage = () => {
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" />
             </button>
           </div>
-
-          {/* Bottom Services Preview - Hidden on mobile */}
           <div className="mt-12 sm:mt-16 lg:mt-20 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 hidden sm:grid">
             {services.slice(0, 3).map((service, index) => (
               <motion.div
@@ -1103,8 +994,6 @@ const Landingpage = () => {
           </div>
         </div>
       </section>
-
-      {/* RO Gallery Section */}
       <section className={`py-12 sm:py-16 lg:py-20 bg-white`}>
         <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -1115,7 +1004,6 @@ const Landingpage = () => {
               See our RO installations and services
             </p>
           </div>
-
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
             {roImages2.slice(0, windowWidth < 640 ? 4 : windowWidth < 1024 ? 6 : 8).map((image, index) => (
               <motion.div
@@ -1138,8 +1026,6 @@ const Landingpage = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* View More Gallery Button for Mobile */}
           {windowWidth < 640 && roImages2.length > 4 && (
             <div className="text-center mt-4 sm:mt-6">
               <button
@@ -1152,8 +1038,6 @@ const Landingpage = () => {
           )}
         </div>
       </section>
-
-      {/* Testimonials */}
       <section className={`py-12 sm:py-16 lg:py-20 bg-linear-to-b from-white to-cyan-50`}>
         <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
@@ -1164,7 +1048,6 @@ const Landingpage = () => {
               What our customers say about us
             </p>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {testimonials.slice(0, windowWidth < 640 ? 1 : windowWidth < 1024 ? 2 : 3).map((testimonial, index) => (
               <motion.div
@@ -1184,13 +1067,9 @@ const Landingpage = () => {
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0">
                     <div className="flex items-center gap-3 sm:gap-4">
-
-
                       <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full ${colors[index % colors.length]} flex items-center justify-center text-white font-bold text-sm sm:text-base`}>
                         {testimonial.name.charAt(0)}
                       </div>
-
-
                     </div>
                   </div>
                   <div>
@@ -1201,8 +1080,6 @@ const Landingpage = () => {
               </motion.div>
             ))}
           </div>
-
-          {/* View More Reviews Button for Mobile */}
           {windowWidth < 640 && testimonials.length > 1 && (
             <div className="text-center mt-4 sm:mt-6">
               <button
@@ -1215,8 +1092,6 @@ const Landingpage = () => {
           )}
         </div>
       </section>
-
-      {/* CTA Section */}
       <section className="py-12 sm:py-16 lg:py-20 bg-linear-to-r from-cyan-600 to-blue-600">
         <div className={`max-w-7xl mx-auto ${responsive.containerPadding}`}>
           <div className="text-center text-white">
@@ -1229,7 +1104,6 @@ const Landingpage = () => {
             <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-12 max-w-3xl mx-auto opacity-90 px-4">
               Looking for RO service near you in Madurai? Aqua Tech RO System provides fast RO repair, installation, and maintenance at affordable prices.
             </p>
-
             <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 mb-6 sm:mb-8 lg:mb-12 px-4">
               <motion.a
                 href="tel:+919843021579"
@@ -1237,7 +1111,6 @@ const Landingpage = () => {
               >
                 📞 Call Now: +91 98430 21579
               </motion.a>
-
               <motion.a
                 href="https://wa.me/919843021579"
                 target="_blank"
@@ -1245,7 +1118,6 @@ const Landingpage = () => {
               >
                 💬 WhatsApp Now
               </motion.a>
-
             </div>
             <div className="mt-6 mb-5 text-lg text-white sm:text-md">
               ✔ 1000+ Happy Customers
@@ -1269,8 +1141,6 @@ const Landingpage = () => {
           </div>
         </div>
       </section>
-
-      {/* Product Detail Modal */}
       {selectedProduct && (
         <ProductDetail
           product={selectedProduct}
@@ -1279,9 +1149,7 @@ const Landingpage = () => {
           onBuyNow={handleBuyNowFromDetail}
         />
       )}
-
-      {/* Custom CSS for responsive utilities */}
-      <style jsx>{`
+      <style jsx="true">{`
         @media (max-width: 320px) {
           .xs\\:grid-cols-2 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1293,7 +1161,6 @@ const Landingpage = () => {
             display: none;
           }
         }
-        
         @media (min-width: 321px) and (max-width: 375px) {
           /* Additional breakpoint-specific styles */
         }
@@ -1320,5 +1187,4 @@ const Landingpage = () => {
     </div>
   );
 };
-
 export default Landingpage;

@@ -14,39 +14,31 @@ import { useState } from "react";
 import axios from "axios";
 import BASE_URL from "../../Api-service/Config";
 import { toast } from "sonner";
-
 function Contact() {
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
         message: "",
     });
-
     const [loading, setLoading] = useState(false);
-
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         if (!formData.name || !formData.phone || !formData.message) {
             toast.warning("Please complete all required fields.");
             return;
         }
-
         try {
             setLoading(true);
-
             const form = new FormData();
             form.append("name", formData.name);
             form.append("phone", formData.phone);
             form.append("message", formData.message);
-
             await fetch(
                 "https://script.google.com/macros/s/AKfycbweuvFrL-UQzmm_q3OJaR-vIC-Uhb3kpYR4KTbyIFLDW8gxvkekzkvt9furJycSCLHy/exec",
                 {
@@ -56,13 +48,11 @@ function Contact() {
                 }
             );
             toast.success("Thank you for contacting us. Our team will get back to you shortly.");
-
             setFormData({
                 name: "",
                 phone: "",
                 message: "",
             });
-
         } catch (error) {
             console.error(error);
             toast.error("Unable to submit your request at the moment.");
@@ -70,7 +60,6 @@ function Contact() {
             setLoading(false);
         }
     };
-
     return (
         <>
             <motion.div
@@ -79,7 +68,6 @@ function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-                {/* Hero Section */}
                 <div className="text-center mb-12">
                     <motion.h1
                         className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
@@ -94,8 +82,6 @@ function Contact() {
                         personalized solutions
                     </p>
                 </div>
-
-                {/* Store Image with Overlay */}
                 <motion.div
                     className="relative mb-12 rounded-2xl overflow-hidden shadow-2xl"
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -114,10 +100,7 @@ function Contact() {
                         </div>
                     </div>
                 </motion.div>
-
-                {/* Contact Cards Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-                    {/* Store Info Card */}
                     <motion.div
                         className="bg-linear-to-br from-white to-blue-50 rounded-2xl shadow-lg p-8 border border-blue-100"
                         whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -128,7 +111,6 @@ function Contact() {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900">Visit Our Store</h3>
                         </div>
-
                         <div className="space-y-6">
                             <div>
                                 <h4 className="font-semibold text-gray-900 mb-2">📍 Location</h4>
@@ -139,7 +121,6 @@ function Contact() {
                                     Tamil Nadu 625014
                                 </p>
                             </div>
-
                             <div>
                                 <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
                                     <Clock className="w-4 h-4 mr-2" />
@@ -152,8 +133,6 @@ function Contact() {
                             </div>
                         </div>
                     </motion.div>
-
-                    {/* Contact Methods Card */}
                     <motion.div
                         className="bg-linear-to-br from-white to-blue-50 rounded-2xl shadow-lg p-8 border border-blue-100"
                         whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -164,7 +143,6 @@ function Contact() {
                             </div>
                             <h3 className="text-2xl font-bold text-gray-900">Contact Us</h3>
                         </div>
-
                         <div className="space-y-6">
                             <div className="group cursor-pointer">
                                 <div className="flex items-center text-gray-700 mb-1 group-hover:text-blue-600 transition-colors">
@@ -178,16 +156,13 @@ function Contact() {
                                 >
                                     +91 98430 21579
                                 </a>
-
                             </div>
-
                             <div className="group cursor-pointer">
                                 <div className="flex items-center text-gray-700 mb-1 group-hover:text-blue-600 transition-colors">
                                     <Mail className="w-4 h-4 mr-3" />
                                     <span className="font-medium">Email Us</span>
                                     <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </div>
-
                                 <a
                                     href="https://mail.google.com/mail/?view=cm&fs=1&to=aquatechrosystemmdu@gmail.com"
                                     target="_blank"
@@ -196,10 +171,7 @@ function Contact() {
                                 >
                                     aquatechrosystemmdu@gmail.com
                                 </a>
-
                             </div>
-
-
                             <div className="group cursor-pointer">
                                 <div className="flex items-center text-gray-700 mb-1 group-hover:text-blue-600 transition-colors">
                                     <MessageCircle className="w-4 h-4 mr-3" />
@@ -214,9 +186,7 @@ function Contact() {
                                 >
                                     +91 98430 21579
                                 </a>
-
                             </div>
-
                             <div className="group cursor-pointer">
                                 <div className="flex items-center text-gray-700 mb-1 group-hover:text-blue-600 transition-colors">
                                     <Globe className="w-4 h-4 mr-3" />
@@ -231,12 +201,9 @@ function Contact() {
                                 >
                                     www.aquatechrosystem.in
                                 </a>
-
                             </div>
                         </div>
                     </motion.div>
-
-                    {/* Quick Contact Form */}
                     <motion.div
                         className="bg-linear-to-br from-blue-600 to-blue-700 rounded-2xl shadow-xl p-8 text-white"
                         whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -245,9 +212,7 @@ function Contact() {
                         <p className="text-blue-100 mb-6">
                             Have questions? We'll get back to you within 24 hours.
                         </p>
-
                         <form className="space-y-4" onSubmit={handleSubmit}>
-
                             <input
                                 type="text"
                                 name="name"
@@ -264,7 +229,6 @@ function Contact() {
                                 placeholder="Phone Number"
                                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/30"
                             />
-
                             <textarea
                                 name="message"
                                 value={formData.message}
@@ -273,7 +237,6 @@ function Contact() {
                                 rows="3"
                                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-white/30 resize-none"
                             />
-
                             <button
                                 type="submit"
                                 disabled={loading}
@@ -285,8 +248,6 @@ function Contact() {
                         </form>
                     </motion.div>
                 </div>
-
-                {/* Map Section */}
                 <motion.div
                     className="rounded-2xl overflow-hidden shadow-2xl border border-gray-200"
                     initial={{ opacity: 0, y: 20 }}
@@ -309,8 +270,6 @@ function Contact() {
                         className="bg-gray-100"
                     />
                 </motion.div>
-
-                {/* CTA Banner */}
                 <motion.div
                     className="mt-12 bg-linear-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 text-center text-white shadow-xl"
                     initial={{ opacity: 0 }}
@@ -343,5 +302,4 @@ function Contact() {
         </>
     );
 }
-
 export default Contact;

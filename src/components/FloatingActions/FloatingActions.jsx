@@ -1,16 +1,12 @@
 import React from "react";
 import { Phone, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
-
 const floatAnimation = {
   y: [0, -6, 0],
 };
-
 function FloatingActions() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-
-      {/* 📞 Call Button */}
       <motion.a
         href="tel:+919843021579"
         aria-label="Call Now"
@@ -34,12 +30,8 @@ function FloatingActions() {
         whileTap={{ scale: 0.9 }}
       >
         <Phone className="w-6 h-6" />
-
-        {/* Glow Ring */}
         <span className="absolute inset-0 rounded-full bg-blue-400 opacity-20 blur-lg"></span>
       </motion.a>
-
-      {/* 💬 WhatsApp Button */}
       <motion.a
         href="https://wa.me/919843021579"
         target="_blank"
@@ -73,13 +65,10 @@ function FloatingActions() {
         whileTap={{ scale: 0.9 }}
       >
         <MessageCircle className="w-6 h-6" />
-
-        {/* Pulse Ring */}
         <span className="absolute inset-0 rounded-full bg-green-400 opacity-30 animate-ping"></span>
       </motion.a>
 
     </div>
   );
 }
-
 export default FloatingActions;

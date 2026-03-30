@@ -9,21 +9,18 @@ import FloatingActions from '../FloatingActions/FloatingActions';
 import Aboutpage from '../Aboutpage/Aboutpage';
 import Servicepage from '../Serivcepage/Servicepage';
 import Productpage from '../Productpage/Productpage';
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [pathname]);
 
+  return null;
+};
 function Approutes() {
-  const ScrollToTop = () => {
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }, [pathname]);
-
-    return null;
-  };
-
   return (
     <>
       <Navbar />
